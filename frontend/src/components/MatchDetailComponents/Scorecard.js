@@ -36,7 +36,7 @@ const Scorecard = ({ data }) => {
           <div key={index}>
             <button
               onClick={() => toggleDropdown('dropdown1')}
-              className="w-full flex justify-between uppercase text-left py-3 rounded-lg rounded-b px-6 text-lg font-medium bg-violet-950 bg-opacity-85 text-white items-center  "
+              className="w-full flex justify-between uppercase text-left py-3 rounded-lg rounded-b px-6 text-lg font-medium bg-blue-950  text-white items-center  "
             >
               <p>{item.name}
               </p>

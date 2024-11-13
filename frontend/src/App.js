@@ -16,6 +16,8 @@ import CricketSchedule from './pages/CricketSchedule';
 import CricketTeamDetail from './pages/CricketTeamDetail';
 import MyProvider from './pages/MyProvider';
 import CricketRanking from './pages/CricketRanking';
+import PrivacyPolicy from './pages/Privacy';
+import Termofuse from './pages/Termofuse';
 
 
 
@@ -42,13 +44,13 @@ function App() {
 
             <Route path="cricket-series" element={<CricketSeries />} />
             {/* Cricket Series Routes  */}
-            <Route path="cricket-series/overview" element={<SeriesView />} />
-            <Route path="cricket-series/fixtures" element={<SeriesView />} />
-            <Route path="cricket-series/news" element={<SeriesView />} />
-            <Route path="cricket-series/videos" element={<SeriesView />} />
-            <Route path="cricket-series/squads" element={<SeriesView />} />
-            <Route path="cricket-series/stats" element={<SeriesView />} />
-            <Route path="cricket-series/venues" element={<SeriesView />} />
+            <Route path="cricket-series/:id/overview" element={<SeriesView />} />
+            <Route path="cricket-series/:id/fixtures" element={<SeriesView />} />
+            <Route path="cricket-series/:id/news" element={<SeriesView />} />
+            <Route path="cricket-series/:id/videos" element={<SeriesView />} />
+            <Route path="cricket-series/:id/squads" element={<SeriesView />} />
+            <Route path="cricket-series/:id/stats" element={<SeriesView />} />
+            <Route path="cricket-series/:id/venues" element={<SeriesView />} />
 
 
             <Route path='cricket-team-detail/:id/home' element={<CricketTeamDetail />} />
@@ -58,6 +60,12 @@ function App() {
             <Route path='cricket-team-detail/:id/videos' element={<CricketTeamDetail />} />
             <Route path='cricket-team-detail/:id/players' element={<CricketTeamDetail />} />
             <Route path='cricket-team-detail/:id/series' element={<CricketTeamDetail />} />
+            <Route path='privacy' element={<PrivacyPolicy />} />
+            <Route path='tos' element={<Termofuse />} />
+
+
+
+
 
 
 

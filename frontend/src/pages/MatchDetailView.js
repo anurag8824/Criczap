@@ -133,7 +133,7 @@ const MatchDetailView = () => {
     return (
         <div className='md:mx-20 mx-4  '>
 
-            <div className='flex px-1  py-10 justify-between'>
+            <div className='flex px-1 text-blue-950 py-10 justify-between'>
                 <div>
                     <p className='text-2xl  font-medium'>{livedata?.response.match_info.title}, {livedata?.response.match_info.subtitle} Match</p>
                     <p className='text-base  font-normal text-gray-500'>Date & Time: {livedata?.response.match_info.date_start_ist}</p>
@@ -174,7 +174,7 @@ const MatchDetailView = () => {
 
                             {/* Underline */}
                             <div
-                                className="absolute md:w-1/5 w-1/3   bottom-0 h-1 bg-blue-800 transition-transform duration-300 ease-in-out rounded-lg"
+                                className="absolute md:w-1/5 w-1/3   bottom-0 h-1 bg-blue-950 transition-transform duration-300 ease-in-out rounded-lg"
                                 style={{
                                     //   width:"20%",
                                     // width: `${100 / tabs.length}%`, // The underline width is dynamically set based on the number of tabs

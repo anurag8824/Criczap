@@ -12,7 +12,7 @@ const DownloadApp = () => {
             class="relative inline-block h-fit w-fit  object-center"
         />
         <div>
-            <h6 class="block font-sans text-base font-normal leading-relaxed tracking-normal text-blue-gray-900 antialiased">
+            <h6 class="block font-sans text-base font-normal leading-relaxed tracking-normal  antialiased">
                 Android App
             </h6>
 
@@ -26,7 +26,7 @@ const DownloadApp = () => {
             class="relative inline-block h-fit w-fit  object-center"
         />
         <div>
-            <h6 class="block font-sans text-base font-normal leading-relaxed tracking-normal text-blue-gray-900 antialiased">
+            <h6 class="block font-sans text-base font-normal leading-relaxed tracking-normal  antialiased">
                 iOS
             </h6>
 

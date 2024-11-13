@@ -63,7 +63,7 @@ const SeriesFilter = ({ sendDataToParent }) => {
     return (
         <div className='flex mt-6 ml-6 text-sm font-medium gap-x-4'>
 
-            <button onClick={reset} className='hover:bg-slate-100 text-blue-800 p-2  rounded-md'>
+            <button onClick={reset} className='hover:bg-slate-100 text-blue-950 p-2  rounded-md'>
                 Reset
             </button>
 
@@ -72,7 +72,7 @@ const SeriesFilter = ({ sendDataToParent }) => {
 
                 <button
                     type='button' onClick={() => { apply() }}
-                    className={`${checked ? "border flex items-center justify-center  gap-2 rounded-full px-2.5 py-1  w-40 flex-shrink-0 text-center bg-violet-800 text-white" : "border justify-center flex gap-2 rounded-full px-2.5 py-1 bg-gray-200 w-40 flex-shrink-0 text-center"}`}
+                    className={`${checked ? "border flex items-center justify-center  gap-2 rounded-full px-2.5 py-1  w-40 flex-shrink-0 text-center bg-blue-950 text-white" : "border justify-center flex gap-2 rounded-full px-2.5 py-1 bg-gray-200 w-40 flex-shrink-0 text-center"}`}
                 >
                     {checked ? <IoCheckmark /> : null}
                     <span>International</span>
@@ -81,7 +81,7 @@ const SeriesFilter = ({ sendDataToParent }) => {
 
                 <button
                     type='button' onClick={() => { apply1() }}
-                    className={`${checked1 ? "border flex items-center justify-center  gap-2 rounded-full px-2.5 py-1  w-40 flex-shrink-0 text-center bg-violet-800 text-white" : "border justify-center flex gap-2 rounded-full px-2.5 py-1 bg-gray-200 w-40 flex-shrink-0 text-center"}`}
+                    className={`${checked1 ? "border flex items-center justify-center  gap-2 rounded-full px-2.5 py-1  w-40 flex-shrink-0 text-center bg-blue-950 text-white" : "border justify-center flex gap-2 rounded-full px-2.5 py-1 bg-gray-200 w-40 flex-shrink-0 text-center"}`}
                 >
                     {checked1 ? <IoCheckmark /> : null}
                     <span>T20 Leagues</span>
@@ -90,7 +90,7 @@ const SeriesFilter = ({ sendDataToParent }) => {
 
                 <button
                     type='button' onClick={() => { apply2() }}
-                    className={`${checked2 ? "border flex items-center justify-center  gap-2 rounded-full px-2.5 py-1  w-40 flex-shrink-0 text-center bg-violet-800 text-white" : "border justify-center flex gap-2 rounded-full px-2.5 py-1 bg-gray-200 w-40 flex-shrink-0 text-center"}`}
+                    className={`${checked2 ? "border flex items-center justify-center  gap-2 rounded-full px-2.5 py-1  w-40 flex-shrink-0 text-center bg-blue-950 text-white" : "border justify-center flex gap-2 rounded-full px-2.5 py-1 bg-gray-200 w-40 flex-shrink-0 text-center"}`}
                 >
                     {checked2 ? <IoCheckmark /> : null}
                     <span>Domestic</span>

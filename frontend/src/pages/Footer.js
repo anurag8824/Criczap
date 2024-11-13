@@ -12,19 +12,15 @@ import { BiSolidVideos } from "react-icons/bi";
 const Footer = () => {
     return (
 
+        <footer class="bg-blue-950  w-full dark:bg-gray-900">
 
-
-
-
-        <footer class="bg-black  w-full dark:bg-gray-900">
-
-            <div class="mx-auto    w-full md:w-full hidden sm:block max-w-screen-xl p-4 py-6 md:py-8">
+            <div class="mx-auto w-full md:w-full hidden sm:block max-w-screen-xl p-4 py-6 md:py-8">
                 <div class="md:flex md:justify-between grid grid-col-2  gap-6 ">
 
                     {/* Logo */}
                     <div class="mb-6 w-full   md:mb-0">
-                        <a href="/" class="">
-                            <img src="/logoblack.png" class="h-28 me-3" alt="Crick Logo" />
+                        <a href="/" className="">
+                            <img src="/logoblack.png" className="  me-3" alt="Crick Logo" />
                         </a>
                     </div>
 
@@ -124,14 +120,14 @@ const Footer = () => {
                 <hr class="my-4 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
 
                 <div className='lg:flex grid grid-row-3 mx-auto justify-center'>
-                    <div className='text-white px-4 mx-auto'>Love. Play. Cricket. Repeat 🏏</div>
+                    <div className='text-white px-4 mx-auto'>© Copyright 2024 Criczap All rights reserved.</div>
                     <div className=' justify-between '>
                         <Link to="#" className='hover:underline text-white  md:no-underline md:border-r px-2 md:px-6'>About Us</Link>
-                        <Link to="#" className='hover:underline text-white md:border-r  md:px-6'>Privacy Policy</Link>
-                        <Link to="#" className='hover:underline text-white md:border-r px-2 md:px-6'>Terms of Use</Link>
+                        <Link to="privacy" className='hover:underline text-white md:border-r  md:px-6'>Privacy Policy</Link>
+                        <Link to="tos" className='hover:underline text-white md:border-r px-2 md:px-6'>Terms of Use</Link>
                         <Link to="#" className='hover:underline text-white md:border-r md:px-6'>Grievance</Link>
                     </div>
-                    <div className='text-white mx-auto px-4'>Version 3.4.1</div>
+                    <div className='text-white mx-auto px-4'>Version 1.1.1</div>
                 </div>
             </div>
 
@@ -143,7 +139,7 @@ const Footer = () => {
                         <p>Home</p>
                     </Link>
 
-                    <Link to="schedule" className='justify-center items-center flex flex-col  text-center' >
+                    <Link to="cricket-schedule" className='justify-center items-center flex flex-col  text-center' >
                         <SlCalender className='w-6  h-6' />
                         <p>Matches</p>
                     </Link>

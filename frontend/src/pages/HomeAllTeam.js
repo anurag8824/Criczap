@@ -69,7 +69,7 @@ const HomeAllTeam = () => {
                                 class="relative inline-block h-9 w-9 rounded-full object-cover object-center"
                             />
 
-                            <p class="block font-sans text-base font-normal leading-relaxed tracking-normal text-blue-gray-900 antialiased">
+                            <p class="block font-sans text-base font-normal leading-relaxed tracking-normal text-blue-950 antialiased">
                                 {item.name}
                             </p>
                         </Link>

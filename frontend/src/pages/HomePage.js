@@ -48,7 +48,7 @@ const HomePage = () => {
 
 
 
-        <div className='md:flex grid-col-3 mx-auto grid md:justify-between gap-y-4'>
+        <div className='md:flex  grid-col-3 mx-auto grid md:justify-between gap-y-4'>
 
 
           <HomePopularSeries />

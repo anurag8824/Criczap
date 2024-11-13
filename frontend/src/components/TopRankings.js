@@ -21,7 +21,7 @@ const TopRankings = () => {
                             No.1 Batter
                         </p>
 
-                        <p class="block  text-base font-medium leading-relaxed tracking-normal text-blue-900 antialiased">
+                        <p class="block  text-base font-medium leading-relaxed tracking-normal text-blue-950 antialiased">
                             Rohit Sharma
                         </p>
 
@@ -40,7 +40,7 @@ const TopRankings = () => {
                             No.1 Bowler
                         </p>
 
-                        <p class="block  text-base font-medium leading-relaxed tracking-normal text-blue-900 antialiased">
+                        <p class="block  text-base font-medium leading-relaxed tracking-normal text-blue-950 antialiased">
                             Jasprit Bumrah
                         </p>
 
@@ -60,7 +60,7 @@ const TopRankings = () => {
                             No.1 All Rounder
                         </p>
 
-                        <p class="block  text-base font-medium leading-relaxed tracking-normal text-blue-900 antialiased">
+                        <p class="block  text-base font-medium leading-relaxed tracking-normal text-blue-950 antialiased">
                             Hardik Pandya
                         </p>
 
@@ -79,7 +79,7 @@ const TopRankings = () => {
                             No.1 Team
                         </p>
 
-                        <p class="block  text-base font-medium leading-relaxed tracking-normal text-blue-900 antialiased">
+                        <p class="block  text-base font-medium leading-relaxed tracking-normal text-blue-950 antialiased">
                             India
                         </p>
 

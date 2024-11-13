@@ -107,7 +107,7 @@ const CricketSeries = () => {
 
                             {/* Underline */}
                             <div
-                                className={`absolute bottom-0  rounded-lg h-1 bg-blue-800 transition-transform duration-300 ease-in-out ${activeTab === "current" ? "translate-x-0" : "translate-x-full"
+                                className={`absolute bottom-0  rounded-lg h-1 bg-blue-950 transition-transform duration-300 ease-in-out ${activeTab === "current" ? "translate-x-0" : "translate-x-full"
                                     }`}
                                 style={{ width: "33.33%" }}
                             ></div>
@@ -154,7 +154,7 @@ const CricketSeries = () => {
                                                                 </th>
                                                                 <td className="list-none w-full py-2.5 text-black">
                                                                     <li className="md:pl-6 md:pr-2 py-2 px-1 grid">
-                                                                        <Link to="overview" className="text-sm font-medium hover:underline">{item.title}</Link>
+                                                                        <Link to={`${item.cid}/overview`} className="text-sm font-medium hover:underline">{item.title}</Link>
                                                                         <span className="text-gray-500">{item.datestart + " to " + item.dateend}</span>
                                                                     </li>
                                                                 </td>
@@ -170,14 +170,14 @@ const CricketSeries = () => {
                                                                 </th>
                                                                 <td className="list-none w-full py-2.5 text-black">
                                                                     <li className="md:pl-6 md:pr-2 py-2 px-1 grid">
-                                                                        <Link to="overview" className="text-sm font-medium hover:underline">{item.title}</Link>
+                                                                        <Link to={`${item.cid}/overview`} className="text-sm font-medium hover:underline">{item.title}</Link>
                                                                         <span className="text-gray-500">{item.datestart + " to " + item.dateend}</span>
                                                                     </li>
                                                                 </td>
                                                             </tr>
                                                         ) : null
                                                     ))
-                                                ) :  domdata?.map((item, index) => (
+                                                ) : domdata?.map((item, index) => (
                                                     item ? (
                                                         <tr key={index} className="border-b border-gray-200 dark:border-gray-700">
                                                             <th scope="row" className="text-blue-900 font-medium text-lg text-center align-text-top py-3 px-3 bg-gray-200 whitespace-nowrap">
@@ -185,7 +185,7 @@ const CricketSeries = () => {
                                                             </th>
                                                             <td className="list-none w-full py-2.5 text-black">
                                                                 <li className="md:pl-6 md:pr-2 py-2 px-1 grid">
-                                                                    <Link to="overview" className="text-sm font-medium hover:underline">{item.title}</Link>
+                                                                    <Link to={`${item.cid}/overview`} className="text-sm font-medium hover:underline">{item.title}</Link>
                                                                     <span className="text-gray-500">{item.datestart + " to " + item.dateend}</span>
                                                                 </li>
                                                             </td>
@@ -201,6 +201,16 @@ const CricketSeries = () => {
 
                                 </div>
                             )}
+
+
+
+
+
+
+
+
+
+
 
 
 

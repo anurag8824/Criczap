@@ -110,7 +110,7 @@ const CricketSchedule = () => {
 
                             {/* Underline */}
                             <div
-                                className="absolute   bottom-0 h-1 bg-blue-800 transition-transform duration-300 ease-in-out rounded-lg"
+                                className="absolute   bottom-0 h-1 bg-blue-950 transition-transform duration-300 ease-in-out rounded-lg"
                                 style={{
                                     width: "33.33%",
                                     // width:'20%',
@@ -140,7 +140,7 @@ const CricketSchedule = () => {
 
 
                                                 <table class="  w-full text-left rtl:text-right  ">
-                                                    <thead class=" bg-gray-100   ">
+                                                    <thead class=" bg-gray-100 text-blue-950   ">
                                                         <th scope="col" class="px-6 w-96 py-3">
                                                             Date
                                                         </th>
@@ -165,8 +165,8 @@ const CricketSchedule = () => {
 
                                                                     <td class="list-none py-2.5 text-blue-950">
                                                                         <li class="px-6 py-1  grid">
-                                                                            <Link to="#" className='font-medium text-base hover:underline'>
-                                                                                {item.competition?.title} </Link>
+                                                                            <Link to={`/match-detail/${item.match_id}/commentary`} className='font-medium text-base hover:underline'>
+                                                                                {item.competition?.title}, {item?.subtitle} </Link>
                                                                             <span className=''>    {item.date_start_ist}</span>
 
                                                                             <span>{item.venue?.location},{item.venue?.country}</span>
@@ -174,7 +174,7 @@ const CricketSchedule = () => {
 
 
                                                                         <li class="px-6 py-1  grid">
-                                                                            <Link to={`/match-detail/${77369}/commentary`} className=' md:w-full w-72 items-center grid grid-rows-2 gap-y-2 px-3 py-2 justify-start bg-gray-200'>
+                                                                            <Link to={`/match-detail/${item.match_id}/commentary`} className=' md:w-full w-72 items-center grid grid-rows-2 gap-y-2 px-3 py-2 justify-start bg-gray-200'>
 
 
                                                                                 <div class="flex items-center md:justify-between   gap-4 pb-3 pt-3 last:pb-0">
@@ -242,8 +242,8 @@ const CricketSchedule = () => {
                                                                 </tr>
 
                                                             ) : <div className="flex  justify-center ">
-                                                            <div className="w-4 h-4 border-2 border-blue-500 border-solid border-t-transparent rounded-full animate-spin"></div>
-                                                        </div>
+                                                                <div className="w-4 h-4 border-2 border-blue-500 border-solid border-t-transparent rounded-full animate-spin"></div>
+                                                            </div>
                                                         ))}
 
 
@@ -386,9 +386,9 @@ const CricketSchedule = () => {
 
                                                             </tr>
 
-                                                        ) :  <div className="flex  justify-center ">
-                                                        <div className="w-4 h-4 border-2 border-blue-500 border-solid border-t-transparent rounded-full animate-spin"></div>
-                                                    </div>
+                                                        ) : <div className="flex  justify-center ">
+                                                            <div className="w-4 h-4 border-2 border-blue-500 border-solid border-t-transparent rounded-full animate-spin"></div>
+                                                        </div>
                                                     ))}
 
 

@@ -59,7 +59,7 @@ const HomeTopNews = () => {
         <div className='flex items-center justify-between'>
           <Link
             to='#'
-            className='text-xl pr-6 line-clamp-2 font-semibold'
+            className='text-xl text-blue-950 pr-6 line-clamp-2 font-semibold'
           >
             “Sometimes you make the right call, sometimes you don’t”:
             Rohit Sharma on batting first against NZ
@@ -73,8 +73,8 @@ const HomeTopNews = () => {
           </button>
         </div>
 
-        <span className='text-base text-gray-600'>1 day ago</span>
-        <span className='text-base pr-12 truncate'>
+        <span className='text-base  text-gray-600'>1 day ago</span>
+        <span className='text-base text-gray-700 pr-12 truncate'>
           Australia’s dangerous batter Travis Head has signed up with
           Adelaide
         </span>

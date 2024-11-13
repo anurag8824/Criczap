@@ -12,7 +12,7 @@ const Info = ({ data }) => {
         </div>
 
         <div>
-          <p className='border bg-black w-8 h-8 mt-3 rounded-full text-white flex items-center justify-center'>Vs</p>
+          <p className='border bg-blue-950 w-8 h-8 mt-3 rounded-full text-white flex items-center justify-center'>Vs</p>
         </div>
 
         <div className='w-full text-center flex flex-col  items-center  '>

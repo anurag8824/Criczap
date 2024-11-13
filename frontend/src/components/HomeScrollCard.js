@@ -11,10 +11,10 @@ const HomeScrollCard = ({ data }) => {
 
                 item ? (
 
-                    <div key={index} class="relative flex-shrink-0 flex  md:w-96 flex-col   bg-clip-border text-gray-700">
+                    <div key={index} class="relative flex-shrink-0 flex  md:w-96 flex-col text-blue-950   bg-clip-border">
                         <Link
-                            to="cricket-series/overview"
-                            class="block px-2 text-sm font-medium  py-2 truncate text-left text-black transition-all hover:underline"
+                            to={`cricket-series/${item.competition.cid}/overview`}
+                            class="block px-2 text-sm font-medium  py-2 truncate text-left  transition-all hover:underline"
                         >
                             {item.competition.title}
                         </Link>
@@ -27,9 +27,9 @@ const HomeScrollCard = ({ data }) => {
                                 </p>
 
                                 <div class="mb-1 flex items-center justify-between">
-                                    <h5 class="block font-sans text-sm font-medium leading-snug tracking-normal text-black antialiased">
+                                    <p class="block font-sans  text-sm font-medium leading-snug tracking-normal  antialiased">
                                         {item.date_start_ist} ● {item.venue.location},{item.venue.country}
-                                    </h5>
+                                    </p>
                                 </div>
 
                                 <div className=''>
@@ -42,14 +42,15 @@ const HomeScrollCard = ({ data }) => {
                                                 class="relative inline-block h-9 w-9 rounded-full object-cover object-center"
                                             />
 
-                                            <h6 class="block font-sans text-base font-semibold leading-relaxed tracking-normal text-blue-900 antialiased">
+                                            <p class="block font-sans text-base font-semibold leading-relaxed tracking-normal  antialiased">
                                                 {item.teama.short_name}
-                                            </h6>
+                                            </p>
 
                                         </div>
-                                        <h6 class="block font-sans text-base font-semibold leading-relaxed tracking-normal text-blue-900 antialiased">
+                                        <p class="block font-sans text-base font-semibold leading-relaxed tracking-normal  antialiased">
                                             {item.teama.scores_full}
-                                        </h6>
+                                        </p>
+                                        
                                     </div>
 
                                     <div class="flex items-center justify-between pb-3 pt-3 last:pb-0">
@@ -61,23 +62,25 @@ const HomeScrollCard = ({ data }) => {
                                                 class="relative inline-block h-9 w-9 rounded-full object-cover object-center"
                                             />
 
-                                            <h6 class="block font-sans text-base  font-semibold leading-relaxed tracking-normal text-blue-900 antialiased">
+                                            <p class="block font-sans text-base  font-semibold leading-relaxed tracking-normal  antialiased">
                                                 {item.teamb.short_name}
-                                            </h6>
+                                            </p>
 
                                         </div>
-                                        <h6 class="block font-sans text-base font-semibold leading-relaxed tracking-normal text-blue-900 antialiased">
+                                        <p class="block font-sans text-base font-semibold leading-relaxed tracking-normal antialiased">
                                             {item.teamb.scores_full}
-                                        </h6>
+                                        </p>
                                     </div>
 
                                     <hr />
+
+
                                     <div class="flex items-center justify-between pb-1 pt-3 last:pb-0">
-                                        <div class="flex text-black items-center gap-x-3">
-                                            <Link to='cricket-series' class="block font-sans text-sm font-medium leading-relaxed tracking-normal  antialiased hover:underline">
+                                        <div class="flex  items-center gap-x-3">
+                                            <Link  to={`cricket-series/${item.competition.cid}/overview`} class="block font-sans text-sm font-medium leading-relaxed tracking-normal  antialiased hover:underline">
                                                 Series
                                             </Link>
-                                            <Link to='#' class="block font-sans text-sm font-medium leading-relaxed tracking-normal antialiased hover:underline">
+                                            <Link  to={`cricket-series/${item.competition.cid}/overview`} class="block font-sans text-sm font-medium leading-relaxed tracking-normal antialiased hover:underline">
                                                 Schedule
                                             </Link>
                                             <Link to='cricket-news' class="block font-sans text-sm font-medium leading-relaxed tracking-normal antialiased hover:underline">

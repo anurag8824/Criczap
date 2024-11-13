@@ -114,6 +114,26 @@ const PerivousData = async (req, res) => {
 }
 
 
+const CompeteInfo = async (req, res) => {
+    try {
+        const cid = req.body.cid;
+        if (!cid) {
+            return res.json({ msg: "invalid cid" })
+        }
+        // axios.get(`https://rest.entitysport.com/exchange/competitions/${cid}/info?token=${token}`).then((resp) => {
+        //     res.json(resp.data);
+        // })
+
+        axios.get(`https://rest.entitysport.com/exchange/competitions/${cid}/matches?token=${token}`).then((resp) => {
+            res.json(resp.data);
+        })
+
+    } catch (error) {
+        res.json({ msg: "Internal error:" })
+    }
+}
+
+
 const CompationsList = async (req, res) => {
     try {
         console.log("API hit");
@@ -141,13 +161,13 @@ const CompationsList = async (req, res) => {
         const fixtureMatches = allcomp.filter(match => match.status === 'upcoming');
         const fourMonthsAgo = new Date();
         fourMonthsAgo.setMonth(fourMonthsAgo.getMonth() - 4);
-        
+
         const resultMatches = allcomp.filter(match => {
-          const matchDate = new Date(match.datestart); // Parse the date string
-          return match.status === 'result' && matchDate >= fourMonthsAgo;
+            const matchDate = new Date(match.datestart); // Parse the date string
+            return match.status === 'result' && matchDate >= fourMonthsAgo;
         });
-        
-        res.json({ msg: "hello world", liveMatches , fixtureMatches ,resultMatches });
+
+        res.json({ msg: "hello world", liveMatches, fixtureMatches, resultMatches });
         // res.json({ msg: "hello world", allcomp});
 
     } catch (error) {
@@ -157,17 +177,17 @@ const CompationsList = async (req, res) => {
 };
 
 
-const Ranking = async(req,res)=>{
-   try {
-     axios.get(`https://rest.entitysport.com/exchange/iccranks?token=${token}`).then((resp) =>{
-         res.json(resp.data);
-     })
-   } catch (error) {
-    console.error(error);
-    res.json({msg: "Internal Server Error"})
-   }
+const Ranking = async (req, res) => {
+    try {
+        axios.get(`https://rest.entitysport.com/exchange/iccranks?token=${token}`).then((resp) => {
+            res.json(resp.data);
+        })
+    } catch (error) {
+        console.error(error);
+        res.json({ msg: "Internal Server Error" })
+    }
 }
 
 
 
-module.exports = { TeamData, PlayerData, Ranking, TeamSerach, PlayerSerach, PlayerInformation, PerivousData, CompationsList }
+module.exports = { TeamData, CompeteInfo, PlayerData, Ranking, TeamSerach, PlayerSerach, PlayerInformation, PerivousData, CompationsList }

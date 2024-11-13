@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 
 const HomePopularSeries = () => {
     return (
-        <div> <div class="md:w-72 md:block  w-full mx-auto md:mx-0   ">
+        <div> <div class="md:w-72 md:block text-blue-950 w-full mx-auto md:mx-0   ">
 
             <div class="grid items-center md:justify-between space-y-6 pb-3  ">
 
@@ -18,19 +18,19 @@ const HomePopularSeries = () => {
 
 
 
-                            <div class="text-blue-gray-900 block border-b py-2.5 leading-relaxed tracking-normal antialiased hover:underline">Nepal tour of United States of America 2024</div>
+                            <div class=" block border-b py-2.5 leading-relaxed tracking-normal antialiased hover:underline">Nepal tour of United States of America 2024</div>
 
 
 
-                            <div class="text-blue-gray-900 block border-b py-2.5  leading-relaxed tracking-normal antialiased hover:underline">Womens T20 World Cup 2024 🏆</div>
+                            <div class="block border-b py-2.5  leading-relaxed tracking-normal antialiased hover:underline">Womens T20 World Cup 2024 🏆</div>
 
 
 
-                            <div class="text-blue-gray-900 block border-b py-2.5  leading-relaxed tracking-normal antialiased hover:underline">Womens T20 World Cup 2024 🏆</div>
+                            <div class="block border-b py-2.5  leading-relaxed tracking-normal antialiased hover:underline">Womens T20 World Cup 2024 🏆</div>
                         </div>
                     </div>
 
-                    <Link to="cricket-series" class=" items-center text-center text-violet-950 justify-between block tracking-normal antialiased hover:underline ">
+                    <Link to="cricket-series" class=" items-center text-gray-700 text-center  justify-between block tracking-normal antialiased hover:underline ">
                         Show More
                     </Link>
 

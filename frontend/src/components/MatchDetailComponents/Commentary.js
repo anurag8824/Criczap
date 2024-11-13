@@ -138,16 +138,16 @@ const Commentary = ({ data, balldata }) => {
 
           <div className='md:w-full md:flex grid grid-cols-1 md:grid-cols-2 gap-4 '>
 
-            <div className='justify-between md:order-1 order-2  w-full md:w-1/2'>
+            <div className='justify-between md:order-1 order-2 text-blue-950   dark:bg-black dark:text-white w-full md:w-1/2'>
 
-              <div className="flex items-center md:justify-between   gap-4 pb-4 last:pb-0">
+              <div className="flex items-center md:justify-between  gap-4 pb-4 last:pb-0">
                 <div className="flex items-center gap-x-5">
                   <img
                     src={data?.response.match_info.teama.logo_url}
                     alt="Tania Andrew"
                     className="relative inline-block h-10 w-10 border rounded-full object-cover object-center"
                   />
-                  <p className="block font-sans text-base font-semibold leading-relaxed tracking-normal text-blue-gray-900 antialiased">
+                  <p className="block font-sans text-base font-semibold leading-relaxed tracking-normal  antialiased">
                     {data?.response.match_info.teama.short_name}
                   </p>
 
@@ -183,7 +183,7 @@ const Commentary = ({ data, balldata }) => {
 
             {/* {data?.response.live.status_str === "Live" ?  */}
 
-            <div className=' md:w-1/2 py-5 md:order-2 order-1 md:py-0 text-3xl font-bold  flex items-center justify-center bg-gray-800 text-amber-200 text-center'>
+            <div className=' md:w-1/2 py-5 md:order-2 order-1 md:py-0 text-3xl font-bold  flex items-center justify-center bg-blue-950 text-white text-center'>
 
               <div className='' onClick={handleUserInteraction}>
                 <div className='absolute top-2 right-4 text-white text-base cursor-pointer' onClick={handleClick}>
@@ -220,7 +220,7 @@ const Commentary = ({ data, balldata }) => {
 
           {data?.response.live?.live_score ?
 
-            <div className='flex gap-3'>
+            <div className='flex text-blue-950 gap-3'>
               <p className=' font-medium text-sm mt-2'>CRR:  {data?.response.live?.live_score.runrate}</p>
               <p className=' font-medium text-sm mt-2 '>RRR: {data?.response.live?.live_score?.required_runrate ? data?.response.live.live_score?.required_runrate : "0"}</p>
 
@@ -291,7 +291,7 @@ const Commentary = ({ data, balldata }) => {
               </div>
 
               {/* Buttons for toggling views */}
-              <div className=" md:text-xs text-xs gap-4  flex">
+              <div className=" text-sm gap-4  flex">
 
                 <button
                   onClick={() => handleViewChange('odds')}
@@ -873,7 +873,7 @@ const Commentary = ({ data, balldata }) => {
                 <div key={index} className='mt-6 flex   gap-x-3  border-b  px-4 pt-4'>
                   <div className=' font-medium pb-4 '>
                     <p className='mb-2'>{item.over}.{item.ball} </p>
-                    <p className='border bg-blue-500 w-8 h-8 rounded-full text-white flex items-center justify-center'>{item.score}</p>
+                    <p className='border bg-blue-950 w-8 h-8 rounded-full text-white flex items-center justify-center'>{item.score}</p>
 
                   </div>
 
@@ -896,8 +896,14 @@ const Commentary = ({ data, balldata }) => {
 
         : <p className=' font-medium text-center text-md mt-2  text-red-600 '>
 
-          <div className="flex  justify-center ">
-            <div className="w-4 h-4 border-2 border-blue-500 border-solid border-t-transparent rounded-full animate-spin"></div>
+          {/* <div className="flex  justify-center ">
+            <div className="w-4 h-4 border-2 border-blue-950 border-solid border-t-transparent rounded-full animate-spin"></div>
+          </div> */}
+
+          <div>
+
+            <Player className='md:h-28 h-14' autoplay loop src="/throw-ball.json" />
+
           </div>
 
 
