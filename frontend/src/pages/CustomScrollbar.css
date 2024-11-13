@@ -1,0 +1,47 @@
+/* <style> */
+/* For WebKit browsers (Chrome, Safari, Edge) */
+.custom-scrollbar::-webkit-scrollbar {
+  height: 8px;
+  /* Horizontal scrollbar height */
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #e0e0e0;
+  /* Light gray track */
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #8b5cf6;
+  /* Violet scrollbar color */
+  border-radius: 80px;
+  /* Rounded scrollbar */
+
+}
+
+.custom-scrollbar::-webkit-scrollbar-button {
+  display: none;
+  /* Hide the scroll buttons */
+}
+
+/* For Firefox */
+.custom-scrollbar {
+  scrollbar-color: #8b5cf6 #e0e0e0;
+  /* Violet thumb and light gray track */
+  scrollbar-width: thin;
+  /* Thin scrollbar */
+}
+
+/* </style> */
+
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge, and Firefox */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
