@@ -545,7 +545,7 @@ const Commentary = ({ data, balldata }) => {
                           {data?.response?.featured_session ?
                             <>
 
-                              {data?.response?.featured_session.map((item, index) => (
+                              {data?.response?.featured_session?.map((item, index) => (
                                 item ? (
 
 
@@ -630,7 +630,7 @@ const Commentary = ({ data, balldata }) => {
                         {data?.response?.session_odds ?
 
                           <>
-                            {data?.response.session_odds.map((item, index) => (
+                            {data?.response?.session_odds?.map((item, index) => (
 
                               item ? (
 
