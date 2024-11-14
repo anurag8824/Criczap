@@ -4,6 +4,10 @@ const Highlights = () => {
   return (
     <div className=' mx-2 '>
 
+      <div className=' font-medium text-md mt-2 text-center text-red-600 '>There are no highlights in this innings</div>
+
+      <div className='hidden'>
+
 
       <div className='justify-start gap-4 text-center   rounded-md md:flex grid grid-cols-2 w-full'>
 
@@ -77,7 +81,7 @@ const Highlights = () => {
 
 
 
-
+      </div>
 
 
 

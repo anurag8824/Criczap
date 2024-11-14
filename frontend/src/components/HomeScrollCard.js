@@ -50,7 +50,7 @@ const HomeScrollCard = ({ data }) => {
                                         <p class="block font-sans text-base font-semibold leading-relaxed tracking-normal  antialiased">
                                             {item.teama.scores_full}
                                         </p>
-                                        
+
                                     </div>
 
                                     <div class="flex items-center justify-between pb-3 pt-3 last:pb-0">
@@ -77,10 +77,10 @@ const HomeScrollCard = ({ data }) => {
 
                                     <div class="flex items-center justify-between pb-1 pt-3 last:pb-0">
                                         <div class="flex  items-center gap-x-3">
-                                            <Link  to={`cricket-series/${item.competition.cid}/overview`} class="block font-sans text-sm font-medium leading-relaxed tracking-normal  antialiased hover:underline">
+                                            <Link to={`cricket-series/${item.competition.cid}/overview`} class="block font-sans text-sm font-medium leading-relaxed tracking-normal  antialiased hover:underline">
                                                 Series
                                             </Link>
-                                            <Link  to={`cricket-series/${item.competition.cid}/overview`} class="block font-sans text-sm font-medium leading-relaxed tracking-normal antialiased hover:underline">
+                                            <Link to={`cricket-series/${item.competition.cid}/overview`} class="block font-sans text-sm font-medium leading-relaxed tracking-normal antialiased hover:underline">
                                                 Schedule
                                             </Link>
                                             <Link to='cricket-news' class="block font-sans text-sm font-medium leading-relaxed tracking-normal antialiased hover:underline">
@@ -101,9 +101,11 @@ const HomeScrollCard = ({ data }) => {
                             <p className="block mt-1 px-2 text-xs font-medium mb-2 text-left text-green-500 transition-all">
                                 {item.status_note}
                             </p>
-                        ) : (
-                            ""
-                        )}
+                        ) : item.status_str === "Live" ?  (
+                            <p className="block mt-1 px-2 text-xs font-medium mb-2 text-left text-red-500 transition-all">
+                            {item.status_note}
+                        </p>
+                        ) : ""}
 
 
 

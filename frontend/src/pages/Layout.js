@@ -8,7 +8,11 @@ const Layout = () => {
     return (
         <>
             <Header />
+            <main className="mb-10">
             <Outlet />
+
+
+            </main>
             <Footer />
 
         </>

@@ -52,7 +52,7 @@ const Fixtures = ({ data }) => {
 
                   <td class="list-none py-2.5 text-blue-950">
                     <li class="px-6 py-1  grid">
-                      <Link to="#" className='font-normal text-blue-950 text-base hover:underline'>
+                      <Link to={`/match-detail/${item.match_id}/commentary`} className='font-normal text-blue-950 text-base hover:underline'>
                         {item.title}, {item.match_number}-{item.format_str}
                       </Link>
 

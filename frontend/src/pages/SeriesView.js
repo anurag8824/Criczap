@@ -62,7 +62,7 @@ const SeriesView = () => {
         <div className='md:mx-20 mx-4 '>
 
             <div className='  px-1  py-10 justify-between'>
-                <p className='text-2xl  font-medium'>{mlist?.response?.items[0]?.competition?.title}</p>
+                <p className='text-2xl  font-medium'>{mlist?.response?.items[0]?.competition?.title ? mlist?.response?.items[0]?.competition?.title : <p>Data Not Available</p>}</p>
 
 
                 <p className=' flex text-sm text-gray-500 '>

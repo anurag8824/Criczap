@@ -6,10 +6,11 @@ import axios from "axios";
 const CricketSchedule = () => {
 
     const [activeTab, setActiveTab] = useState("all");
-    // const [livematch, setLivematch] = useState([])
+    const [livematch, setLivematch] = useState([])
     const [schedule, setSchedule] = useState([])
     const [complete, setComplete] = useState([])
     const navigate = useNavigate();
+    const backUrl =  process.env.REACT_APP_BACK_URL
 
 
     // const scrollRef = useRef(null)
@@ -28,14 +29,14 @@ const CricketSchedule = () => {
 
     useEffect(() => {
 
-        axios.get('https://rest.entitysport.com/exchange/matches/?token=91e89bd6c7b1f611304ba0f6faf45fd3&date=2024-11-11_2024-11-14&timezone=+5:30&&paged=1&per_page=100')
+        axios.get(`${backUrl}/api/v1/homedata`)
             .then((res) => {
 
                 console.log(res, "cvcvcvvccvcv");
 
                 const dataFromApi = res.data.response.items
-                // const filteredData = dataFromApi.filter(item => item.status_str
-                //     === 'Live' && (item.competition.category === "international" || item.competition.category === "women"));
+                const filteredData = dataFromApi.filter(item => item.status_str
+                    === 'Live' && (item.competition.category === "international" || item.competition.category === "women"));
 
 
                 // setLivematch(filteredData)
@@ -53,7 +54,7 @@ const CricketSchedule = () => {
                 const completedMatch = dataFromApi.filter(item => item.status_str === "Completed" && (item.competition.category === "international" || item.competition.category === "women"));
                 console.log(completedMatch, "compled")
 
-                setComplete(completedMatch)
+                setComplete([...filteredData, ...completedMatch])
 
 
 
@@ -141,10 +142,10 @@ const CricketSchedule = () => {
 
                                                 <table class="  w-full text-left rtl:text-right  ">
                                                     <thead class=" bg-gray-100 text-blue-950   ">
-                                                        <th scope="col" class="px-6 w-96 py-3">
+                                                        <th scope="col" class="px-6 hidden md:block w-1/3 py-3">
                                                             Date
                                                         </th>
-                                                        <th scope="col" class="px-6 w-full py-3">
+                                                        <th scope="col" class="px-6  w-full py-3">
                                                             Match Details
                                                         </th>
 
@@ -156,14 +157,15 @@ const CricketSchedule = () => {
                                                             item ? (
                                                                 <tr key={index} class="border-b border-gray-200 dark:border-gray-700">
 
-                                                                    <th scope="row" class=" text-blue-950 font-medium text-lg text-center align-text-top py-3 px-3 whitespace-nowrap">
-                                                                        {new Date(item.competition?.datestart).toLocaleString('en-US', { month: 'long', year: 'numeric' })}
+                                                                    <th scope="row" className=" text-blue-950 hidden md:block font-medium text-lg  align-text-top py-3 px-3 whitespace-nowrap">
+                                                                        {new Date(item.competition?.datestart).toLocaleString('en-US', { day: '2-digit', month: 'short', year: 'numeric' })}
                                                                     </th>
 
 
 
 
                                                                     <td class="list-none py-2.5 text-blue-950">
+                                                                        {/* <li className='px-6'>{new Date(item.competition?.datestart).toLocaleString('en-US', { month: 'long', year: 'numeric' })}</li> */}
                                                                         <li class="px-6 py-1  grid">
                                                                             <Link to={`/match-detail/${item.match_id}/commentary`} className='font-medium text-base hover:underline'>
                                                                                 {item.competition?.title}, {item?.subtitle} </Link>
@@ -286,7 +288,7 @@ const CricketSchedule = () => {
 
                                             <table class="  w-full text-left rtl:text-right  ">
                                                 <thead class=" bg-gray-100   ">
-                                                    <th scope="col" class="px-6 w-96 py-3">
+                                                    <th scope="col" class="px-6 hidden md:block w-1/3  py-3">
                                                         Date
                                                     </th>
                                                     <th scope="col" class="px-6 w-full py-3">
@@ -301,8 +303,8 @@ const CricketSchedule = () => {
                                                         item ? (
                                                             <tr key={index} class="border-b border-gray-200 dark:border-gray-700">
 
-                                                                <th scope="row" class=" text-blue-950 font-medium text-lg text-center align-text-top py-3 px-3 whitespace-nowrap">
-                                                                    {new Date(item.competition?.datestart).toLocaleString('en-US', { month: 'long', year: 'numeric' })}
+                                                                <th scope="row" class=" text-blue-950 hidden md:block font-medium text-lg  align-text-top py-3 px-3 whitespace-nowrap">
+                                                                    {new Date(item.competition?.datestart).toLocaleString('en-US', { day: '2-digit', month: 'short', year: 'numeric' })}
                                                                 </th>
 
 
@@ -310,7 +312,7 @@ const CricketSchedule = () => {
 
                                                                 <td class="list-none py-2.5 text-blue-950">
                                                                     <li class="px-6 py-1  grid">
-                                                                        <Link to="#" className='font-medium text-base hover:underline'>
+                                                                        <Link to={`/match-detail/${item.match_id}/commentary`} className='font-medium text-base hover:underline'>
                                                                             {item.competition?.title} </Link>
                                                                         <span className=''>    {item.date_start_ist}</span>
 
@@ -319,7 +321,7 @@ const CricketSchedule = () => {
 
 
                                                                     <li class="px-6 py-1  grid">
-                                                                        <Link to={`/match-detail/${77369}/commentary`} className=' md:w-full w-72 items-center grid grid-rows-2 gap-y-2 px-3 py-2 justify-start bg-gray-200'>
+                                                                        <Link to={`/match-detail/${item.match_id}/commentary`} className=' md:w-full w-72 items-center grid grid-rows-2 gap-y-2 px-3 py-2 justify-start bg-gray-200'>
 
 
                                                                             <div class="flex items-center md:justify-between   gap-4 pb-3 pt-3 last:pb-0">
@@ -390,6 +392,8 @@ const CricketSchedule = () => {
                                                             <div className="w-4 h-4 border-2 border-blue-500 border-solid border-t-transparent rounded-full animate-spin"></div>
                                                         </div>
                                                     ))}
+
+
 
 
 

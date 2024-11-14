@@ -11,11 +11,19 @@ import WAllRounder from '../components/RankingComponents/WAllRounder';
 
 
 const CricketRanking = () => {
+
+    const [activeTab, setActiveTab] = useState("men");
+
     const [mendata, setMendata] = useState()
     const [womendata, setWomendata] = useState()
     const backUrl = process.env.REACT_APP_BACK_URL;
 
-    const [showFullTable2, setShowFullTable2] = useState(true);
+
+    const handleTabClick = (tab) => {
+        setActiveTab(tab);
+
+    };
+
 
 
 
@@ -32,59 +40,92 @@ const CricketRanking = () => {
 
 
 
-    const handleToggle2 = () => {
-        setShowFullTable2((prev) => !prev);
-    };
+
 
 
     return (
-        <div className='md:mx-20 mx-4 h-full'>
+        <div className='md:mx-20 mx-4 '>
 
             <div className='flex px-1  py-10 justify-between'>
                 <p className='text-2xl  font-medium'>Cricket Ranking</p>
 
             </div>
 
-            <div className='border mb-4 md:p-8 p-1 bg-white rounded-xl w-full h-full'>
-
-                <div className=' w-full '>
-                    <button
-                        onClick={handleToggle2}
-                        className="px-4 py-2 bg-violet-700   text-white rounded hover:bg-violet-800"
-                    >
-                        {showFullTable2 ? 'Women' : 'Men'}
-                    </button></div>
+            <div className='border mb-4 md:p-8 p-1 bg-white py-10 rounded-xl w-full h-full'>
 
 
-                {showFullTable2 ?
+                <div className="   mt-8">
+                    {/* Tab Buttons */}
+                    <div className="relative flex gap-4 ">
+                        <button
+                            className={`md:w-1/2 w-full text-center py-2 text-lg font-normal ${activeTab === "current" ? "text-black" : "text-black"
+                                }`}
+                            onClick={() => handleTabClick("men")}
+                        >
+                            Men Ranking
+                        </button>
+                        <button
+                            className={`md:w-1/2 w-full text-center py-2  text-lg font-normal ${activeTab === "archive" ? "text-black" : "text-black"
+                                }`}
+                            onClick={() => handleTabClick("women")}
+                        >
+                            Women Ranking
+                        </button>
+
+                        {/* Underline */}
+                        <div
+                            className={`absolute bottom-0  rounded-lg h-1 bg-blue-950 transition-transform duration-300 ease-in-out ${activeTab === "men" ? "translate-x-0" : "translate-x-full"
+                                }`}
+                            style={{ width: "50%" }}
+                        ></div>
+                    </div>
 
 
 
-                    <div className=''>
 
 
-                        <Teams mdata={mendata} />
-                        <Batters mdata={mendata} />
-                        <Bowlers mdata={mendata} />
-                        <AllRounder mdata={mendata} />
+                    {/* Content Sections */}
+                    <div className="relative mt-6">
 
+                        {activeTab === "men" && (
+                            <div className="transition-opacity duration-500 ease-in-out opacity-100">
+
+                                {/* table starts cuuret  */}
+                                <div className=''>
+
+
+                                    <Teams mdata={mendata} />
+                                    <Batters mdata={mendata} />
+                                    <Bowlers mdata={mendata} />
+                                    <AllRounder mdata={mendata} />
+
+                                </div>
+
+
+
+                            </div>
+                        )}
+
+
+
+
+                        {activeTab === "women" && (
+                            <div className="transition-opacity duration-500 ease-in-out opacity-100">
+                                {/* table starts archived  */}
+
+
+                                <div>
+                                    <WTeams mdata={womendata} />
+                                    <WBatters mdata={womendata} />
+                                    <WBowlers mdata={womendata} />
+                                    <WAllRounder mdata={womendata} />
+                                </div>
+
+                            </div>
+                        )}
 
                     </div>
-                    :
-
-                    <div>
-
-                        <WTeams mdata={womendata} />
-                        <WBatters mdata={womendata} />
-                        <WBowlers mdata={womendata} />
-                        <WAllRounder mdata={womendata} />
-
-
-
-
-
-                    </div>}
-
+                </div>
 
 
 

@@ -29,7 +29,7 @@ const AllRounder = ({mdata}) => {
       <div className='md:flex gap-2'>
 
         <div className='border rounded-md md:w-1/3  mt-4'>
-          <p className='px-2 py-2 font-medium text-lg text-violet-900'>Test All-Rounder Ranking</p>
+          <p className='px-2 py-2 font-medium text-lg text-blue-950'>Test All-Rounder Ranking</p>
 
           {/* Table */}
           <div className="relative overflow-x-auto scrollbar-hide">
@@ -53,7 +53,7 @@ const AllRounder = ({mdata}) => {
                   item ? (
                     <tr
                       key={index}
-                      className={`border-b ${item.rank === "1" ? "bg-violet-900 text-white" : "bg-white"} dark:bg-gray-800 dark:border-gray-700`}
+                      className={`border-b ${item.rank === "1" ? "bg-blue-950 text-white" : "bg-white"} dark:bg-gray-800 dark:border-gray-700`}
                     >
                       <th scope="row" className="px-6 py-4 font-medium whitespace-nowrap dark:text-white">
                         {item.rank}
@@ -76,7 +76,7 @@ const AllRounder = ({mdata}) => {
           <div className="text-center my-4">
             <button
               onClick={handleToggle}
-              className="px-4 py-2 bg-violet-700 text-white rounded hover:bg-violet-800"
+              className="px-4 py-2 bg-blue-950 text-white rounded hover:bg-violet-800"
             >
               {showFullTable ? 'Show Less' : 'Show Full Table'}
             </button>
@@ -85,7 +85,7 @@ const AllRounder = ({mdata}) => {
 
 
         <div className='border rounded-md md:w-1/3 mt-4'>
-          <p className='px-2 py-2 font-medium text-lg text-violet-900'>Odi All-Rounder Ranking</p>
+          <p className='px-2 py-2 font-medium text-lg text-blue-950'>Odi All-Rounder Ranking</p>
 
           {/* Table */}
           <div className="relative overflow-x-auto scrollbar-hide">
@@ -109,7 +109,7 @@ const AllRounder = ({mdata}) => {
                   item ? (
                     <tr
                       key={index}
-                      className={`border-b ${item.rank === "1" ? "bg-violet-900 text-white" : "bg-white"} dark:bg-gray-800 dark:border-gray-700`}
+                      className={`border-b ${item.rank === "1" ? "bg-blue-950 text-white" : "bg-white"} dark:bg-gray-800 dark:border-gray-700`}
                     >
                       <th scope="row" className="px-6 py-4 font-medium whitespace-nowrap dark:text-white">
                         {item.rank}
@@ -132,7 +132,7 @@ const AllRounder = ({mdata}) => {
           <div className="text-center my-4">
             <button
               onClick={handleToggle2}
-              className="px-4 py-2 bg-violet-700 text-white rounded hover:bg-violet-800"
+              className="px-4 py-2 bg-blue-950 text-white rounded hover:bg-violet-800"
             >
               {showFullTable2 ? 'Show Less' : 'Show Full Table'}
             </button>
@@ -143,7 +143,7 @@ const AllRounder = ({mdata}) => {
 
 
         <div className='border rounded-md md:w-1/3 mt-4'>
-          <p className='px-2 py-2 font-medium text-lg text-violet-900'>T20 All-Rounder Ranking</p>
+          <p className='px-2 py-2 font-medium text-lg text-blue-950'>T20 All-Rounder Ranking</p>
 
           {/* Table */}
           <div className="relative overflow-x-auto scrollbar-hide">
@@ -167,7 +167,7 @@ const AllRounder = ({mdata}) => {
                   item ? (
                     <tr
                       key={index}
-                      className={`border-b ${item.rank === "1" ? "bg-violet-900 text-white" : "bg-white"} dark:bg-gray-800 dark:border-gray-700`}
+                      className={`border-b ${item.rank === "1" ? "bg-blue-950 text-white" : "bg-white"} dark:bg-gray-800 dark:border-gray-700`}
                     >
                       <th scope="row" className="px-6 py-4 font-medium whitespace-nowrap dark:text-white">
                         {item.rank}
@@ -190,7 +190,7 @@ const AllRounder = ({mdata}) => {
           <div className="text-center my-4">
             <button
               onClick={handleToggle3}
-              className="px-4 py-2 bg-violet-700 text-white rounded hover:bg-violet-800"
+              className="px-4 py-2 bg-blue-950 text-white rounded hover:bg-violet-800"
             >
               {showFullTable3 ? 'Show Less' : 'Show Full Table'}
             </button>

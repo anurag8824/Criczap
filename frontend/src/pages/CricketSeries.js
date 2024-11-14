@@ -38,6 +38,7 @@ const CricketSeries = () => {
 
             const result = res.data.resultMatches;
             setRdata(result)
+            // console.log(result, "series archives")
 
 
 
@@ -114,7 +115,7 @@ const CricketSeries = () => {
                         </div>
 
                         {activeTab === "current" ? <SeriesFilter sendDataToParent={handleDataFromChild} /> : null}
-                        {activeTab === "archive" ? <YearFilter /> : null}
+                        {/* {activeTab === "archive" ? <YearFilter /> : null} */}
 
 
 
@@ -234,74 +235,25 @@ const CricketSeries = () => {
 
                                             <tbody>
 
-                                                <tr class="border-b border-gray-200 dark:border-gray-700">
-
-                                                    <th scope="row" class=" text-blue-900 font-medium text-lg text-center align-text-top py-3 px-3 bg-gray-200 whitespace-nowrap">
-                                                        October 2024
-                                                    </th>
-
-
-
-
-                                                    <td class="list-none w-full  py-2.5 text-black">
-
-                                                        <li class="md:pl-6 md:pr-2 py-2  px-1  grid">
-                                                            <Link to="overview" className=' text-sm font-medium hover:underline'>India tour of England 2025</Link>
-                                                            <span className='text-gray-500'>21 Nov - 08 Jan 2026</span>
-                                                        </li>
-
-
-
+                                                {rdata?.map((item,index) =>(
+                                                    item ? (
+                                                        <tr key={index} className="border-b border-gray-200 dark:border-gray-700">
+                                                            <th scope="row" className="text-blue-900 font-medium text-lg text-center align-text-top py-3 px-3 bg-gray-200 whitespace-nowrap">
+                                                                {new Date(item.datestart).toLocaleString('en-US', { month: 'long', year: 'numeric' })}
+                                                            </th>
+                                                            <td className="list-none w-full py-2.5 text-black">
+                                                                <li className="md:pl-6 md:pr-2 py-2 px-1 grid">
+                                                                    <Link to={`${item.cid}/overview`} className="text-sm font-medium hover:underline">{item.title}</Link>
+                                                                    <span className="text-gray-500">{item.datestart + " to " + item.dateend}</span>
+                                                                </li>
+                                                            </td>
+                                                        </tr>
+                                                        
+                                                    ): ""
+                                                ))}
 
 
-
-
-
-
-
-
-                                                    </td>
-
-
-                                                </tr>
-
-
-                                                <tr class="border-b border-gray-200 dark:border-gray-700">
-
-                                                    <th scope="row" class=" text-blue-800 font-medium text-lg text-center align-text-top py-3 px-3 bg-gray-200 whitespace-nowrap">
-                                                        December 2024
-                                                    </th>
-
-
-
-
-                                                    <td class="list-none py-2.5  text-black">
-
-                                                        <li class="md:pl-6 md:pr-2 py-2 px-1   grid">
-                                                            <Link to="overview" className='  text-sm font-medium hover:underline'>India tour of England 2025</Link>
-                                                            <span className='text-gray-500'>21 Nov - 08 Jan 2026</span>
-                                                        </li>
-
-
-
-                                                        <li class="md:pl-6 md:pr-2 py-2  px-1  grid">
-                                                            <Link to="overview" className='  text-sm font-medium hover:underline'>India tour of England 2025</Link>
-                                                            <span className='text-gray-500'>21 Nov - 08 Jan 2026</span>
-                                                        </li>
-
-
-
-
-
-
-
-
-
-                                                    </td>
-
-
-                                                </tr>
-
+                                           
 
 
 
