@@ -25,7 +25,7 @@ import Termofuse from './pages/Termofuse';
 function App() {
 
   return (
-    <MyProvider>
+    // <MyProvider>
 
       <BrowserRouter>
         <Routes>
@@ -110,7 +110,7 @@ function App() {
         </Routes>
       </BrowserRouter>
 
-    </MyProvider>
+    // </MyProvider>
 
   );
 }

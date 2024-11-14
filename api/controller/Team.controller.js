@@ -3,6 +3,34 @@ const token = "91e89bd6c7b1f611304ba0f6faf45fd3"
 
 // const 
 
+
+const HomeApi = async (req, res) => {
+
+   try {
+     axios.get(`https://rest.entitysport.com/exchange/matches/?token=${token}&date=2024-11-13_2024-11-15&timezone=+5:30&&paged=1&per_page=100`).then((resp) =>{
+         res.json(resp.data)
+     })
+   } catch (error) {
+    
+   }
+}
+
+const HomePopular = async (req, res) => {
+    console.log("home pupular hit")
+
+
+    try {
+      axios.get(`https://rest.entitysport.com/exchange/matches/?token=${token}&date=2024-11-13_2024-11-15&timezone=+5:30&&paged=1&per_page=100`).then((resp) =>{
+
+        console.log(resp.data,"pop")
+          res.json(resp.data)
+
+      })
+    } catch (error) {
+     
+    }
+ }
+
 const TeamData = async (req, res) => {
     try {
         axios.get(`https://rest.entitysport.com/exchange/teams?token=${token}&&paged=1&per_page=50`).then((resp) => {
@@ -34,6 +62,8 @@ const PlayerData = async (req, res) => {
 
     }
 }
+
+
 
 
 const TeamSerach = async (req, res) => {
@@ -190,4 +220,4 @@ const Ranking = async (req, res) => {
 
 
 
-module.exports = { TeamData, CompeteInfo, PlayerData, Ranking, TeamSerach, PlayerSerach, PlayerInformation, PerivousData, CompationsList }
+module.exports = { TeamData, HomeApi, CompeteInfo, PlayerData, Ranking, TeamSerach, PlayerSerach, PlayerInformation, PerivousData, HomePopular, CompationsList }

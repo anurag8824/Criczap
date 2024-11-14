@@ -470,10 +470,11 @@ const HomeScroller = () => {
     const [livematch, setLivematch] = useState([])
     const [schedule, setSchedule] = useState([])
     const [complete, setComplete] = useState([])
+    const backUrl = process.env.REACT_APP_BACK_URL
 
     useEffect = () => {
 
-        axios.get('https://rest.entitysport.com/exchange/matches/?token=91e89bd6c7b1f611304ba0f6faf45fd3&date=2024-11-11_2024-11-13&timezone=+5:30&&paged=1&per_page=100')
+        axios.get(`${backUrl}/api/v1/homedata`)
             .then((res) => {
 
                 console.log(res);

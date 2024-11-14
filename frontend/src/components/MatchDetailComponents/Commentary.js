@@ -127,6 +127,7 @@ const Commentary = ({ data, balldata }) => {
 
   return (
 
+    // 6101520   ,, 102030404550,,,,,6101520   ,, 102030404550,,,,,
 
 
     <div className=''>
@@ -140,43 +141,92 @@ const Commentary = ({ data, balldata }) => {
 
             <div className='justify-between md:order-1 order-2 text-blue-950   dark:bg-black dark:text-white w-full md:w-1/2'>
 
-              <div className="flex items-center md:justify-between  gap-4 pb-4 last:pb-0">
-                <div className="flex items-center gap-x-5">
-                  <img
-                    src={data?.response.match_info.teama.logo_url}
-                    alt="Tania Andrew"
-                    className="relative inline-block h-10 w-10 border rounded-full object-cover object-center"
-                  />
-                  <p className="block font-sans text-base font-semibold leading-relaxed tracking-normal  antialiased">
-                    {data?.response.match_info.teama.short_name}
-                  </p>
 
-                </div>
-                <p className="block font-sans md:text-base text-sm  font-semibold leading-relaxed tracking-normal text-blue-gray-900 antialiased">
-                  {data?.response.match_info.teama.scores_full}
+              {
+                data?.response.live.live_inning.batting_team_id === data?.response.match_info.teama.team_id ?
 
-                </p>
-              </div>
+                  <div className="flex items-center md:justify-between  gap-4 pb-4 last:pb-0">
+                    <div className="flex items-center gap-x-5">
+                      <img
+                        src={data?.response.match_info.teama.logo_url}
+                        alt="Tania Andrew"
+                        className="relative inline-block h-10 w-10 border rounded-full object-cover object-center"
+                      />
+                      <p className="block font-sans text-base font-semibold leading-relaxed tracking-normal  antialiased">
+                        {data?.response.match_info.teama.short_name}
+                      </p>
 
-              <div className="flex items-center md:justify-between  gap-4  pt-4 last:pb-0">
-                <div className="flex items-center gap-x-5">
-                  <img
-                    src={data?.response.match_info.teamb.logo_url}
-                    alt="John Micheal"
-                    className="relative inline-block h-10 w-10 border rounded-full object-cover object-center"
-                  />
-                  <p className="block font-sans text-base font-semibold leading-relaxed tracking-normal text-blue-gray-900 antialiased">
-                    {data?.response.match_info.teamb.short_name}
-                  </p>
+                    </div>
+                    <p className="block font-sans md:text-base text-sm  font-semibold leading-relaxed tracking-normal text-blue-gray-900 antialiased">
+                      {data?.response.match_info.teama.scores_full}
 
-                </div>
-                <p className="block font-sans md:text-base text-sm font-semibold leading-relaxed tracking-normal text-blue-gray-900 antialiased">
-                  {data?.response.match_info.teamb.scores_full}
+                    </p>
+                  </div>
+
+                  :
+                  <div className="flex items-center md:justify-between  gap-4  pt-4 last:pb-0">
+                    <div className="flex items-center gap-x-5">
+                      <img
+                        src={data?.response.match_info.teamb.logo_url}
+                        alt="John Micheal"
+                        className="relative inline-block h-10 w-10 border rounded-full object-cover object-center"
+                      />
+                      <p className="block font-sans text-base font-semibold leading-relaxed tracking-normal text-blue-gray-900 antialiased">
+                        {data?.response.match_info.teamb.short_name}
+                      </p>
+
+                    </div>
+                    <p className="block font-sans md:text-base text-sm font-semibold leading-relaxed tracking-normal text-blue-gray-900 antialiased">
+                      {data?.response.match_info.teamb.scores_full}
 
 
-                </p>
-              </div>
+                    </p>
+                  </div>
 
+              }
+
+              {
+                data?.response.live.live_inning.fielding_team_id === data?.response.match_info.teama.team_id ?
+
+                  <div className="flex items-center md:justify-between  gap-4 pb-4 last:pb-0">
+                    <div className="flex items-center gap-x-5">
+                      <img
+                        src={data?.response.match_info.teama.logo_url}
+                        alt="Tania Andrew"
+                        className="relative inline-block h-10 w-10 border rounded-full object-cover object-center"
+                      />
+                      <p className="block font-sans text-base font-semibold leading-relaxed tracking-normal  antialiased">
+                        {data?.response.match_info.teama.short_name}
+                      </p>
+
+                    </div>
+                    <p className="block font-sans md:text-base text-sm  font-semibold leading-relaxed tracking-normal text-blue-gray-900 antialiased">
+                      {data?.response.match_info.teama.scores_full}
+
+                    </p>
+                  </div>
+
+                  :
+                  <div className="flex items-center md:justify-between  gap-4  pt-4 last:pb-0">
+                    <div className="flex items-center gap-x-5">
+                      <img
+                        src={data?.response.match_info.teamb.logo_url}
+                        alt="John Micheal"
+                        className="relative inline-block h-10 w-10 border rounded-full object-cover object-center"
+                      />
+                      <p className="block font-sans text-base font-semibold leading-relaxed tracking-normal text-blue-gray-900 antialiased">
+                        {data?.response.match_info.teamb.short_name}
+                      </p>
+
+                    </div>
+                    <p className="block font-sans md:text-base text-sm font-semibold leading-relaxed tracking-normal text-blue-gray-900 antialiased">
+                      {data?.response.match_info.teamb.scores_full}
+
+
+                    </p>
+                  </div>
+
+              }
 
 
             </div>
@@ -285,8 +335,8 @@ const Commentary = ({ data, balldata }) => {
             <div className='w-full flex  border-b items-center pb-2 justify-between'>
               <div className=" pl-4 flex gap-2 text-sm md:w-1/2 ">
                 Probability
-                <button onClick={() => handleViewChange('full')} className='underline'><AiOutlineInfoCircle className='h-4 w-4' />
-                </button>
+                {/* <button onClick={() => handleViewChange('full')} className='underline'><AiOutlineInfoCircle className='h-4 w-4' />
+                </button> */}
 
               </div>
 
@@ -396,6 +446,9 @@ const Commentary = ({ data, balldata }) => {
                               : "Suspended..."}
 
 
+
+
+
                           </div>
 
                           :
@@ -436,49 +489,82 @@ const Commentary = ({ data, balldata }) => {
 
                         }
 
-                        {
 
-                          <div className='border-t'>
+                        {/* {data?.response.teamwinpercentage.team_a_win > data?.response.teamwinpercentage.team_b_win ? */}
 
-                            {data?.response.session_odds.length > 0 && (
-                              <div className=''>
-                                {(() => {
-                                  const lastItem = data.response.session_odds.at(-1);
-                                  return lastItem ? (
-                                    <div className='flex mt-1 items-center justify-between'>
+                        <div className='flex pb-1 items-center justify-between'>
+
+                          {/* <p>{data?.response.match_info.teama.short_name} </p> */}
 
 
-                                      <p className='text-sm '>{lastItem.title}</p>
+                          {data?.response?.featured_session.map((item, index) => (
+                            item ? (
+
+
+                              <><p>{item.title.split(' ').slice(0, 2).join(' ')} </p><div className='flex gap-2'>
+
+                                <p className='px-4 font-medium py-1 items-center flex justify-center bg-green-700 text-white border'> {Math.max(0, Math.round((parseFloat(item.lay_condition)))).toString().padStart(2, '0')}</p>
+                                <p className='px-4 font-medium py-1 items-center flex justify-center bg-red-700 text-white border'>
+                                  {item.back_condition ? Math.max(0, Math.round((parseFloat(item.back_condition))))
+                                    .toString()
+                                    .padStart(2, '0')
+                                    : "0"}
+
+                                </p>
+
+
+                              </div></>
 
 
 
-                                      <div className='flex gap-2'>
+                            ) : ""
+                          ))}
 
 
-                                        <p className='px-4 font-medium py-1 items-center flex justify-center bg-green-700 text-white border'>
-                                          {Math.max(0, Math.round((parseFloat(lastItem.lay_condition))))
-                                            .toString()
-                                            .padStart(2, '0')}
-                                        </p>
-                                        <p className='px-4 font-medium py-1 items-center flex justify-center bg-red-700 text-white border'>
-                                          {lastItem.lay_condition
-                                            ? Math.max(0, Math.round((parseFloat(lastItem.back_condition))))
-                                              .toString()
-                                              .padStart(2, '0')
-                                            : '0'}
-                                        </p>
-
-                                      </div>
 
 
-                                    </div>
-                                  ) : "Suspended";
-                                })()}
+
+
+                        </div>
+
+                        {/* // : */}
+
+                        {/* <div className='flex items-center justify-between'>
+
+                            <p>{data?.response.match_info.teamb.short_name} </p>
+
+
+
+                            {data?.response.live_odds.matchodds ?
+
+
+
+                              <div className='flex gap-2' >
+                                {data?.response.live_odds.matchodds.teamb ?
+                                  <p className='px-4 font-medium py-1 items-center flex justify-center bg-green-700 text-white border'>
+                                    {Math.max(0, Math.round((parseFloat(data?.response.live_odds.matchodds.teamb.back) * 100) - 100)).toString().padStart(2, '0')}
+                                  </p>
+                                  : ''}
+
+
+
+                                <p className='px-4 font-medium py-1 items-center flex justify-center bg-red-700 text-white border'>
+
+                                  {data?.response.live_odds.matchodds.teamb.lay ? Math.max(0, Math.round((parseFloat(data?.response.live_odds.matchodds.teamb.lay) * 100) - 100)).toString().padStart(2, '0') : "0"}
+
+                                </p>
+
                               </div>
-                            )}
 
-                          </div>
-                        }
+                              : "Suspended..."}
+
+
+
+
+                          </div> */}
+
+                        {/* } */}
+
 
 
 

@@ -122,16 +122,16 @@ const Footer = () => {
                 <div className='lg:flex grid grid-row-3 mx-auto justify-center'>
                     <div className='text-white px-4 mx-auto'>© Copyright 2024 Criczap All rights reserved.</div>
                     <div className=' justify-between '>
-                        <Link to="#" className='hover:underline text-white  md:no-underline md:border-r px-2 md:px-6'>About Us</Link>
+                        {/* <Link to="#" className='hover:underline text-white  md:no-underline md:border-r px-2 md:px-6'>About Us</Link> */}
                         <Link to="privacy" className='hover:underline text-white md:border-r  md:px-6'>Privacy Policy</Link>
                         <Link to="tos" className='hover:underline text-white md:border-r px-2 md:px-6'>Terms of Use</Link>
-                        <Link to="#" className='hover:underline text-white md:border-r md:px-6'>Grievance</Link>
+                        {/* <Link to="#" className='hover:underline text-white md:border-r md:px-6'>Grievance</Link> */}
                     </div>
                     <div className='text-white mx-auto px-4'>Version 1.1.1</div>
                 </div>
             </div>
 
-            <div className='block sticky bottom-0  w-full    sm:hidden bg-gray-900 text-white '>
+            <div className='block fixed bottom-0  w-full    sm:hidden bg-gray-900 text-white '>
 
                 <div className='flex justify-between  px-2 py-2'>
                     <Link to="/" className='justify-center items-center flex flex-col  text-center' >

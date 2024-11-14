@@ -1,9 +1,77 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import DownloadApp from './DownloadApp'
 import TopRankings from './TopRankings'
 import { Link } from 'react-router-dom'
+import axios from 'axios'
 
 const HomePopularSeries = () => {
+
+
+    const [livematch, setLivematch] = useState([])
+    const [schedule, setSchedule] = useState([])
+    const [complete, setComplete] = useState([])
+    const [popular , setPopular] = useState([])
+    const backUrl = process.env.REACT_APP_BACK_URL
+    console.log("componet in mounting")
+
+    useEffect(() => {
+       console.log("componet in mounting useEffect")
+
+        try {
+            axios.get(`${backUrl}/api/v1/popular`)
+                .then((res) => {
+    
+                    console.log(res,"poppps");
+    
+                    const dataFromApi = res.data.response.items
+                    const filteredData = dataFromApi.filter(item => item.status_str
+                        === 'Live' && (item.competition.category === "international" || item.competition.category === "women"));
+    
+    
+                    setLivematch(filteredData)
+                    // item.competition.category === ""||
+    
+                    // console.log(filteredData, "filtrr")
+    
+    
+                    const upcomingMatch = dataFromApi.filter(item => item.status_str === "Scheduled" && (item.competition.category === "international" || item.competition.category === "women"));
+                    // console.log(upcomingMatch, "uppp")
+    
+                    setSchedule(upcomingMatch)
+    
+    
+                    const completedMatch = dataFromApi.filter(item => item.status_str === "Completed" && (item.competition.category === "international" || item.competition.category === "women"));
+                    // console.log(completedMatch, "compled")
+    
+                    setComplete(completedMatch)
+    
+                    setPopular([...filteredData, ...upcomingMatch, ...completedMatch])
+    
+                    console.log(popular, "popular series ")
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+                    // console.log(filteredData, "ressss");
+                }).catch((error)=>{
+                    console.log(error,"errro")
+                })
+        } catch (error) {
+            console.log(error,"errro");
+        }
+               
+            
+
+    },[backUrl])
+
+
     return (
         <div> <div class="md:w-72 md:block text-blue-950 w-full mx-auto md:mx-0   ">
 
@@ -43,7 +111,7 @@ const HomePopularSeries = () => {
 
 
                 <DownloadApp />
-                <TopRankings />
+                {/* <TopRankings /> */}
 
 
 
@@ -62,4 +130,4 @@ const HomePopularSeries = () => {
     )
 }
 
-export default HomePopularSeries
+export default HomePopularSeries;
