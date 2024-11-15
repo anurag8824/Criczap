@@ -38,7 +38,7 @@ const Series = () => {
               <td class="list-none w-full  py-2.5 text-black">
 
                 <li class="md:pl-6 md:pr-2 py-2  px-1  grid">
-                  <Link to="overview" className=' text-sm font-medium hover:underline'>India tour of England 2025</Link>
+                  <Link to="/overview" className=' text-sm font-medium hover:underline'>India tour of England 2025</Link>
                   <span className='text-gray-500'>21 Nov - 08 Jan 2026</span>
                 </li>
 

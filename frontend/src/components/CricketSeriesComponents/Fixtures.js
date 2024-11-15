@@ -3,6 +3,10 @@ import { Link } from 'react-router-dom'
 import FixtureFilter from './FixtureFilter'
 
 const Fixtures = ({ data }) => {
+  const formatUrl = (text) => {
+    return text.replace(/\s+/g, '-').toLowerCase(); // Replace spaces with dashes
+  };
+
   return (
     <div>
 
@@ -52,7 +56,7 @@ const Fixtures = ({ data }) => {
 
                   <td class="list-none py-2.5 text-blue-950">
                     <li class="px-6 py-1  grid">
-                      <Link to={`/match-detail/${item.match_id}/commentary`} className='font-normal text-blue-950 text-base hover:underline'>
+                      <Link to={`/match-detail/${item.match_id}/${formatUrl(`${item.short_title}-${item.competition.title}`)}/commentary`} className='font-normal text-blue-950 text-base hover:underline'>
                         {item.title}, {item.match_number}-{item.format_str}
                       </Link>
 

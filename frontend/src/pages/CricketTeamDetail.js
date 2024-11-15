@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Home from '../components/TeamDetailComponents/Home'
 import Recent from '../components/TeamDetailComponents/Recent'
 import Upcoming from '../components/TeamDetailComponents/Upcoming'
@@ -8,6 +8,7 @@ import Players from '../components/TeamDetailComponents/Players'
 import Series from '../components/TeamDetailComponents/Series'
 import { useNavigate, useParams } from 'react-router-dom'
 import FbConnect from '../components/FbConnect'
+import axios from 'axios'
 
 const CricketTeamDetail = () => {
 
@@ -27,6 +28,18 @@ const CricketTeamDetail = () => {
         navigate(`/cricket-team-detail/${tid}/${tab}`)
 
     };
+
+    const backUrl = process.env.REACT_APP_BACK_URL
+
+    useEffect(() => {
+        axios.post(`${backUrl}/api/v1/teaminfo`, { tid })
+        .then((res) => {
+            console.log(res, "team info")
+        })
+
+
+    }, [])
+
 
     return (
         <div className='md:mx-20 mx-4 '>

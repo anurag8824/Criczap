@@ -30,11 +30,7 @@ const SeriesView = () => {
     const activeIndex = tabs.indexOf(activeTab);
 
 
-    const handleTabClick = (tab) => {
-        setActiveTab(tab);
-        navigate(`/cricket-series/${cId}/${tab}`)
 
-    };
 
     useEffect(() => {
         try {
@@ -52,9 +48,16 @@ const SeriesView = () => {
 
     }, [])
 
+    const formatUrl = (text) => {
+        return text.replace(/\s+/g, '-').toLowerCase(); // Replace spaces with dashes
+    };
 
 
+    const handleTabClick = (tab) => {
+        setActiveTab(tab);
+        navigate(`/cricket-series/${cId}/${formatUrl(mlist?.response?.items[0]?.competition?.title ? mlist?.response?.items[0]?.competition?.title : "null")}/${tab}`)
 
+    };
 
 
 
@@ -137,7 +140,7 @@ const SeriesView = () => {
 
                             {activeTab === "fixtures" && (
                                 <div className="transition-opacity duration-500 ease-in-out opacity-100">
-                                    <Fixtures data={mlist}  />
+                                    <Fixtures data={mlist} />
                                 </div>
                             )}
 

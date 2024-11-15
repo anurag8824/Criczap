@@ -37,9 +37,13 @@ const MatchDetailView = () => {
     const matchId = useParams().id
     console.log(matchId, "matchId=")
 
+    const formatUrl = (text) => {
+        return text.replace(/\s+/g, '-').toLowerCase(); // Replace spaces with dashes
+    };
+
     const handleTabClick = (tab) => {
         setActiveTab(tab);
-        navigate(`/match-detail/${matchId}/${tab}`)
+        navigate(`/match-detail/${matchId}/${formatUrl(`${livedata?.response.match_info.short_title}-${livedata?.response.match_info.competition.title}`)}/${tab}`)
 
     };
 

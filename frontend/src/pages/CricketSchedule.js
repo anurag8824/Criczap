@@ -10,7 +10,7 @@ const CricketSchedule = () => {
     const [schedule, setSchedule] = useState([])
     const [complete, setComplete] = useState([])
     const navigate = useNavigate();
-    const backUrl =  process.env.REACT_APP_BACK_URL
+    const backUrl = process.env.REACT_APP_BACK_URL
 
 
     // const scrollRef = useRef(null)
@@ -23,6 +23,11 @@ const CricketSchedule = () => {
         setActiveTab(tab);
         navigate(`/cricket-schedule`)
 
+    };
+
+    
+    const formatUrl = (text) => {
+        return text.replace(/\s+/g, '-').toLowerCase(); // Replace spaces with dashes
     };
 
 
@@ -71,6 +76,8 @@ const CricketSchedule = () => {
 
 
     }, [])
+
+
 
     return (
         <div className='md:mx-20 mx-4 '>
@@ -167,7 +174,7 @@ const CricketSchedule = () => {
                                                                     <td class="list-none py-2.5 text-blue-950">
                                                                         {/* <li className='px-6'>{new Date(item.competition?.datestart).toLocaleString('en-US', { month: 'long', year: 'numeric' })}</li> */}
                                                                         <li class="px-6 py-1  grid">
-                                                                            <Link to={`/match-detail/${item.match_id}/commentary`} className='font-medium text-base hover:underline'>
+                                                                            <Link to={`/match-detail/${item.match_id}/${formatUrl(`${item.short_title}-${item.competition.title}`)}/commentary`} className='font-medium text-base hover:underline'>
                                                                                 {item.competition?.title}, {item?.subtitle} </Link>
                                                                             <span className=''>    {item.date_start_ist}</span>
 
@@ -176,7 +183,7 @@ const CricketSchedule = () => {
 
 
                                                                         <li class="px-6 py-1  grid">
-                                                                            <Link to={`/match-detail/${item.match_id}/commentary`} className=' md:w-full w-72 items-center grid grid-rows-2 gap-y-2 px-3 py-2 justify-start bg-gray-200'>
+                                                                            <Link to={`/match-detail/${item.match_id}/${formatUrl(`${item.short_title}-${item.competition.title}`)}/commentary`} className=' md:w-full w-72 items-center grid grid-rows-2 gap-y-2 px-3 py-2 justify-start bg-gray-200'>
 
 
                                                                                 <div class="flex items-center md:justify-between   gap-4 pb-3 pt-3 last:pb-0">
@@ -312,7 +319,7 @@ const CricketSchedule = () => {
 
                                                                 <td class="list-none py-2.5 text-blue-950">
                                                                     <li class="px-6 py-1  grid">
-                                                                        <Link to={`/match-detail/${item.match_id}/commentary`} className='font-medium text-base hover:underline'>
+                                                                        <Link to={`/match-detail/${item.match_id}/${formatUrl(`${item.short_title}-${item.competition.title}`)}/commentary`} className='font-medium text-base hover:underline'>
                                                                             {item.competition?.title} </Link>
                                                                         <span className=''>    {item.date_start_ist}</span>
 
@@ -321,7 +328,7 @@ const CricketSchedule = () => {
 
 
                                                                     <li class="px-6 py-1  grid">
-                                                                        <Link to={`/match-detail/${item.match_id}/commentary`} className=' md:w-full w-72 items-center grid grid-rows-2 gap-y-2 px-3 py-2 justify-start bg-gray-200'>
+                                                                        <Link to={`/match-detail/${item.match_id}/${formatUrl(`${item.short_title}-${item.competition.title}`)}/commentary`} className=' md:w-full w-72 items-center grid grid-rows-2 gap-y-2 px-3 py-2 justify-start bg-gray-200'>
 
 
                                                                             <div class="flex items-center md:justify-between   gap-4 pb-3 pt-3 last:pb-0">

@@ -44,13 +44,13 @@ function App() {
 
             <Route path="cricket-series" element={<CricketSeries />} />
             {/* Cricket Series Routes  */}
-            <Route path="cricket-series/:id/overview" element={<SeriesView />} />
-            <Route path="cricket-series/:id/fixtures" element={<SeriesView />} />
-            <Route path="cricket-series/:id/news" element={<SeriesView />} />
-            <Route path="cricket-series/:id/videos" element={<SeriesView />} />
-            <Route path="cricket-series/:id/squads" element={<SeriesView />} />
-            <Route path="cricket-series/:id/stats" element={<SeriesView />} />
-            <Route path="cricket-series/:id/venues" element={<SeriesView />} />
+            <Route path="cricket-series/:id/:s/overview" element={<SeriesView />} />
+            <Route path="cricket-series/:id/:idg/fixtures" element={<SeriesView />} />
+            <Route path="cricket-series/:id/:t/news" element={<SeriesView />} />
+            <Route path="cricket-series/:id/:sd/videos" element={<SeriesView />} />
+            <Route path="cricket-series/:id/:sdf/squads" element={<SeriesView />} />
+            <Route path="cricket-series/:id/:sdf/stats" element={<SeriesView />} />
+            <Route path="cricket-series/:id/:sdf/venues" element={<SeriesView />} />
 
 
             <Route path='cricket-team-detail/:id/home' element={<CricketTeamDetail />} />
@@ -73,13 +73,13 @@ function App() {
 
 
 
-            <Route path="match-detail/:id/commentary" element={<MatchDetailView />} />
-            <Route path="match-detail/:id/scorecard" element={<MatchDetailView />} />
+            <Route path="match-detail/:id/:xyz/commentary" element={<MatchDetailView />} />
+            <Route path="match-detail/:id/:xyz/scorecard" element={<MatchDetailView />} />
 
-            <Route path="match-detail/:id/info" element={<MatchDetailView />} />
+            <Route path="match-detail/:id/:xyz/info" element={<MatchDetailView />} />
 
-            <Route path="match-detail/:id/squad" element={<MatchDetailView />} />
-            <Route path="match-detail/:id/highlights" element={<MatchDetailView />} />
+            <Route path="match-detail/:id/:xyz/squad" element={<MatchDetailView />} />
+            <Route path="match-detail/:id/:xyz/highlights" element={<MatchDetailView />} />
 
 
             <Route path="cricket-rankings" element={<CricketRanking />} />

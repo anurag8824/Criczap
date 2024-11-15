@@ -2,6 +2,10 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 const Info = ({ data }) => {
+  const formatUrl = (text) => {
+    return text.replace(/\s+/g, '-').toLowerCase(); // Replace spaces with dashes
+};
+
   return (
     <div>
       <div className='border-b pb-2 flex justify-between    w-full '>
@@ -28,7 +32,7 @@ const Info = ({ data }) => {
 
         <div className='border-b mt-4 flex justify-between  w-full   '>
           <p className='font-medium text-base py-3 pl-3 w-1/2 md:w-1/3 '>Series:</p>
-          <Link to={`/cricket-series/${data?.response?.match_info?.competition.cid}/overview`}className='font-normal text-base text-blue-500 py-3 pl-3 hover:underline  w-full md:w-1/2'>{data?.response.match_info.competition.title}</Link>
+          <Link to={`/cricket-series/${data?.response?.match_info?.competition.cid}/${formatUrl(data?.response.match_info.competition.title)}/overview`}className='font-normal text-base text-blue-500 py-3 pl-3 hover:underline  w-full md:w-1/2'>{data?.response.match_info.competition.title}</Link>
 
         </div>
 

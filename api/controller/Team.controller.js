@@ -1,18 +1,39 @@
 const axios = require("axios");
 const token = "91e89bd6c7b1f611304ba0f6faf45fd3"
 
-// const 
+ // Get today's date
+ const today = new Date();
+
+ // Calculate 1 day before and 1 day after
+ const oneDayBefore = new Date(today);
+ oneDayBefore.setDate(today.getDate() - 1);
+
+ const oneDayAfter = new Date(today);
+ oneDayAfter.setDate(today.getDate() + 1);
+
+ // Format dates as YYYY-MM-DD
+ const formatDate = (date) => {
+     const year = date.getFullYear();
+     const month = String(date.getMonth() + 1).padStart(2, '0');
+     const day = String(date.getDate()).padStart(2, '0');
+     return `${year}-${month}-${day}`;
+ };
+
+ const formattedStartDate = formatDate(oneDayBefore);
+ const formattedEndDate = formatDate(oneDayAfter);
 
 
 const HomeApi = async (req, res) => {
 
-   try {
-     axios.get(`https://rest.entitysport.com/exchange/matches/?token=${token}&date=2024-11-13_2024-11-15&timezone=+5:30&&paged=1&per_page=100`).then((resp) =>{
-         res.json(resp.data)
-     })
-   } catch (error) {
-    
-   }
+    try {
+        
+
+        axios.get(`https://rest.entitysport.com/exchange/matches/?token=${token}&date=${formattedStartDate}_${formattedEndDate}&timezone=+5:30&&paged=1&per_page=100`).then((resp) => {
+            res.json(resp.data)
+        })
+    } catch (error) {
+
+    }
 }
 
 const HomePopular = async (req, res) => {
@@ -20,16 +41,16 @@ const HomePopular = async (req, res) => {
 
 
     try {
-      axios.get(`https://rest.entitysport.com/exchange/matches/?token=${token}&date=2024-11-13_2024-11-15&timezone=+5:30&&paged=1&per_page=100`).then((resp) =>{
+        axios.get(`https://rest.entitysport.com/exchange/matches/?token=${token}&date=${formattedStartDate}_${formattedEndDate}&timezone=+5:30&&paged=1&per_page=100`).then((resp) => {
 
-        console.log(resp.data,"pop")
-          res.json(resp.data)
+            console.log(resp.data, "pop")
+            res.json(resp.data)
 
-      })
+        })
     } catch (error) {
-     
+
     }
- }
+}
 
 const TeamData = async (req, res) => {
     try {
@@ -37,6 +58,23 @@ const TeamData = async (req, res) => {
             // console.log(data);
             //   console.log(resp.data)
             res.json({ msg: resp.data.response })
+        })
+
+    } catch (error) {
+        console.log(error);
+        res.json({ msg: "Internal Server Error !" })
+    }
+
+}
+
+
+const Teaminfo = async (req, res) => {
+    try {
+        const tid = req.body.tid;
+        axios.get(`https://rest.entitysport.com/exchange/teams/${tid}/player?token=${token}&&paged=1&per_page=50`).then((resp) => {
+            // console.log(data);
+            //   console.log(resp.data)
+            res.json({ msg: resp.data })
         })
 
     } catch (error) {
@@ -220,4 +258,4 @@ const Ranking = async (req, res) => {
 
 
 
-module.exports = { TeamData, HomeApi, CompeteInfo, PlayerData, Ranking, TeamSerach, PlayerSerach, PlayerInformation, PerivousData, HomePopular, CompationsList }
+module.exports = { TeamData, HomeApi, CompeteInfo, PlayerData, Ranking, TeamSerach, Teaminfo, PlayerSerach, PlayerInformation, PerivousData, HomePopular, CompationsList }

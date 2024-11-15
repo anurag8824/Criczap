@@ -2,6 +2,9 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 const OverView = ({data}) => {
+  const formatUrl = (text) => {
+    return text.replace(/\s+/g, '-').toLowerCase(); // Replace spaces with dashes
+};
   return (
     <div><div class="relative  overflow-x-auto ">
       <table class=" text-sm w-full text-left rtl:text-right text-white ">
@@ -32,7 +35,7 @@ const OverView = ({data}) => {
 
                 <td class="list-none py-2.5 text-blue-950">
                   <li class="px-6 py-1  grid">
-                    <Link to={`/match-detail/${item.match_id}/commentary`} className='font-medium text-base hover:underline'>
+                    <Link to={`/match-detail/${item.match_id}/${formatUrl(`${item.short_title}-${item.competition.title}`)}/commentary`} className='font-medium text-base hover:underline'>
                       {item.competition?.title}, {item?.subtitle} </Link>
                     <span className=''>    {item.date_start_ist}</span>
 
@@ -41,7 +44,7 @@ const OverView = ({data}) => {
 
 
                   <li class="px-6 py-1  grid">
-                    <Link to={`/match-detail/${item.match_id}/commentary`} className=' md:w-full w-72 items-center grid grid-rows-2 gap-y-2 px-3 py-2 justify-start bg-gray-200'>
+                    <Link to={`/match-detail/${item.match_id}/${formatUrl(`${item.short_title}-${item.competition.title}`)}/commentary`} className=' md:w-full w-72 items-center grid grid-rows-2 gap-y-2 px-3 py-2 justify-start bg-gray-200'>
 
 
                       <div class="flex items-center md:justify-between   gap-4 pb-3 pt-3 last:pb-0">

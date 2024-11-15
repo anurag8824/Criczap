@@ -74,6 +74,10 @@ const CricketSeries = () => {
         setDataFromChild(data);  // Update state with the data received from child
     };
 
+    const formatUrl = (text) => {
+        return text.replace(/\s+/g, '-').toLowerCase(); // Replace spaces with dashes
+    };
+
 
 
 
@@ -155,7 +159,7 @@ const CricketSeries = () => {
                                                                 </th>
                                                                 <td className="list-none w-full py-2.5 text-black">
                                                                     <li className="md:pl-6 md:pr-2 py-2 px-1 grid">
-                                                                        <Link to={`${item.cid}/overview`} className="text-sm font-medium hover:underline">{item.title}</Link>
+                                                                        <Link to={`${item.cid}/${formatUrl(item.title)}/overview`} className="text-sm font-medium hover:underline">{item.title}</Link>
                                                                         <span className="text-gray-500">{item.datestart + " to " + item.dateend}</span>
                                                                     </li>
                                                                 </td>
@@ -171,7 +175,7 @@ const CricketSeries = () => {
                                                                 </th>
                                                                 <td className="list-none w-full py-2.5 text-black">
                                                                     <li className="md:pl-6 md:pr-2 py-2 px-1 grid">
-                                                                        <Link to={`${item.cid}/overview`} className="text-sm font-medium hover:underline">{item.title}</Link>
+                                                                        <Link to={`${item.cid}/${(formatUrl(item.title))}/overview`} className="text-sm font-medium hover:underline">{item.title}</Link>
                                                                         <span className="text-gray-500">{item.datestart + " to " + item.dateend}</span>
                                                                     </li>
                                                                 </td>
@@ -186,7 +190,7 @@ const CricketSeries = () => {
                                                             </th>
                                                             <td className="list-none w-full py-2.5 text-black">
                                                                 <li className="md:pl-6 md:pr-2 py-2 px-1 grid">
-                                                                    <Link to={`${item.cid}/overview`} className="text-sm font-medium hover:underline">{item.title}</Link>
+                                                                    <Link to={`${item.cid}/${(formatUrl(item.title))}/overview`} className="text-sm font-medium hover:underline">{item.title}</Link>
                                                                     <span className="text-gray-500">{item.datestart + " to " + item.dateend}</span>
                                                                 </li>
                                                             </td>
@@ -243,7 +247,7 @@ const CricketSeries = () => {
                                                             </th>
                                                             <td className="list-none w-full py-2.5 text-black">
                                                                 <li className="md:pl-6 md:pr-2 py-2 px-1 grid">
-                                                                    <Link to={`${item.cid}/overview`} className="text-sm font-medium hover:underline">{item.title}</Link>
+                                                                    <Link to={`${item.cid}/${formatUrl(item.title)}/overview`} className="text-sm font-medium hover:underline">{item.title}</Link>
                                                                     <span className="text-gray-500">{item.datestart + " to " + item.dateend}</span>
                                                                 </li>
                                                             </td>

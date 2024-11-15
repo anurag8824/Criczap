@@ -2,6 +2,10 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 const HomeScrollCard = ({ data }) => {
+    const formatUrl = (text) => {
+        return text.replace(/\s+/g, '-').toLowerCase(); // Replace spaces with dashes
+    };
+
     return (
         <div className='md:flex md:space-x-4'>
 
@@ -13,13 +17,13 @@ const HomeScrollCard = ({ data }) => {
 
                     <div key={index} class="relative flex-shrink-0 flex  md:w-96 flex-col text-blue-950   bg-clip-border">
                         <Link
-                            to={`cricket-series/${item.competition.cid}/overview`}
+                            to={`cricket-series/${item.competition.cid}/${formatUrl(item.competition.title)}/overview`}
                             class="block px-2 text-sm font-medium  py-2 truncate text-left  transition-all hover:underline"
                         >
                             {item.competition.title}
                         </Link>
 
-                        <a href={`match-detail/${item.match_id}/commentary`}>
+                        <a href={`match-detail/${item.match_id}/${formatUrl(`${item.short_title}-${item.competition.title}`)}/commentary`}>
                             <div class="px-4 py-2 pb-1 mb-2 bg-white  items-center  h-56 grid shadow-sm rounded-xl">
                                 <p class="block text-red-600 mb-1 text-sm font-bold antialiased">
                                     {item.
@@ -77,10 +81,10 @@ const HomeScrollCard = ({ data }) => {
 
                                     <div class="flex items-center justify-between pb-1 pt-3 last:pb-0">
                                         <div class="flex  items-center gap-x-3">
-                                            <Link to={`cricket-series/${item.competition.cid}/overview`} class="block font-sans text-sm font-medium leading-relaxed tracking-normal  antialiased hover:underline">
+                                            <Link to={`cricket-series/${item.competition.cid}/${formatUrl(item.competition.title)}/overview`} class="block font-sans text-sm font-medium leading-relaxed tracking-normal  antialiased hover:underline">
                                                 Series
                                             </Link>
-                                            <Link to={`cricket-series/${item.competition.cid}/overview`} class="block font-sans text-sm font-medium leading-relaxed tracking-normal antialiased hover:underline">
+                                            <Link to={`cricket-series/${item.competition.cid}/${formatUrl(item.competition.title)}/overview`} class="block font-sans text-sm font-medium leading-relaxed tracking-normal antialiased hover:underline">
                                                 Schedule
                                             </Link>
                                             <Link to='cricket-news' class="block font-sans text-sm font-medium leading-relaxed tracking-normal antialiased hover:underline">
@@ -101,10 +105,10 @@ const HomeScrollCard = ({ data }) => {
                             <p className="block mt-1 px-2 text-xs font-medium mb-2 text-left text-green-500 transition-all">
                                 {item.status_note}
                             </p>
-                        ) : item.status_str === "Live" ?  (
+                        ) : item.status_str === "Live" ? (
                             <p className="block mt-1 px-2 text-xs font-medium mb-2 text-left text-red-500 transition-all">
-                            {item.status_note}
-                        </p>
+                                {item.status_note}
+                            </p>
                         ) : ""}
 
 
