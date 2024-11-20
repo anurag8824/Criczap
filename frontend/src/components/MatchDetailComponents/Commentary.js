@@ -143,18 +143,17 @@ const Commentary = ({ data, balldata }) => {
 
 
 
-              {data?.response?.match_info?.status_str === "Live" ? <> 
+              {data?.response?.match_info?.status_str === "Live" ? <>
 
                 {
                   data?.response.live?.live_inning?.batting_team_id === data?.response.match_info.teama.team_id ?
 
-                    <div className="flex items-center md:justify-between  gap-4 pb-4 last:pb-0">
+                    <><div className="flex items-center md:justify-between  gap-4 pb-4 last:pb-0">
                       <div className="flex items-center gap-x-5">
                         <img
                           src={data?.response.match_info.teama.logo_url}
                           alt="Tania Andrew"
-                          className="relative inline-block h-10 w-10 border rounded-full object-cover object-center"
-                        />
+                          className="relative inline-block h-10 w-10 border rounded-full object-cover object-center" />
                         <p className="block font-sans text-base font-semibold leading-relaxed tracking-normal  antialiased">
                           {data?.response.match_info.teama.short_name}
                         </p>
@@ -164,16 +163,17 @@ const Commentary = ({ data, balldata }) => {
                         {data?.response.match_info.teama.scores_full}
 
                       </p>
-                    </div>
+
+
+                    </div><div className='h-4 space-y-2'></div></>
 
                     :
-                    <div className="flex items-center md:justify-between  gap-4  pt-4 last:pb-0">
+                    <><div className="flex items-center md:justify-between  gap-4  pt-4 last:pb-0">
                       <div className="flex items-center gap-x-5">
                         <img
                           src={data?.response.match_info.teamb.logo_url}
                           alt="John Micheal"
-                          className="relative inline-block h-10 w-10 border rounded-full object-cover object-center"
-                        />
+                          className="relative inline-block h-10 w-10 border rounded-full object-cover object-center" />
                         <p className="block font-sans text-base font-semibold leading-relaxed tracking-normal text-blue-gray-900 antialiased">
                           {data?.response.match_info.teamb.short_name}
                         </p>
@@ -184,7 +184,9 @@ const Commentary = ({ data, balldata }) => {
 
 
                       </p>
-                    </div>
+
+                    </div><div className='h-4 space-y-2'></div></>
+
 
                 }
 
@@ -208,6 +210,8 @@ const Commentary = ({ data, balldata }) => {
 
                       </p>
                     </div>
+
+
 
                     :
                     <div className="flex items-center md:justify-between  gap-4  pt-4 last:pb-0">
@@ -252,6 +256,8 @@ const Commentary = ({ data, balldata }) => {
                     </p>
                   </div>
 
+                  <div className='h-2 space-y-2'></div>
+
 
                   <div className="flex items-center md:justify-between  gap-4  pt-4 last:pb-0">
                     <div className="flex items-center gap-x-5">
@@ -287,9 +293,7 @@ const Commentary = ({ data, balldata }) => {
                 </div>
 
 
-                {balldata?.response.ball_event === "Ball Chalu" ? (
-                  <Player className='md:h-28 h-14' autoplay loop src="/throw-ball.json" />
-                ) : balldata?.response.ball_event === "four" ? (
+                {balldata?.response.ball_event === "four" ? (
                   "4"
                 ) : balldata?.response.ball_event === "six" ? (
                   "6"
@@ -346,7 +350,7 @@ const Commentary = ({ data, balldata }) => {
 
 
                   <div className=' flex items-center text-sm font-medium px-2 '>
-                    <p>Over</p>-<p>{(item.over) + 1}</p>
+                    <p>Over</p>-<p>{(item.over)+1}</p>
                   </div>
                 </div>
 
@@ -534,6 +538,9 @@ const Commentary = ({ data, balldata }) => {
                           </div>
 
                         }
+
+
+
 
 
                         {/* {data?.response.teamwinpercentage.team_a_win > data?.response.teamwinpercentage.team_b_win ? */}

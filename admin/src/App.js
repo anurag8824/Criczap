@@ -2,11 +2,12 @@ import './App.css';
 import HomePage from './pages/HomePage';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Layout from './pages/Layout';
-import CricketNews from './pages/CricketNews';
-import CricketVideos from './pages/CricketVideos';
-import LatestPolls from './pages/LatestPolls';
 import Dashboard from './pages/Dashboard';
 import TextEditor from './pages/TextEditor';
+import Newspost from './pages/Newspost';
+import Videos from './pages/Videos';
+import AddVideo from './pages/AddVideo';
+import SEO from './pages/SEO';
 
 
 
@@ -22,12 +23,20 @@ function App() {
             <Route index element={<HomePage />} />
             <Route path="dashboard" element={<Dashboard />} />
             <Route path="add-post" element={<TextEditor />} />
+            <Route path="news" element={<Newspost />} />
+            <Route path="videos" element={<Videos />} />
+            <Route path="add-video" element={<AddVideo />} />
+            {/* <Route path="seo" element={<SEO />} /> */}
+
+
+
 
 
             
-            <Route path="cricket-news" element={<CricketNews />} />
-            <Route path="cricket-videos" element={<CricketVideos />} />
-            <Route path="polls" element={<LatestPolls />} />
+
+
+            
+          
 
             {/* <Route path="*" element={<NoPage />} /> */}
           </Route>

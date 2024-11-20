@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom';
 
 const Scorecard = ({ data }) => {
   const [dropdownState, setDropdownState] = useState({
-    dropdown1: false,
-    dropdown2: false,
-    dropdown3: false,
+    dropdown1: true,
+    dropdown2: true,
+    dropdown3: true,
     dropdown4: false,
     dropdown5: false,
   });

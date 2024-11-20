@@ -16,7 +16,7 @@ const Header = () => {
 
   return (
     <div><header>
-      <nav class="bg-pin-500 bg-blue-950 border-gray-200 px-4 lg:px-6  dark:bg-gray-800">
+      <nav class="bg-pin-500 bg-blue-950  px-4 lg:px-6  dark:bg-gray-800">
         <div class="flex flex-wrap md:justify-between justify-between items-center mx-auto max-w-screen-xl">
 
 

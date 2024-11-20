@@ -1,34 +1,38 @@
 const axios = require("axios");
 const token = "91e89bd6c7b1f611304ba0f6faf45fd3"
 
- // Get today's date
- const today = new Date();
-
- // Calculate 1 day before and 1 day after
- const oneDayBefore = new Date(today);
- oneDayBefore.setDate(today.getDate() - 1);
-
- const oneDayAfter = new Date(today);
- oneDayAfter.setDate(today.getDate() + 1);
-
- // Format dates as YYYY-MM-DD
- const formatDate = (date) => {
-     const year = date.getFullYear();
-     const month = String(date.getMonth() + 1).padStart(2, '0');
-     const day = String(date.getDate()).padStart(2, '0');
-     return `${year}-${month}-${day}`;
- };
-
- const formattedStartDate = formatDate(oneDayBefore);
- const formattedEndDate = formatDate(oneDayAfter);
-
 
 const HomeApi = async (req, res) => {
 
     try {
-        
 
-        axios.get(`https://rest.entitysport.com/exchange/matches/?token=${token}&date=${formattedStartDate}_${formattedEndDate}&timezone=+5:30&&paged=1&per_page=100`).then((resp) => {
+        // Get today's date
+        const today = new Date();
+
+        // Calculate 1 day before and 1 day after
+        const oneDayBefore = new Date(today);
+        oneDayBefore.setDate(today.getDate() - 1);
+
+        const oneDayAfter = new Date(today);
+        oneDayAfter.setDate(today.getDate() + 1);
+
+        // Format dates as YYYY-MM-DD
+        const formatDate = (date) => {
+            const year = date.getFullYear();
+            const month = String(date.getMonth() + 1).padStart(2, '0');
+            const day = String(date.getDate()).padStart(2, '0');
+            return `${year}-${month}-${day}`;
+        };
+
+        const formattedStartDate = formatDate(oneDayBefore);
+        console.log(formattedStartDate, "start date")
+        const formattedEndDate = formatDate(oneDayAfter);
+        console.log(formattedEndDate, "end date")
+
+
+
+
+        axios.get(`https://rest.entitysport.com/exchange/matches/?token=${token}&date=${formattedStartDate}_${formattedEndDate}&timezone=+5:30&&per_page=100`).then((resp) => {
             res.json(resp.data)
         })
     } catch (error) {
@@ -41,7 +45,7 @@ const HomePopular = async (req, res) => {
 
 
     try {
-        axios.get(`https://rest.entitysport.com/exchange/matches/?token=${token}&date=${formattedStartDate}_${formattedEndDate}&timezone=+5:30&&paged=1&per_page=100`).then((resp) => {
+        axios.get(`https://rest.entitysport.com/exchange/matches/?token=${token}&date=20-11-2024-25-11-2024&timezone=+5:30&&paged=1&per_page=100`).then((resp) => {
 
             console.log(resp.data, "pop")
             res.json(resp.data)

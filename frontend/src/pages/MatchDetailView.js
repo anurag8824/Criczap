@@ -60,31 +60,8 @@ const MatchDetailView = () => {
             console.log("Connected to the Socket.IO server");
         });
 
-        // ws.onmessage = (event) => {
-
-
-        //     const data = JSON.parse(event.data)
-        //     // console.log('Message received:', data);
-
-        //     if (data.response.match_id == matchId) {
-        //         console.log(data, "data");
-
-        //         console.log(data.response?.ball_event, "hhhhhhhhh")
-
-        //         if (data.response?.ball_event
-        //         ) {
-        //             setBallevent(data);
-
-        //             console.log(ballevent, "jhhh");
-        //         } else {
-        //             setLivedata(data);
-        //         }
-        //     }
-        // };
-
+      
         socket.on("scoreUpdate", (data) => {
-            // console.log("Received score update:", data);
-            // Process and display score data on frontend as needed
 
             if (data.response.match_id == matchId) {
                 console.log(data, "data");
@@ -102,10 +79,6 @@ const MatchDetailView = () => {
             }
         });
 
-
-        // ws.onerror = (err) => {
-        //     console.log('Error in connection to socket:', err);
-        // };
 
         return () => {
             socket.disconnect();
@@ -153,7 +126,6 @@ const MatchDetailView = () => {
 
 
 
-                {/* <input className=' bg-white rounded-full pr-6 pl-3 py-3 text-sm' placeholder='Search...' /> */}
             </div>
 
             <div className='flex gap-x-8 w-full'>
@@ -162,9 +134,7 @@ const MatchDetailView = () => {
 
                     <div className="w-full max-w-4xl mx-auto mt-8">
 
-                        {/* Tab Buttons */}
                         <div className="relative overflow-x-scroll scrollbar-hide gap-2 flex-shrink-0 flex px-3">
-                            {/* Render each tab button */}
                             {tabs.map((tab, index) => (
                                 <button
                                     key={tab}

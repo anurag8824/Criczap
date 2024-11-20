@@ -8,8 +8,10 @@ const Layout = () => {
     return (
         <>
             <Header />
+            <main className="p-4 sm:ml-64">
+                <Outlet />
+            </main>
 
-            <Outlet />
 
 
 
