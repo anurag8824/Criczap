@@ -32,7 +32,7 @@ const WAllRounder = ({mdata}) => {
 
 
         <div className='border rounded-md md:w-1/3 mt-4'>
-          <p className='px-2 py-2 font-medium text-lg text-blue-950'>Odi All-Rounder Ranking</p>
+          <p className='px-2 py-2 font-medium text-lg text-blue-950'>ODI All-Rounder Ranking</p>
 
           {/* Table */}
           <div className="relative overflow-x-auto scrollbar-hide">

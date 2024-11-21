@@ -85,7 +85,7 @@ const Bowlers = ({mdata}) => {
 
 
         <div className='border rounded-md md:w-1/3 mt-4'>
-          <p className='px-2 py-2 font-medium text-lg text-blue-950'>Odi Bowling Ranking</p>
+          <p className='px-2 py-2 font-medium text-lg text-blue-950'>ODI Bowling Ranking</p>
 
           {/* Table */}
           <div className="relative overflow-x-auto scrollbar-hide">
