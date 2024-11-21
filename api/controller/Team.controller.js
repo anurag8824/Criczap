@@ -135,6 +135,21 @@ const TeamInfo =async (req,res ) => {
     }
 }
 
+const TeamPlayers =async (req,res ) => {
+    try {
+       const tid = req.body.tid;
+       axios.get(`https://rest.entitysport.com/exchange/teams/${tid}/player?token=${token}&&paged=3&per_page=50`).then((resp) => {
+           // console.log(data);
+           //   console.log(resp.data)
+           res.json({ msg: resp.data })
+       })
+
+   } catch (error) {
+       console.log(error);
+       res.json({ msg: "Internal Server Error !" })
+   }
+}
+
 const PlayerData = async (req, res) => {
     try {
         axios.get(`https://rest.entitysport.com/exchange/players?token=${token}&&paged=1&per_page=50`).then((
@@ -319,4 +334,4 @@ const Ranking = async (req, res) => {
 
 
 
-module.exports = { TeamData, HomeApi, CompeteInfo, PlayerData, Ranking, TeamSerach, TeamInfo, TeamMatches, PlayerSerach, PlayerInformation, PerivousData, HomePopular, CompationsList }
+module.exports = { TeamData, TeamPlayers, HomeApi, CompeteInfo, PlayerData, Ranking, TeamSerach, TeamInfo, TeamMatches, PlayerSerach, PlayerInformation, PerivousData, HomePopular, CompationsList }

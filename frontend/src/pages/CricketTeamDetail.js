@@ -19,6 +19,7 @@ const CricketTeamDetail = () => {
 
     const [nextM, setNextM] = useState([])
 
+    const [pdata , setPdata] = useState([])
 
     const navigate = useNavigate();
 
@@ -70,6 +71,21 @@ const CricketTeamDetail = () => {
                 .then((res) => {
                     console.log(res, "team info")
                     setName(res.data)
+
+                })
+        } catch (error) {
+
+        }
+
+
+    }, [])
+
+    useEffect(() => {
+        try {
+            axios.post(`${backUrl}/api/v1/teamplayers`, { tid })
+                .then((res) => {
+                    console.log(res, "team players")
+                    setPdata(res.data.msg.response.items.players)
 
                 })
         } catch (error) {
@@ -173,7 +189,7 @@ const CricketTeamDetail = () => {
 
                             {activeTab === "players" && (
                                 <div className="transition-opacity duration-500 ease-in-out opacity-100">
-                                    <Players />
+                                    <Players data={pdata} />
                                 </div>
                             )}
 

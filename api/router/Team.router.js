@@ -17,6 +17,8 @@ router.get("/homedata", TeamData.HomeApi)
 router.get("/popular", TeamData.HomePopular)
 router.post("/teaminfo", TeamData.TeamMatches)
 router.post("/teamname", TeamData.TeamInfo)
+router.post("/teamplayers", TeamData.TeamPlayers)
+
 
 
 
