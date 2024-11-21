@@ -9,8 +9,8 @@ const CricketSeries = () => {
     const [activeTab, setActiveTab] = useState("current");
     const backUrl = process.env.REACT_APP_BACK_URL
     const [rdata, setRdata] = useState([])
-    const [live, setLive] = useState([])
-    const [next, setNext] = useState([])
+    // const [live, setLive] = useState([])
+    // const [next, setNext] = useState([])
     // const [international,setIn]
 
 
@@ -31,10 +31,10 @@ const CricketSeries = () => {
             console.log(res, "seresis list");
 
             const comingseries = res.data.fixtureMatches;
-            setNext(comingseries)
+            // setNext(comingseries)
 
             const liveseries = res.data.liveMatches;
-            setLive(liveseries);
+            // setLive(liveseries);
 
             const result = res.data.resultMatches;
             setRdata(result)

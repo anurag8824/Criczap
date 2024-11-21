@@ -13,6 +13,13 @@ import axios from 'axios'
 const CricketTeamDetail = () => {
 
     const [activeTab, setActiveTab] = useState("home");
+    const [name, setName] = useState([])
+    const [resultM, setResultM] = useState([])
+    const [liveM, setLiveM] = useState([])
+
+    const [nextM, setNextM] = useState([])
+
+
     const navigate = useNavigate();
 
     // const scrollRef = useRef(null)
@@ -32,10 +39,42 @@ const CricketTeamDetail = () => {
     const backUrl = process.env.REACT_APP_BACK_URL
 
     useEffect(() => {
-        axios.post(`${backUrl}/api/v1/teaminfo`, { tid })
-        .then((res) => {
-            console.log(res, "team info")
-        })
+        try {
+            axios.post(`${backUrl}/api/v1/teaminfo`, { tid })
+                .then((res) => {
+                    console.log(res, "team matches")
+                    const livedata = res.data.livMatches;
+                    setLiveM(livedata)
+
+                    const restdata = res.data.resultMatches;
+                    setResultM(restdata)
+
+                    const nextdata = res.data.upMatches.reverse();
+                    setNextM(nextdata)
+
+
+
+
+
+                })
+        } catch (error) {
+
+        }
+
+
+    }, [])
+
+    useEffect(() => {
+        try {
+            axios.post(`${backUrl}/api/v1/teamname`, { tid })
+                .then((res) => {
+                    console.log(res, "team info")
+                    setName(res.data)
+
+                })
+        } catch (error) {
+
+        }
 
 
     }, [])
@@ -45,7 +84,7 @@ const CricketTeamDetail = () => {
         <div className='md:mx-20 mx-4 '>
 
             <div className='flex px-1  py-10 justify-between'>
-                <p className='text-2xl  font-medium'>India Cricket Team </p>
+                <p className='text-2xl  font-medium'>{name.msg?.response.title}</p>
                 {/* <input className=' bg-white rounded-full pr-6 pl-3 py-3 text-sm' placeholder='Search...' /> */}
             </div>
 
@@ -108,14 +147,14 @@ const CricketTeamDetail = () => {
 
                             {activeTab === "recent" && (
                                 <div className="transition-opacity duration-500 ease-in-out opacity-100">
-                                    <Recent />
+                                    <Recent data={[...liveM, ...resultM]} />
                                 </div>
                             )}
 
 
                             {activeTab === "upcoming" && (
                                 <div className="transition-opacity duration-500 ease-in-out opacity-100">
-                                    <Upcoming />
+                                    <Upcoming data={nextM} />
                                 </div>
                             )}
 

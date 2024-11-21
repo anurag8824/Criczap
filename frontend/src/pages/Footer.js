@@ -4,6 +4,9 @@ import { LuHome } from "react-icons/lu";
 import { SlCalender } from "react-icons/sl";
 import { LiaTrophySolid } from "react-icons/lia";
 import { BiSolidVideos } from "react-icons/bi";
+import { FaThList } from "react-icons/fa";
+import { PiRankingBold } from "react-icons/pi";
+
 
 
 
@@ -157,7 +160,8 @@ const Footer = () => {
                     </Link>
 
                     <Link to="cricket-rankings" className='justify-center items-center flex flex-col  text-center'>
-                        <BiSolidVideos className='w-6 h-6' />
+                        <PiRankingBold 
+                        className='w-6 h-6' />
                         <p>Ranking</p>
 
                     </Link>

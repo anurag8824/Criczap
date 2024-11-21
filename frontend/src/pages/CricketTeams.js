@@ -25,7 +25,7 @@ const CricketTeams = () => {
                 console.log(err, "teamss");
             })
 
-      
+
 
 
 
@@ -73,9 +73,10 @@ const CricketTeams = () => {
 
 
     }, [])
+
     const handleSearch = () => {
 
-        axios.post(`${backUrl}/api/v1/searchteam`, {search})
+        axios.post(`${backUrl}/api/v1/searchteam`, { search })
             .then((res) => {
                 console.log(res, "send serach");
                 setData(res.data.msg.items)
@@ -84,11 +85,64 @@ const CricketTeams = () => {
 
     }
 
+    const Topteam = [
+        {
+
+            title: "India",
+            logo_url: "/ind.png",
+            tid: "25"
+        },
+
+        {
+            title: "Australia",
+            logo_url: "/aus.png",
+            tid: "5"
+        }, {
+            title: "England",
+            logo_url: "/eng.png",
+            tid: "490"
+        }, {
+            title: "Afganistan",
+            logo_url: "/afg.png",
+            tid: "498"
+        }, {
+            title: "Pakistan",
+            logo_url: "/pak.png",
+            tid: "13"
+        }, {
+            title: "South Africa",
+            logo_url: "/rsa.png",
+            tid: "19"
+        },
+
+        {
+            title: "Bangladesh",
+            logo_url: "/ban.png",
+            tid: "23"
+        },
+
+        {
+            title: "Sri Lanka",
+            logo_url: "/sl.png",
+            tid: "21"
+        },
+
+        {
+            title: "West Indies",
+            logo_url: "/wi.png",
+            tid: "17"
+        }
+
+
+
+    ]
+
+
     return (
         <div className='md:mx-20 mx-4 h-full'>
 
             <div className='flex px-1  py-10 justify-between'>
-                <p className='text-2xl  font-medium'>CricketTeams</p>
+                <p className='text-2xl  font-medium'>Cricket Teams</p>
                 <input
 
                     onKeyDown={(e) => {
@@ -107,6 +161,30 @@ const CricketTeams = () => {
                 <div className='border mb-4 bg-white rounded-xl md:w-3/4 w-full h-full'>
 
                     <div className='grid gap-y-2.5 grid-flow-row p-8'>
+
+
+
+                        {Topteam.map((item, index) => (
+                            item ? (
+
+
+                                <div key={index} class="flex gap-4 border-b pb-2.5 items-center">
+                                    <img
+                                        src={item.logo_url}
+                                        alt="Tania Andrew"
+                                        class="relative border inline-block h-14 w-14 rounded-full object-cover object-center"
+                                    />
+
+                                    <Link to={`/cricket-team-detail/${item.tid}/home`} class="block hover:underline font-sans text-base font-normal leading-relaxed tracking-normal text-blue-gray-900 antialiased">
+                                        {item.title}
+                                    </Link>
+                                </div>
+
+
+                            ) : null
+                        ))}
+
+
 
                         {data.map((item, index) => (
                             item ? (

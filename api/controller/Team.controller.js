@@ -72,10 +72,58 @@ const TeamData = async (req, res) => {
 }
 
 
-const Teaminfo = async (req, res) => {
+const TeamMatches = async (req, res) => {
+   
+
     try {
         const tid = req.body.tid;
-        axios.get(`https://rest.entitysport.com/exchange/teams/${tid}/player?token=${token}&&paged=1&per_page=50`).then((resp) => {
+
+        console.log("API hit");
+        // const token = 'your_token_here'; // Make sure to define or pass the token
+
+        // Initial API call to get the total number of pages
+        const initialResponse = await axios.get(`https://rest.entitysport.com/exchange/teams/${tid}/matches?&token=${token}&per_page=50&paged=1`);
+        const totalPages = initialResponse.data.response.total_pages;
+        let allcomp = initialResponse.data.response.items;
+        // console.log(allcomp)
+
+        // Create an array of promises for subsequent pages
+        const promises = [];
+        for (let i = 2; i <= totalPages; i++) {
+            promises.push(axios.get(`https://rest.entitysport.com/exchange/teams/${tid}/matches?&token=${token}&per_page=50&paged=${i}`));
+        }
+
+        // Wait for all promises to resolve
+        const responses = await Promise.all(promises);
+        responses.forEach(response => {
+            allcomp = allcomp.concat(response.data.response.items);
+        });
+
+        // Send the final result
+        const livMatches = allcomp.filter(match => match.status_str === 'Live');
+        const upMatches = allcomp.filter(match => match.status_str === 'Scheduled');
+        const fourMonthsAgo = new Date();
+        fourMonthsAgo.setMonth(fourMonthsAgo.getMonth() - 4);
+
+        const resultMatches = allcomp.filter(match => {
+            const matchDate = new Date(match.date_start); // Parse the date string
+            return match.status_str === 'Completed' && matchDate >= fourMonthsAgo;
+        });
+
+        res.json({ msg: "hello world", livMatches, upMatches, resultMatches });
+        // res.json({ msg: "hello world", allcomp});
+
+    } catch (error) {
+        console.error(error);
+        res.json({ msg: "Internal server error" });
+    }
+
+}
+
+const TeamInfo =async (req,res ) => {
+     try {
+        const tid = req.body.tid;
+        axios.get(`https://rest.entitysport.com/exchange/teams/${tid}?token=${token}&&paged=3&per_page=50`).then((resp) => {
             // console.log(data);
             //   console.log(resp.data)
             res.json({ msg: resp.data })
@@ -85,7 +133,6 @@ const Teaminfo = async (req, res) => {
         console.log(error);
         res.json({ msg: "Internal Server Error !" })
     }
-
 }
 
 const PlayerData = async (req, res) => {
@@ -205,9 +252,12 @@ const CompeteInfo = async (req, res) => {
     }
 }
 
-
+let CacheLiveMatch =[]
+let CacheFixtureMatch =[]
+let CacheResultMatch =[]
 const CompationsList = async (req, res) => {
     try {
+        if((CacheFixtureMatch.length == 0 && CacheLiveMatch.length==0 ) && CacheResultMatch.length==0){
         console.log("API hit");
         // const token = 'your_token_here'; // Make sure to define or pass the token
 
@@ -238,9 +288,16 @@ const CompationsList = async (req, res) => {
             const matchDate = new Date(match.datestart); // Parse the date string
             return match.status === 'result' && matchDate >= fourMonthsAgo;
         });
-
+        CacheLiveMatch = liveMatches;
+        CacheFixtureMatch = fixtureMatches;
+        CacheResultMatch = resultMatches
         res.json({ msg: "hello world", liveMatches, fixtureMatches, resultMatches });
-        // res.json({ msg: "hello world", allcomp});
+        // res.json({ msg: "hello world", allcomp});}
+    }
+    else{
+        res.json({ msg: "hello world", liveMatches:CacheLiveMatch, fixtureMatches :CacheFixtureMatch, resultMatches:CacheResultMatch });
+  
+    }
 
     } catch (error) {
         console.error(error);
@@ -262,4 +319,4 @@ const Ranking = async (req, res) => {
 
 
 
-module.exports = { TeamData, HomeApi, CompeteInfo, PlayerData, Ranking, TeamSerach, Teaminfo, PlayerSerach, PlayerInformation, PerivousData, HomePopular, CompationsList }
+module.exports = { TeamData, HomeApi, CompeteInfo, PlayerData, Ranking, TeamSerach, TeamInfo, TeamMatches, PlayerSerach, PlayerInformation, PerivousData, HomePopular, CompationsList }

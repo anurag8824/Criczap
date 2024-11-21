@@ -15,7 +15,9 @@ router.get("/ranking", TeamData.Ranking)
 router.post("/compinfo", TeamData.CompeteInfo)
 router.get("/homedata", TeamData.HomeApi)
 router.get("/popular", TeamData.HomePopular)
-router.post("/teaminfo", TeamData.Teaminfo)
+router.post("/teaminfo", TeamData.TeamMatches)
+router.post("/teamname", TeamData.TeamInfo)
+
 
 
 
