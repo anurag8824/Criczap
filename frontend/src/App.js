@@ -33,7 +33,7 @@ function App() {
             <Route index element={<HomePage />} />
             <Route path="cricket-teams" element={<CricketTeams />} />
             <Route path="cricket-players" element={<CricketPlayers />} />
-            <Route path="cricket-player-detail/:id" element={<CricketPlayerDetail />} />
+            <Route path="cricket-player-detail/:id/:xyc" element={<CricketPlayerDetail />} />
             <Route path="cricket-news" element={<CricketNews />} />
             <Route path="cricket-videos" element={<CricketVideos />} />
             <Route path="polls" element={<LatestPolls />} />

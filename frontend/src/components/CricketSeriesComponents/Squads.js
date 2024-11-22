@@ -6,9 +6,7 @@ const Squads = () => {
 
   const [modal, setModal] = useState(true);
 
-  // Example player data for India and New Zealand teams
-  const indiaPlayers = ["Virat Kohli", "Rohit Sharma", "Jasprit Bumrah"];
-  const newZealandPlayers = ["Kane Williamson", "Trent Boult", "Ross Taylor"];
+ 
 
   const handleTeamClick = (team) => {
     setActiveTeam(team === activeTeam ? null : team); // Toggle active team
@@ -19,7 +17,8 @@ const Squads = () => {
   }
 
   return (
-    <div className="md:flex justify-between  gap-4 max-w-4xl mx-auto p-3">
+
+    <div className="md:flex  justify-between  gap-4 max-w-4xl mx-auto p-3">
       {/* Accordion Section */}
       <div className="w-1/2  rounded-lg">
         <div className="mb-4">

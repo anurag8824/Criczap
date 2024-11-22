@@ -123,7 +123,9 @@ const Commentary = ({ data, balldata }) => {
 
 
 
-
+  const formatUrl = (text) => {
+    return text.replace(/\s+/g, '-').toLowerCase(); // Replace spaces with dashes
+  };
 
   return (
 
@@ -350,7 +352,7 @@ const Commentary = ({ data, balldata }) => {
 
 
                   <div className=' flex items-center text-sm font-medium px-2 '>
-                    <p>Over</p>-<p>{(item.over)+1}</p>
+                    <p>Over</p>-<p>{(item.over) + 1}</p>
                   </div>
                 </div>
 
@@ -458,21 +460,19 @@ const Commentary = ({ data, balldata }) => {
 
                   </div>)
 
+                  :
 
-
-                  : view === "odds" ?
-
-                    (<div>
-
+                  <div>
 
 
 
+                    {data.response.match_info.format_str === "Test" ?
 
-                      <div className=' pt-1  text-xs items-center '>
+                      <>
 
-                        {data?.response.teamwinpercentage.team_a_win > data?.response.teamwinpercentage.team_b_win ?
+                        <div className=' pt-1 space-y-1  text-xs items-center '>
 
-                          <div className='flex pb-1 items-center justify-between'>
+                          <div className='flex  items-center justify-between'>
 
                             <p>{data?.response.match_info.teama.short_name} </p>
 
@@ -501,13 +501,10 @@ const Commentary = ({ data, balldata }) => {
 
                           </div>
 
-                          :
 
                           <div className='flex items-center justify-between'>
 
                             <p>{data?.response.match_info.teamb.short_name} </p>
-
-
 
                             {data?.response.live_odds.matchodds ?
 
@@ -537,68 +534,18 @@ const Commentary = ({ data, balldata }) => {
 
                           </div>
 
-                        }
+                          <div className='flex items-center justify-between'>
 
-
-
-
-
-                        {/* {data?.response.teamwinpercentage.team_a_win > data?.response.teamwinpercentage.team_b_win ? */}
-
-                        <div className='flex pb-1 items-center justify-between'>
-
-                          {/* <p>{data?.response.match_info.teama.short_name} </p> */}
-
-                          {data?.response?.featured_session ?
-                            <>
-
-                              {data?.response?.featured_session?.map((item, index) => (
-                                item ? (
-
-
-                                  <><p>{item.title.split(' ').slice(0, 2).join(' ')} </p><div className='flex gap-2'>
-
-                                    <p className='px-4 font-medium py-1 items-center flex justify-center bg-green-700 text-white border'> {Math.max(0, Math.round((parseFloat(item.lay_condition)))).toString().padStart(2, '0')}</p>
-                                    <p className='px-4 font-medium py-1 items-center flex justify-center bg-red-700 text-white border'>
-                                      {item.back_condition ? Math.max(0, Math.round((parseFloat(item.back_condition))))
-                                        .toString()
-                                        .padStart(2, '0')
-                                        : "0"}
-
-                                    </p>
-
-
-                                  </div></>
-
-
-
-                                ) : ""
-                              ))}
-
-                            </>
-                            : ""}
-
-
-
-
-                        </div>
-
-                        {/* // : */}
-
-                        {/* <div className='flex items-center justify-between'>
-
-                            <p>{data?.response.match_info.teamb.short_name} </p>
-
-
+                            <p>Draw </p>
 
                             {data?.response.live_odds.matchodds ?
 
 
 
                               <div className='flex gap-2' >
-                                {data?.response.live_odds.matchodds.teamb ?
+                                {data?.response.live_odds.matchodds.draw ?
                                   <p className='px-4 font-medium py-1 items-center flex justify-center bg-green-700 text-white border'>
-                                    {Math.max(0, Math.round((parseFloat(data?.response.live_odds.matchodds.teamb.back) * 100) - 100)).toString().padStart(2, '0')}
+                                    {Math.max(0, Math.round((parseFloat(data?.response.live_odds.matchodds.draw.back)))).toString().padStart(2, '0')}
                                   </p>
                                   : ''}
 
@@ -606,7 +553,7 @@ const Commentary = ({ data, balldata }) => {
 
                                 <p className='px-4 font-medium py-1 items-center flex justify-center bg-red-700 text-white border'>
 
-                                  {data?.response.live_odds.matchodds.teamb.lay ? Math.max(0, Math.round((parseFloat(data?.response.live_odds.matchodds.teamb.lay) * 100) - 100)).toString().padStart(2, '0') : "0"}
+                                  {data?.response.live_odds.matchodds.draw.lay ? Math.max(0, Math.round((parseFloat(data?.response.live_odds.matchodds.draw.lay)))).toString().padStart(2, '0') : "0"}
 
                                 </p>
 
@@ -617,62 +564,176 @@ const Commentary = ({ data, balldata }) => {
 
 
 
-                          </div> */}
-
-                        {/* } */}
+                          </div>
 
 
 
 
-                      </div>
+
+                          <div className='flex  items-center justify-between'>
+                            {data?.response?.featured_session ?
+                              <>
+
+                                {data?.response?.featured_session?.map((item, index) => (
+                                  item ? (
+
+
+                                    <><p>{item.title.split(' ').slice(0, 2).join(' ')} </p>
+                                      <div className='flex gap-2'>
+
+                                        <p className='px-4 font-medium py-1 items-center flex justify-center bg-green-700 text-white border'> {Math.max(0, Math.round((parseFloat(item.lay_condition)))).toString().padStart(2, '0')}</p>
+                                        <p className='px-4 font-medium py-1 items-center flex justify-center bg-red-700 text-white border'>
+                                          {item.back_condition ? Math.max(0, Math.round((parseFloat(item.back_condition))))
+                                            .toString()
+                                            .padStart(2, '0')
+                                            : "0"}
+
+                                        </p>
+
+
+                                      </div></>
 
 
 
-                    </div>) :
+                                  ) : ""
+                                ))}
+
+                              </>
+                              : ""}
+                          </div>
 
 
-                    (<div className=' pt-1  text-xs items-center '>
-                      <div className=''>
-
-                        {data?.response?.session_odds ?
-
-                          <>
-                            {data?.response?.session_odds?.map((item, index) => (
-
-                              item ? (
-
-                                <div key={index} className='flex mt-1 items-center justify-between'>
 
 
-                                  <p className='text-sm '>{item.title}</p>
-                                  <div className='flex gap-2'>
-                                    <p className='px-4 font-medium py-1 items-center flex justify-center bg-green-700 text-white border'>
-                                      <span>{Math.max(0, Math.round((parseFloat(item.lay_condition))))
-                                        .toString()
-                                        .padStart(2, '0')}</span>
-                                    </p>
-                                    <p className='px-4 font-medium py-1 items-center flex justify-center bg-red-700 text-white border'>
-                                      {item.lay_condition
-                                        ? Math.max(0, Math.round((parseFloat(item.back_condition))))
-                                          .toString()
-                                          .padStart(2, '0')
-                                        : '0'}
-                                    </p>
-                                  </div>
+                        </div>
+                      </>
+
+
+                      :
+                      <>
+
+                        <div className=' pt-1  text-xs items-center '>
+
+
+
+                          {data?.response.teamwinpercentage.team_a_win > data?.response.teamwinpercentage.team_b_win ?
+
+                            <div className='flex pb-1 items-center justify-between'>
+
+                              <p>{data?.response.match_info.teama.short_name} </p>
+
+                              {data?.response.live_odds ?
+
+
+                                <div className='flex gap-2'>
+
+                                  <p className='px-4 font-medium py-1 items-center flex justify-center bg-green-700 text-white border'> {Math.max(0, Math.round((parseFloat(data?.response.live_odds.matchodds.teama.back) * 100) - 100)).toString().padStart(2, '0')}</p>
+                                  <p className='px-4 font-medium py-1 items-center flex justify-center bg-red-700 text-white border'>
+                                    {data?.response.live_odds.matchodds.teama.lay ? Math.max(0, Math.round((parseFloat(data?.response.live_odds.matchodds.teama.lay) * 100) - 100))
+                                      .toString()
+                                      .padStart(2, '0')
+                                      : "0"}
+
+                                  </p>
 
 
                                 </div>
-                              ) : <p className='text-black'>Suspended</p>
 
-                            ))}
-                          </>
+                                : "Suspended..."}
 
 
-                          : <p className='text-black'>Suspended</p>}
 
-                      </div>
-                    </div>
-                    )
+
+
+                            </div>
+
+                            :
+
+                            <div className='flex items-center justify-between'>
+
+                              <p>{data?.response.match_info.teamb.short_name} </p>
+
+
+
+                              {data?.response.live_odds.matchodds ?
+
+
+
+                                <div className='flex gap-2' >
+                                  {data?.response.live_odds.matchodds.teamb ?
+                                    <p className='px-4 font-medium py-1 items-center flex justify-center bg-green-700 text-white border'>
+                                      {Math.max(0, Math.round((parseFloat(data?.response.live_odds.matchodds.teamb.back) * 100) - 100)).toString().padStart(2, '0')}
+                                    </p>
+                                    : ''}
+
+
+
+                                  <p className='px-4 font-medium py-1 items-center flex justify-center bg-red-700 text-white border'>
+
+                                    {data?.response.live_odds.matchodds.teamb.lay ? Math.max(0, Math.round((parseFloat(data?.response.live_odds.matchodds.teamb.lay) * 100) - 100)).toString().padStart(2, '0') : "0"}
+
+                                  </p>
+
+                                </div>
+
+                                : "Suspended..."}
+
+
+
+
+                            </div>
+
+                          }
+
+
+
+                          <div className='flex pb-1 items-center justify-between'>
+                            {data?.response?.featured_session ?
+                              <>
+
+                                {data?.response?.featured_session?.map((item, index) => (
+                                  item ? (
+
+
+                                    <><p>{item.title.split(' ').slice(0, 2).join(' ')} </p>
+                                      <div className='flex gap-2'>
+
+                                        <p className='px-4 font-medium py-1 items-center flex justify-center bg-green-700 text-white border'> {Math.max(0, Math.round((parseFloat(item.lay_condition)))).toString().padStart(2, '0')}</p>
+                                        <p className='px-4 font-medium py-1 items-center flex justify-center bg-red-700 text-white border'>
+                                          {item.back_condition ? Math.max(0, Math.round((parseFloat(item.back_condition))))
+                                            .toString()
+                                            .padStart(2, '0')
+                                            : "0"}
+
+                                        </p>
+
+
+                                      </div></>
+
+
+
+                                  ) : ""
+                                ))}
+
+                              </>
+                              : ""}
+                          </div>
+
+
+
+
+                        </div>
+
+                      </>}
+
+
+
+                  </div>
+
+
+
+
+
 
 
 
@@ -773,12 +834,14 @@ const Commentary = ({ data, balldata }) => {
                             <tr key={index} className="border-b border-gray-200 text-center align-text-top dark:border-gray-700">
                               <td scope='row' className='text-blue-600'>
                                 {index === 0 ? (
-                                  <Link to={`/cricket-player-detail/${item.batsman_id}`} className='hover:underline text-left flex gap-2 items-center justify-center'>
+                                  <Link to={`/cricket-player-detail/${item.batsman_id}/${(formatUrl(item.name))}`}
+
+                                    className='hover:underline text-left flex gap-2 items-center justify-center'>
                                     {item.name}
                                     <img className='h-3 w-3' src='/bat.png' alt='bat icon' />
                                   </Link>
                                 ) : (
-                                  <Link to={`/cricket-player-detail/${item.batsman_id}`} className='hover:underline text-left flex gap-2 items-center justify-center'>
+                                  <Link to={`/cricket-player-detail/${item.batsman_id}/${(formatUrl(item.name))}`} className='hover:underline text-left flex gap-2 items-center justify-center'>
                                     {item.name}
                                   </Link>
                                 )}
@@ -865,7 +928,7 @@ const Commentary = ({ data, balldata }) => {
 
                           {data?.response.live.bowlers[0]?.bowler_id ?
 
-                            <Link to={`/cricket-player-detail/${data?.response.live.bowlers[0].bowler_id}`} className='hover:underline flex gap-2 items-center  justify-center text-sm'>{data?.response.live.bowlers[0] ? data?.response.live.bowlers[0].name : ""}<img className='h-3 w-3' src='/ball.jpg' /></Link> : ''}
+                            <Link to={`/cricket-player-detail/${data?.response.live.bowlers[0].bowler_id}/${(formatUrl(data?.response.live.bowlers[0].name))}`} className='hover:underline flex gap-2 items-center  justify-center text-sm'>{data?.response.live.bowlers[0] ? data?.response.live.bowlers[0].name : ""}<img className='h-3 w-3' src='/ball.jpg' /></Link> : ''}
 
                         </td>
 

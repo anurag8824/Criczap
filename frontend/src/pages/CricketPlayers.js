@@ -33,6 +33,9 @@ const CricketPlayers = () => {
 
     }
 
+    const formatUrl = (text) => {
+        return text.replace(/\s+/g, '-').toLowerCase(); // Replace spaces with dashes
+    };
 
     return (
         <div className='md:mx-20 mx-4 h-full'>
@@ -76,7 +79,7 @@ const CricketPlayers = () => {
 
                                         <p class=" grid font-sans text-base font-normal leading-relaxed tracking-normal  antialiased">
                                             <Link
-                                                to={`/cricket-player-detail/${item.pid}`}
+                                                to={`/cricket-player-detail/${item.pid}/${(formatUrl(item.title))}`}
 
                                                 className='cursor-pointer hover:underline'>{item.title}</Link>
                                             <span>{item.nationality}</span>

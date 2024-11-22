@@ -2,11 +2,17 @@ import React, { useState } from 'react'
 
 const WTeams = ({ mdata }) => {
   const [showFullTable, setShowFullTable] = useState(false);
+  const [showFullTable2, setShowFullTable2] = useState(false);
+
 
   // Function to handle button click
   const handleToggle = () => {
       setShowFullTable((prev) => !prev);
   };
+
+  const handleToggle2 = () => {
+    setShowFullTable2((prev) => !prev);
+};
 
 
   return (
@@ -105,7 +111,7 @@ const WTeams = ({ mdata }) => {
                 </tr>
               </thead>
               <tbody>
-                {(showFullTable ? mdata?.teams?.t20s.slice(11) : mdata?.teams?.t20s?.slice(11, 16))?.map((item, index) =>
+                {(showFullTable2 ? mdata?.teams?.t20s.slice(11) : mdata?.teams?.t20s?.slice(11, 16))?.map((item, index) =>
                   item ? (
                     <tr
                       key={index}
@@ -133,10 +139,10 @@ const WTeams = ({ mdata }) => {
           {/* Button to toggle full view */}
           <div className="text-center my-4">
             <button
-              onClick={handleToggle}
+              onClick={handleToggle2}
               className="px-4 py-2 bg-blue-950 text-white rounded hover:bg-violet-800"
             >
-              {showFullTable ? 'Show Less' : 'Show Full Table'}
+              {showFullTable2 ? 'Show Less' : 'Show Full Table'}
             </button>
           </div>
         </div>

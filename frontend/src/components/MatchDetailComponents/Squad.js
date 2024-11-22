@@ -2,6 +2,10 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 const Squad = ({ data }) => {
+
+  const formatUrl = (text) => {
+    return text.replace(/\s+/g, '-').toLowerCase(); // Replace spaces with dashes
+}; 
   return (
     <div>
 
@@ -49,7 +53,7 @@ const Squad = ({ data }) => {
                         />
 
                         <p class=" grid font-sans text-base font-normal leading-relaxed tracking-normal  antialiased">
-                          <Link to="/cricket-player-detail" className='cursor-pointer hover:underline'>{item.name}</Link>
+                          <Link to={`/cricket-player-detail/${item.player_id}/${(formatUrl(item.name))}`} className='cursor-pointer hover:underline'>{item.name}</Link>
                           <span>{item.role}</span>
                         </p>
                       </div>
@@ -90,7 +94,7 @@ const Squad = ({ data }) => {
                         />
 
                         <p class=" grid font-sans text-base font-normal leading-relaxed tracking-normal  antialiased">
-                          <Link to="/cricket-player-detail" className='cursor-pointer hover:underline'>{item.name}</Link>
+                          <Link to={`/cricket-player-detail/${item.player_id}/${(formatUrl(item.name))}`} className='cursor-pointer hover:underline'>{item.name}</Link>
                           <span>{item.role}</span>
                         </p>
                       </div>
@@ -140,7 +144,7 @@ const Squad = ({ data }) => {
                         />
 
                         <p class=" grid font-sans text-base font-normal leading-relaxed tracking-normal  antialiased">
-                          <Link to="/cricket-player-detail" className='cursor-pointer hover:underline'>{item.name}</Link>
+                          <Link to={`/cricket-player-detail/${item.player_id}/${(formatUrl(item.name))}`} className='cursor-pointer hover:underline'>{item.name}</Link>
                           <span>{item.role}</span>
                         </p>
                       </div>
@@ -174,7 +178,7 @@ const Squad = ({ data }) => {
                         />
 
                         <p class=" grid font-sans text-base font-normal leading-relaxed tracking-normal  antialiased">
-                          <Link to="/cricket-player-detail" className='cursor-pointer hover:underline'>{item.name}</Link>
+                          <Link to={`/cricket-player-detail/${item.player_id}/${(formatUrl(item.name))}`} className='cursor-pointer hover:underline'>{item.name}</Link>
                           <span>{item.role}</span>
                         </p>
                       </div>

@@ -159,20 +159,23 @@ const SeriesView = () => {
 
                             {activeTab === "squads" && (
                                 <div className="transition-opacity duration-500 ease-in-out opacity-100">
-                                    <Squads />
+                                    {/* <Squads /> */}
+                                    <p className='text-center text-red-500 font-medium'>Not available yet</p>
                                 </div>
                             )}
 
 
                             {activeTab === "stats" && (
                                 <div className="transition-opacity duration-500 ease-in-out opacity-100">
-                                    <Stats />
+                                    {/* <Stats /> */}
+                                    <p className='text-center text-red-500 font-medium'>Not available yet</p>
+
                                 </div>
                             )}
 
                             {activeTab === "venues" && (
                                 <div className="transition-opacity duration-500 ease-in-out opacity-100">
-                                    <Venues />
+                                    <Venues data={mlist} />
                                 </div>
                             )}
 
