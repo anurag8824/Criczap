@@ -30,7 +30,7 @@ const HomeScroller = () => {
                 // console.log(filteredData, "filtrr")
 
 
-                const upcomingMatch = dataFromApi.filter(item => item.status_str === "Scheduled" && (item.competition.category === "international" || item.competition.category === "domestic" || item.competition.title === "Abu Dhabi T10 League"));
+                const upcomingMatch = dataFromApi.filter(item => item.status_str === "Scheduled" && (item.competition.category === "international" || item.competition.category === "women" || item.competition.title === "Abu Dhabi T10 League"));
                 console.log(upcomingMatch, "uppp")
 
                 setSchedule(upcomingMatch)
