@@ -46,3 +46,16 @@
   scrollbar-width: none;
   /* Firefox */
 }
+
+
+.arrow-icon {
+  transition: transform 0.3s ease-in-out; /* Smooth transition for the rotation */
+}
+
+.arrow-up {
+  transform: rotate(0deg); /* Initial state for the upward arrow */
+}
+
+.arrow-down {
+  transform: rotate(180deg); /* Initial state for the downward arrow */
+}

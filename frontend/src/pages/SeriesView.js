@@ -21,11 +21,13 @@ const SeriesView = () => {
     const navigate = useNavigate();
     const backUrl = process.env.REACT_APP_BACK_URL;
     const [mlist, setMlist] = useState([])
+    const [pointdata, setPointdata] = useState([])
+
 
     const cId = useParams().id;
     // console.log(cid,"compid")
 
-    const tabs = ["overview", "fixtures", "news", "videos", "squads", "stats", "venues"]
+    const tabs = ["overview", "fixtures", "news", "videos", "points", "stats", "venues"]
 
     const activeIndex = tabs.indexOf(activeTab);
 
@@ -48,6 +50,25 @@ const SeriesView = () => {
 
     }, [])
 
+
+
+    useEffect(() => {
+        try {
+            axios.post(`${backUrl}/api/v1/seriesinfo`, { cid: cId })
+                .then((res) => {
+                    const finaldata = res.data
+                    setPointdata(finaldata)
+
+                    console.log(finaldata, "series points info")
+
+                })
+        } catch (error) {
+            console.log(error, "errro occurred")
+        }
+
+
+    }, [])
+
     const formatUrl = (text) => {
         return text.replace(/\s+/g, '-').toLowerCase(); // Replace spaces with dashes
     };
@@ -55,7 +76,7 @@ const SeriesView = () => {
 
     const handleTabClick = (tab) => {
         setActiveTab(tab);
-        navigate(`/cricket-series/${cId}/${formatUrl(mlist?.response?.items[0]?.competition?.title ? mlist?.response?.items[0]?.competition?.title : "null")}/${tab}`)
+        navigate(`/cricket-series/${cId}/${formatUrl(pointdata?.response?.title ? pointdata?.response?.title : "null")}/${tab}`)
 
     };
 
@@ -65,15 +86,15 @@ const SeriesView = () => {
         <div className='md:mx-20 mx-4 '>
 
             <div className='  px-1  py-10 justify-between'>
-                <p className='text-2xl  font-medium'>{mlist?.response?.items[0]?.competition?.title ? mlist?.response?.items[0]?.competition?.title : <p>Data Not Available</p>}</p>
+                <p className='text-2xl  font-medium'>{pointdata?.response?.title}</p>
 
 
                 <p className=' flex text-sm text-gray-500 '>
-                    {new Date(mlist?.response?.items[0]?.competition?.datestart).toLocaleDateString('en-GB', {
+                    {new Date(pointdata?.response?.datestart).toLocaleDateString('en-GB', {
                         day: '2-digit',
                         month: 'short',
                         year: 'numeric'
-                    })} to  {new Date(mlist?.response?.items[0]?.competition?.dateend).toLocaleDateString('en-GB', {
+                    })} to  {new Date(pointdata?.response?.dateend).toLocaleDateString('en-GB', {
                         day: '2-digit',
                         month: 'short',
                         year: 'numeric'
@@ -157,10 +178,9 @@ const SeriesView = () => {
                                 </div>
                             )}
 
-                            {activeTab === "squads" && (
+                            {activeTab === "points" && (
                                 <div className="transition-opacity duration-500 ease-in-out opacity-100">
-                                    {/* <Squads /> */}
-                                    <p className='text-center text-red-500 font-medium'>Not available yet</p>
+                                    <Squads data={pointdata} />
                                 </div>
                             )}
 
@@ -168,7 +188,7 @@ const SeriesView = () => {
                             {activeTab === "stats" && (
                                 <div className="transition-opacity duration-500 ease-in-out opacity-100">
                                     {/* <Stats /> */}
-                                    <p className='text-center text-red-500 font-medium'>Not available yet</p>
+                                    <p className='text-center text-red-500 font-medium'>Not available</p>
 
                                 </div>
                             )}

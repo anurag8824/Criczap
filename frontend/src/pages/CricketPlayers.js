@@ -1,25 +1,33 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 
 import FbConnect from "../components/FbConnect"
 import axios from "axios"
-import { useLocation } from 'react-router-dom'
 
 import { Link } from 'react-router-dom'
 
 const CricketPlayers = () => {
     const [data, setData] = useState([])
+
     const [search, setSearch] = useState('')
     const backUrl = process.env.REACT_APP_BACK_URL;
-    const location = useLocation();
 
 
     useEffect(() => {
         axios.get(`${backUrl}/api/v1/allplayer`)
-            .then((res) => {
-                console.log(res, "allplayers");
-                setData(res.data.msg.items)
-            })
-    }, [])
+          .then((res) => {
+            console.log(res, "allplayers");
+            setData(res.data.msg.items)
+          }).catch((err) => {
+            console.error("Error fetching players data", err);
+          })
+      }, [backUrl]);
+
+
+
+
+ 
+
+
 
 
     const handleSearch = () => {
@@ -64,7 +72,9 @@ const CricketPlayers = () => {
 
                         <div className='grid gap-y-2.5 grid-flow-row p-8'>
 
-                            {data.map((item, index) => (
+
+
+                            {data?.map((item, index) => (
                                 item ? (
 
 

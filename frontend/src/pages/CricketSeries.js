@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import FbConnect from '../components/FbConnect'
 import SeriesFilter from '../components/SeriesFilter';
-import YearFilter from '../components/YearFilter';
 import axios from "axios"
+
 
 const CricketSeries = () => {
     const [activeTab, setActiveTab] = useState("current");
@@ -12,6 +12,7 @@ const CricketSeries = () => {
     // const [live, setLive] = useState([])
     // const [next, setNext] = useState([])
     // const [international,setIn]
+
 
 
     const [idata, setIdata] = useState([])
@@ -25,6 +26,9 @@ const CricketSeries = () => {
         setActiveTab(tab);
 
     };
+
+    // const location = useLocation();
+    // console.log(location.pathname); 
 
     useEffect(() => {
         axios.get(`${backUrl}/api/v1/match/list`).then((res) => {
@@ -68,6 +72,7 @@ const CricketSeries = () => {
 
 
         })
+
     }, [])
 
     const handleDataFromChild = (data) => {
@@ -82,7 +87,12 @@ const CricketSeries = () => {
 
 
     return (
+
         <div className='md:mx-20 mx-4 '>
+
+
+
+
 
             <div className='flex px-1  py-10 justify-between'>
                 <p className='text-2xl  font-medium'>Seasons/Series</p>
@@ -125,12 +135,21 @@ const CricketSeries = () => {
 
 
                         {/* Content Sections */}
+
+
+
+
+
                         <div className="relative mt-6  px-3">
 
                             {activeTab === "current" && (
                                 <div className="transition-opacity duration-500 ease-in-out opacity-100">
 
                                     {/* table starts cuuret  */}
+
+
+
+
 
                                     <div class="relative  overflow-x-auto ">
                                         <table class=" text-sm w-full text-left rtl:text-right text-white ">
@@ -204,18 +223,9 @@ const CricketSeries = () => {
                                         </table>
                                     </div>
 
+
                                 </div>
                             )}
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -239,7 +249,7 @@ const CricketSeries = () => {
 
                                             <tbody>
 
-                                                {rdata?.map((item,index) =>(
+                                                {rdata?.map((item, index) => (
                                                     item ? (
                                                         <tr key={index} className="border-b border-gray-200 dark:border-gray-700">
                                                             <th scope="row" className="text-blue-900 font-medium text-lg text-center align-text-top py-3 px-3 bg-gray-200 whitespace-nowrap">
@@ -252,12 +262,12 @@ const CricketSeries = () => {
                                                                 </li>
                                                             </td>
                                                         </tr>
-                                                        
-                                                    ): ""
+
+                                                    ) : ""
                                                 ))}
 
 
-                                           
+
 
 
 
@@ -268,6 +278,10 @@ const CricketSeries = () => {
                             )}
 
                         </div>
+
+
+
+
                     </div>
 
 
@@ -284,7 +298,9 @@ const CricketSeries = () => {
             </div>
 
 
+
         </div>
+
     )
 }
 

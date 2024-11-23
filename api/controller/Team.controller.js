@@ -258,7 +258,27 @@ const CompeteInfo = async (req, res) => {
         //     res.json(resp.data);
         // })
 
-        axios.get(`https://rest.entitysport.com/exchange/competitions/${cid}/matches?token=${token}`).then((resp) => {
+        axios.get(`https://rest.entitysport.com/exchange/competitions/${cid}/matches?token=${token}&per_page=50&paged=1`).then((resp) => {
+            res.json(resp.data);
+        })
+
+    } catch (error) {
+        res.json({ msg: "Internal error:" })
+    }
+}
+
+
+const SeriesInfo = async (req, res) => {
+    try {
+        const cid = req.body.cid;
+        if (!cid) {
+            return res.json({ msg: "invalid cid" })
+        }
+        // axios.get(`https://rest.entitysport.com/exchange/competitions/${cid}/info?token=${token}`).then((resp) => {
+        //     res.json(resp.data);
+        // })
+
+        axios.get(`https://rest.entitysport.com/exchange/competitions/${cid}/info?token=${token}`).then((resp) => {
             res.json(resp.data);
         })
 
@@ -297,7 +317,7 @@ const CompationsList = async (req, res) => {
         const liveMatches = allcomp.filter(match => match.status === 'live');
         const fixtureMatches = allcomp.filter(match => match.status === 'upcoming');
         const fourMonthsAgo = new Date();
-        fourMonthsAgo.setMonth(fourMonthsAgo.getMonth() - 4);
+        fourMonthsAgo.setMonth(fourMonthsAgo.getMonth() - 6);
 
         const resultMatches = allcomp.filter(match => {
             const matchDate = new Date(match.datestart); // Parse the date string
@@ -334,4 +354,4 @@ const Ranking = async (req, res) => {
 
 
 
-module.exports = { TeamData, TeamPlayers, HomeApi, CompeteInfo, PlayerData, Ranking, TeamSerach, TeamInfo, TeamMatches, PlayerSerach, PlayerInformation, PerivousData, HomePopular, CompationsList }
+module.exports = { TeamData, TeamPlayers, HomeApi, CompeteInfo, SeriesInfo, PlayerData, Ranking, TeamSerach, TeamInfo, TeamMatches, PlayerSerach, PlayerInformation, PerivousData, HomePopular, CompationsList }

@@ -3,13 +3,7 @@ import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io'; // Import arrow i
 import { Link } from 'react-router-dom';
 
 const Scorecard = ({ data }) => {
-  const [dropdownState, setDropdownState] = useState({
-    dropdown1: true,
-    dropdown2: true,
-    dropdown3: true,
-    dropdown4: false,
-    dropdown5: false,
-  });
+  const [dropdownState, setDropdownState] = useState({});
 
   const toggleDropdown = (dropdown) => {
     setDropdownState((prevState) => ({
@@ -37,22 +31,22 @@ const Scorecard = ({ data }) => {
 
 
 
-            <div key={index}>
+            <div key={item.iid}>
               <button
-                onClick={() => toggleDropdown('dropdown1')}
+                onClick={() => toggleDropdown(item.iid)}
                 className="w-full flex justify-between uppercase text-left py-3 rounded-lg rounded-b px-6 text-lg font-medium bg-blue-950  text-white items-center  "
               >
                 <p>{item.name}
                 </p>
-                <div className='flex items-center gap-4'>
+                <div className='flex  items-center gap-4'>
                   <p>{item.scores_full}</p>
-                  {dropdownState.dropdown1 ? <IoIosArrowUp /> : <IoIosArrowDown />}
+                  {dropdownState[item.iid] ? <IoIosArrowUp /> : <IoIosArrowDown />}
 
                 </div>
 
 
               </button>
-              {dropdownState.dropdown1 && (
+              {dropdownState[item.iid] && (
 
 
 
@@ -255,7 +249,8 @@ const Scorecard = ({ data }) => {
 
 
                           <th scope="col" class="md:px-6 text-center   font-normal  ">
-                            Scope
+                            Score
+
                           </th>
 
                           <th scope="col" class="md:px-6  text-center  font-normal  ">
