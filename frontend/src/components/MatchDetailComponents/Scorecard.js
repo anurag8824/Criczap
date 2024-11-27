@@ -19,7 +19,7 @@ const Scorecard = ({ data }) => {
 
 
   return (
-    <div className="space-y-4 ">
+    <div className="space-y-4 md:text-base text-xs ">
       {/* Dropdown 1 */}
 
       {data?.response.scorecard.innings ? <>
@@ -34,7 +34,7 @@ const Scorecard = ({ data }) => {
             <div key={item.iid}>
               <button
                 onClick={() => toggleDropdown(item.iid)}
-                className="w-full flex justify-between uppercase text-left py-3 rounded-lg rounded-b px-6 text-lg font-medium bg-blue-950  text-white items-center  "
+                className="w-full flex justify-between md:text-base text-xs uppercase text-left py-3 rounded-lg rounded-b px-6  font-medium bg-blue-950  text-white items-center  "
               >
                 <p>{item.name}
                 </p>

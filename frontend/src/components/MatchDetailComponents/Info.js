@@ -8,7 +8,7 @@ const Info = ({ data }) => {
 
   return (
     <div>
-      <div className='border-b pb-2 flex justify-between    w-full '>
+      <div className='border-b pb-2  flex justify-between    w-full '>
         <div className='w-full  text-center flex flex-col  items-center  '>
           <img src={data?.response.match_info.teama.logo_url} className='w-12 h-12 border rounded-full' />
           <p className='pt-3 text-center'> {data?.response.match_info.teama.name}   </p>
@@ -31,21 +31,21 @@ const Info = ({ data }) => {
       <div>
 
         <div className='border-b mt-4 flex justify-between  w-full   '>
-          <p className='font-medium text-base py-3 pl-3 w-1/2 md:w-1/3 '>Series:</p>
-          <Link to={`/cricket-series/${data?.response?.match_info?.competition.cid}/${formatUrl(data?.response.match_info.competition.title)}/overview`}className='font-normal text-base text-blue-500 py-3 pl-3 hover:underline  w-full md:w-1/2'>{data?.response.match_info.competition.title}</Link>
+          <p className='font-medium md:text-base text-xs py-3 pl-3 w-1/2 md:w-1/3 '>Series:</p>
+          <Link to={`/cricket-series/${data?.response?.match_info?.competition.cid}/${formatUrl(data?.response.match_info.competition.title)}/overview`}className='font-normal md:text-base text-xs text-blue-500 py-3 pl-3 hover:underline  w-full md:w-1/2'>{data?.response.match_info.competition.title}</Link>
 
         </div>
 
         <div className='border-b mt-3 flex justify-between   w-full   '>
-          <p className='font-medium text-base py-3 pl-3 w-1/2 md:w-1/3 '>Match:</p>
-          <p className='font-normal text-base  py-3 pl-3  w-full md:w-1/2'>
+          <p className='font-medium md:text-base text-xs py-3 pl-3 w-1/2 md:w-1/3 '>Match:</p>
+          <p className='font-normal md:text-base text-xs  py-3 pl-3  w-full md:w-1/2'>
            {data?.response.match_info.title}, {data?.response.match_info.subtitle}</p>
 
         </div>
 
-        <div className='border-b mt-3 flex justify-between   w-full   '>
-          <p className='font-medium text-base py-3 pl-3 w-1/2 md:w-1/3 '>Date & Time:</p>
-          <p className='font-normal text-base  py-3 pl-3   w-full md:w-1/2'>
+        <div className='border-b mt-3 md:text-base text-xs flex justify-between   w-full   '>
+          <p className='font-medium  py-3 pl-3 w-1/2 md:w-1/3 '>Date & Time:</p>
+          <p className='font-normal   py-3 pl-3   w-full md:w-1/2'>
 
             {data?.response.match_info.date_start_ist}</p>
 
@@ -53,8 +53,8 @@ const Info = ({ data }) => {
 
 
         <div className='border-b mt-3 flex justify-between   w-full   '>
-          <p className='font-medium text-base py-3 pl-3 w-1/2 md:w-1/3 '>Venue:</p>
-          <p className='font-normal text-base  py-3 pl-3  w-full md:w-1/2'>
+          <p className='font-medium md:text-base text-xs py-3 pl-3 w-1/2 md:w-1/3 '>Venue:</p>
+          <p className='font-normal md:text-base text-xs  py-3 pl-3  w-full md:w-1/2'>
 
             {data?.response.match_info.venue.name}</p>
 
@@ -62,8 +62,8 @@ const Info = ({ data }) => {
 
 
         <div className='border-b mt-3 flex justify-between   w-full   '>
-          <p className='font-medium text-base py-3 pl-3 w-1/2 md:w-1/3 '>Toss:</p>
-          <p className='font-normal text-base  py-3 pl-3  w-full md:w-1/2'>
+          <p className='font-medium md:text-base text-xs py-3 pl-3 w-1/2 md:w-1/3 '>Toss:</p>
+          <p className='font-normal md:text-base text-xs  py-3 pl-3  w-full md:w-1/2'>
 
            {data?.response.match_info.toss.text}</p>
 
@@ -71,8 +71,8 @@ const Info = ({ data }) => {
 
 
         <div className='border-b mt-3 flex justify-between   w-full   '>
-          <p className='font-medium text-base py-3 pl-3 w-1/2 md:w-1/3 '>Umpires:</p>
-          <p className='font-normal text-base  py-3 pl-3  w-full md:w-1/2'>
+          <p className='font-medium md:text-base text-xs py-3 pl-3 w-1/2 md:w-1/3 '>Umpires:</p>
+          <p className='font-normal md:text-base text-xs  py-3 pl-3  w-full md:w-1/2'>
 
             {data?.response.match_info.umpires}</p>
 
@@ -80,8 +80,8 @@ const Info = ({ data }) => {
 
 
         <div className='border-b mt-3 flex justify-between   w-full   '>
-          <p className='font-medium text-base py-3 pl-3 w-1/2 md:w-1/3 '>Third Umpire:</p>
-          <p className='font-normal text-base  pl-3   py-3  w-full md:w-1/2'>
+          <p className='font-medium md:text-base text-xs py-3 pl-3 w-1/2 md:w-1/3 '>Third Umpire:</p>
+          <p className='font-normal md:text-base text-xs  pl-3   py-3  w-full md:w-1/2'>
 
             -</p>
 
@@ -89,8 +89,8 @@ const Info = ({ data }) => {
 
 
         <div className='border-b mt-3 flex justify-between   w-full   '>
-          <p className='font-medium text-base py-3 pl-3 w-1/2 md:w-1/3 '>Match Referee:</p>
-          <p className='font-normal text-base pl-3   py-3  w-full md:w-1/2'>
+          <p className='font-medium md:text-base text-xs py-3 pl-3 w-1/2 md:w-1/3 '>Match Referee:</p>
+          <p className='font-normal md:text-base text-xs pl-3   py-3  w-full md:w-1/2'>
 
             {data?.response.match_info.referee}</p>
 
@@ -156,14 +156,14 @@ const Info = ({ data }) => {
  */}
 
       <div>
-        <p className='font-normal   py-3 font-m text-xl   w-full md:w-1/2'>
+        <p className='font-normal   py-3 font-m md:text-lg text-xs   w-full md:w-1/2'>
 
           Venue Details</p>
 
 
         <div className='border-b mt-3 flex justify-between   w-full   '>
-          <p className='font-medium text-base py-3 pl-3 w-1/2 md:w-1/3 '>Stadium:</p>
-          <p className='font-normal text-base  py-3 pl-3  w-full md:w-1/2'>
+          <p className='font-medium md:text-base text-xs py-3 pl-3 w-1/2 md:w-1/3 '>Stadium:</p>
+          <p className='font-normal md:text-base text-xs  py-3 pl-3  w-full md:w-1/2'>
 
             {data?.response.match_info.venue.name}</p>
 
@@ -172,8 +172,8 @@ const Info = ({ data }) => {
 
 
         <div className='border-b mt-3 flex justify-between   w-full   '>
-          <p className='font-medium text-base py-3 pl-3 w-1/2 md:w-1/3 '>City:</p>
-          <p className='font-normal text-base  py-3 pl-3  w-full md:w-1/2'>
+          <p className='font-medium md:text-base text-xs py-3 pl-3 w-1/2 md:w-1/3 '>City:</p>
+          <p className='font-normal md:text-base text-xs  py-3 pl-3  w-full md:w-1/2'>
 
 
             {data?.response.match_info.venue.location}</p>
@@ -182,8 +182,8 @@ const Info = ({ data }) => {
 
 
         <div className='border-b mt-3 flex justify-between   w-full   '>
-          <p className='font-medium text-base py-3 pl-3 w-1/2 md:w-1/3 '>Country:</p>
-          <p className='font-normal text-base  py-3 pl-3  w-full md:w-1/2'>
+          <p className='font-medium md:text-base text-xs py-3 pl-3 w-1/2 md:w-1/3 '>Country:</p>
+          <p className='font-normal md:text-base text-xs  py-3 pl-3  w-full md:w-1/2'>
 
 
             {data?.response.match_info.venue.country}</p>
@@ -194,14 +194,14 @@ const Info = ({ data }) => {
 
 
       <div>
-        <p className='font-normal   py-3 font-m text-xl   w-full md:w-1/2'>
+        <p className='font-normal   py-3 font-m md:text-lg text-xs  w-full md:w-1/2'>
 
           Venue Weather</p>
 
 
         <div className='border-b mt-3 flex justify-between   w-full   '>
-          <p className='font-medium text-base py-3 pl-3 w-1/2 md:w-1/3 '>Weather:</p>
-          <p className='font-normal text-base  py-3 pl-3  w-full md:w-1/2'>
+          <p className='font-medium md:text-base text-xs py-3 pl-3 w-1/2 md:w-1/3 '>Weather:</p>
+          <p className='font-normal md:text-base text-xs  py-3 pl-3  w-full md:w-1/2'>
 
             {data?.response.match_info.weather.weather}</p>
 
@@ -210,8 +210,8 @@ const Info = ({ data }) => {
 
 
         <div className='border-b mt-3 flex justify-between   w-full   '>
-          <p className='font-medium text-base py-3 pl-3 w-1/2 md:w-1/3 '>Temperature:</p>
-          <p className='font-normal text-base  py-3 pl-3  w-full md:w-1/2'>
+          <p className='font-medium md:text-base text-xs py-3 pl-3 w-1/2 md:w-1/3 '>Temperature:</p>
+          <p className='font-normal md:text-base text-xs  py-3 pl-3  w-full md:w-1/2'>
 
 
            {data?.response.match_info.weather.temp}</p>
@@ -220,8 +220,8 @@ const Info = ({ data }) => {
 
 
         <div className='border-b mt-3 flex justify-between   w-full   '>
-          <p className='font-medium text-base py-3 pl-3 w-1/2 md:w-1/3 '>Clouds</p>
-          <p className='font-normal text-base  py-3 pl-3  w-full md:w-1/2'>
+          <p className='font-medium md:text-base text-xs py-3 pl-3 w-1/2 md:w-1/3 '>Clouds</p>
+          <p className='font-normal md:text-base text-xs  py-3 pl-3  w-full md:w-1/2'>
 
 
 
@@ -230,8 +230,8 @@ const Info = ({ data }) => {
 
 
         <div className='border-b mt-3 flex justify-between   w-full   '>
-          <p className='font-medium text-base py-3 pl-3 w-1/2 md:w-1/3 '>Humidity:</p>
-          <p className='font-normal text-base  py-3 pl-3  w-full md:w-1/2'>
+          <p className='font-medium md:text-base text-xs py-3 pl-3 w-1/2 md:w-1/3 '>Humidity:</p>
+          <p className='font-normal md:text-base text-xs  py-3 pl-3  w-full md:w-1/2'>
 
 
 
@@ -242,8 +242,8 @@ const Info = ({ data }) => {
 
 
         <div className='border-b mt-3 flex justify-between   w-full   '>
-          <p className='font-medium text-base py-3 pl-3 w-1/2 md:w-1/3 '>Wind:</p>
-          <p className='font-normal text-base  py-3 pl-3  w-full md:w-1/2'>
+          <p className='font-medium md:text-base text-xs py-3 pl-3 w-1/2 md:w-1/3 '>Wind:</p>
+          <p className='font-normal md:text-base text-xs  py-3 pl-3  w-full md:w-1/2'>
 
 
 
@@ -256,20 +256,6 @@ const Info = ({ data }) => {
        
 
       </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     </div>

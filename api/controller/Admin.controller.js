@@ -1,4 +1,8 @@
-const AdminData = require("../model/Admin.model")
+const AdminData = require("../model/Admin.model");
+const NewsData = require("../model/News.model");
+const crypto = require('crypto');
+const VideoData = require("../model/Video.model");
+
 
 
 
@@ -28,4 +32,102 @@ const AdminAdd = async (req, res) => {
     res.json({ msg: "success" });
 }
 
-module.exports = { AdminLogin, AdminAdd }
+
+
+const AddNews = async (req, res) => {
+    // console.log(req.body)
+    const news_Id = crypto.randomBytes(8).toString('hex');
+
+    if (!req.file) {
+        await NewsData.create({
+            newsID: news_Id,
+            headline: req.body.headline,
+            text: req.body.text,
+            title: req.body.title,
+            permalink: req.body.permalink,
+            description: req.body.description
+
+
+        });
+        res.json("News add succesfully")
+
+    } else {
+        try {
+            const selectedFile = `/images/${req.file.filename}`;
+
+            await NewsData.create({
+                newsID: news_Id,
+
+                selectedFile: selectedFile,
+
+                headline: req.body.headline,
+                text: req.body.text,
+                title: req.body.title,
+                permalink: req.body.permalink,
+                description: req.body.description
+
+            })
+            res.json("News Add succesfully")
+            // console.log(selectedFile)
+        } catch (error) {
+            // console.log(error)
+        }
+
+
+    }
+}
+
+const AllNews = async (req, res) => {
+    const allnews = await NewsData.find({})
+    if (allnews.length > 0) {
+        res.json(allnews)
+    } else {
+        res.json({ msg: "No post Found" })
+    }
+
+}
+
+const AddVideo = async (req, res) => {
+    const video_Id = crypto.randomBytes(8).toString('hex');
+
+    if (!req.file) {
+        await VideoData.create({
+            videoID: video_Id,
+
+            title: req.body.title,
+            link: req.body.link,
+
+        })
+        res.json("Video add succesfully")
+
+
+    }
+    else {
+        const Image = `/images/${req.file.filename}`;
+        console.log(Image, "checkfff")
+
+        await VideoData.create({
+            videoID: video_Id,
+            Image: Image,
+            title: req.body.title,
+            link: req.body.link
+        })
+        res.json("Video Add succesfully")
+
+
+    }
+
+
+
+}
+
+const AllVideo = async (req, res) => {
+    const allvideos = await VideoData.find({})
+    if (allvideos.length > 0) {
+        res.json(allvideos)
+    } else {
+        res.json({ msg: "no video found" })
+    }
+}
+
+module.exports = { AdminLogin, AllNews, AddVideo, AllVideo, AdminAdd, AddNews }

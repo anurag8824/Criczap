@@ -16,6 +16,7 @@ import CricketTeamDetail from './pages/CricketTeamDetail';
 import CricketRanking from './pages/CricketRanking';
 import PrivacyPolicy from './pages/Privacy';
 import Termofuse from './pages/Termofuse';
+import CNView from './pages/CNView';
 
 
 
@@ -59,6 +60,11 @@ function App() {
           <Route path='cricket-team-detail/:id/series' element={<CricketTeamDetail />} />
           <Route path='privacy' element={<PrivacyPolicy />} />
           <Route path='tos' element={<Termofuse />} />
+
+
+
+          <Route path="cricket-news/:id/:xyz" element={<CricketNews/>} />
+
 
 
 

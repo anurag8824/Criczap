@@ -21,7 +21,7 @@ connection();
 
 
 app.use(express.json())
-
+app.use(express.static('public'));
 
 app.use("/api/v1", Team)
 app.use("/admin", Admin)

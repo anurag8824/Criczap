@@ -1,14 +1,20 @@
 import React, { useState } from 'react';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css'; // Import the styles
+import axios from "axios"
 
 const TextEditor = () => {
+  const backUrl = process.env.REACT_APP_BACK_URL
   const [selectedFile, setSelectedFile] = useState(null);
 
   const [news, setNews] = useState(
     {
       headline: '',
       text: '',
+      title: "",
+      permalink: "",
+      description: "",
+
     }
   );
 
@@ -29,7 +35,6 @@ const TextEditor = () => {
   };
 
 
-
   const handleFileChange = (event) => {
     const file = event.target.files[0];
     if (file) {
@@ -47,32 +52,43 @@ const TextEditor = () => {
 
 
 
-
-
-  const stripHtmlTags = (html) => {
-    const doc = new DOMParser().parseFromString(html, 'text/html');
-    return doc.body.textContent || "";
-  };
-
-
   const submitNews = (e) => {
     e.preventDefault();
-    const sanitizedNews = {
-      ...news,
-      headline: stripHtmlTags(news.headline),
-      text: stripHtmlTags(news.text),
-    };
+
 
     const responseData = {
-      ...sanitizedNews,
-      selectedFile: selectedFile ? {
-        name: selectedFile.name,
-        size: selectedFile.size,
-        type: selectedFile.type
-      } : null // Handle if no file is selected
+      ...news,
+      selectedFile: selectedFile ? selectedFile : null
+
     };
-    // console.log( news,"dd");
-    console.log('Form data in JSON:', responseData);
+
+    if (!news.headline.trim()) {
+      alert('Please fill in the field before submitting.');
+      return;
+    }
+
+    if (!news.text.trim()) {
+      alert('Please fill in the  field before submitting.');
+      return;
+    }
+
+    if (!selectedFile) {
+      alert('Please fill in all fields before submitting.');
+      return;
+    }
+    axios.post(`${backUrl}/admin/addnews`, responseData, {
+      headers: {
+        "Content-Type": "multipart/form-data"
+      }
+    }).then((res) => {
+      console.log(res)
+      alert(res.data)
+      window.location.reload()
+    }).catch((err) => {
+      console.log(err)
+    })
+
+
   };
 
 
@@ -85,7 +101,7 @@ const TextEditor = () => {
       <div>
         <p className='text-lg font-medium text-blue-950'>Add  news banner</p>
 
-        <div className=" items-center  w-full">
+        <div className=" items-center w-full">
           <label
             htmlFor="dropzone-file"
             className="flex flex-col items-center justify-center w-full h-32 border-2 border-gray-300 border-dashed cursor-pointer dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600"
@@ -116,6 +132,8 @@ const TextEditor = () => {
             <input
               id="dropzone-file"
               type="file"
+              name="selectedFile"
+
               className="hidden"
               onChange={handleFileChange}
             />
@@ -160,23 +178,23 @@ const TextEditor = () => {
 
 
 
-      <div className="mb-4 py-4 px-4 rounded-md bg-gray-100">
+      <div className="mb-4 py-4 px-4 hidden rounded-md bg-gray-100">
         <label className="block text-lg font-medium text-gray-700" for="title">Title</label>
-        <input id="title" type="text"
+        <input id="title" type="text" name='title' value={news.title} onChange={(e) => handleChange(e.target.name, e.target.value)}
           className="mt-1 block w-full p-2 border rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" />
         <span className='text-sm text-gray-500'>This is what will appear in the first line when this post shows up in the search results.</span>
       </div>
 
-      <div className="mb-4 py-4 px-4 bg-gray-100 rounded-md">
+      <div className="mb-4  py-4 px-4 bg-gray-100 rounded-md">
         <label className="block text-lg font-medium text-gray-700" for="permalink">Permalink</label>
-        <input type="text"
+        <input type="text" id='permalink' name='permalink' value={news.permalink} onChange={(e) => handleChange(e.target.name, e.target.value)}
           className="mt-1 block w-full p-2 border rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" />
         <span className='text-sm text-gray-500'>This is the unique URL of this page, displayed below the post title in the search results.</span>
       </div>
 
       <div className="mb-4 py-4 px-4 rounded-md bg-gray-100">
-        <label className="block text-lg font-medium text-gray-700" for="description">Description</label>
-        <textarea id="description" rows="4"
+        <label className="block text-lg font-medium text-gray-700" for="description">Tags </label>
+        <textarea id="description" name='description' value={news.description} onChange={(e) => handleChange(e.target.name, e.target.value)} rows="4"
           className="mt-1 block w-full p-2 border rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" />
 
       </div>

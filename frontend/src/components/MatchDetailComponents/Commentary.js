@@ -119,7 +119,6 @@ const Commentary = ({ data, balldata }) => {
 
 
   var Data = [...(data?.response.live.commentaries || [])].reverse()
-  var BData = [...(data?.response.live.commentaries || [])]
 
 
 
@@ -156,12 +155,12 @@ const Commentary = ({ data, balldata }) => {
                           src={data?.response.match_info.teama.logo_url}
                           alt="Tania Andrew"
                           className="relative inline-block h-10 w-10 border rounded-full object-cover object-center" />
-                        <p className="block font-sans text-base font-semibold leading-relaxed tracking-normal  antialiased">
+                        <p className="block font-sans md:text-base text-xs font-semibold leading-relaxed tracking-normal  antialiased">
                           {data?.response.match_info.teama.short_name}
                         </p>
 
                       </div>
-                      <p className="block font-sans md:text-base text-sm  font-semibold leading-relaxed tracking-normal text-blue-gray-900 antialiased">
+                      <p className="block font-sans md:text-base text-xs  font-semibold leading-relaxed tracking-normal text-blue-gray-900 antialiased">
                         {data?.response.match_info.teama.scores_full}
 
                       </p>
@@ -170,18 +169,18 @@ const Commentary = ({ data, balldata }) => {
                     </div><div className='h-4 space-y-2'></div></>
 
                     :
-                    <><div className="flex items-center md:justify-between  gap-4  pt-4 last:pb-0">
+                    <><div className="flex  items-center md:justify-between  gap-4   last:pb-0">
                       <div className="flex items-center gap-x-5">
                         <img
                           src={data?.response.match_info.teamb.logo_url}
                           alt="John Micheal"
                           className="relative inline-block h-10 w-10 border rounded-full object-cover object-center" />
-                        <p className="block font-sans text-base font-semibold leading-relaxed tracking-normal text-blue-gray-900 antialiased">
+                        <p className="block font-sans md:text-base text-xs font-semibold leading-relaxed tracking-normal text-blue-gray-900 antialiased">
                           {data?.response.match_info.teamb.short_name}
                         </p>
 
                       </div>
-                      <p className="block font-sans md:text-base text-sm font-semibold leading-relaxed tracking-normal text-blue-gray-900 antialiased">
+                      <p className="block font-sans md:text-base text-xs font-semibold leading-relaxed tracking-normal text-blue-gray-900 antialiased">
                         {data?.response.match_info.teamb.scores_full}
 
 
@@ -202,12 +201,12 @@ const Commentary = ({ data, balldata }) => {
                           alt="Tania Andrew"
                           className="relative inline-block h-10 w-10 border rounded-full object-cover object-center"
                         />
-                        <p className="block font-sans text-base font-semibold leading-relaxed tracking-normal  antialiased">
+                        <p className="block font-sans md:text-base text-xs font-semibold leading-relaxed tracking-normal  antialiased">
                           {data?.response.match_info.teama.short_name}
                         </p>
 
                       </div>
-                      <p className="block font-sans md:text-base text-sm  font-semibold leading-relaxed tracking-normal text-blue-gray-900 antialiased">
+                      <p className="block font-sans md:text-base text-xs  font-semibold leading-relaxed tracking-normal text-blue-gray-900 antialiased">
                         {data?.response.match_info.teama.scores_full}
 
                       </p>
@@ -216,19 +215,19 @@ const Commentary = ({ data, balldata }) => {
 
 
                     :
-                    <div className="flex items-center md:justify-between  gap-4  pt-4 last:pb-0">
+                    <div className="flex items-center md:justify-between  gap-4  pt-2 last:pb-0">
                       <div className="flex items-center gap-x-5">
                         <img
                           src={data?.response.match_info.teamb.logo_url}
                           alt="John Micheal"
                           className="relative inline-block h-10 w-10 border rounded-full object-cover object-center"
                         />
-                        <p className="block font-sans text-base font-semibold leading-relaxed tracking-normal text-blue-gray-900 antialiased">
+                        <p className="block font-sans md:text-base text-xs font-semibold leading-relaxed tracking-normal text-blue-gray-900 antialiased">
                           {data?.response.match_info.teamb.short_name}
                         </p>
 
                       </div>
-                      <p className="block font-sans md:text-base text-sm font-semibold leading-relaxed tracking-normal text-blue-gray-900 antialiased">
+                      <p className="block font-sans md:text-base text-xs font-semibold leading-relaxed tracking-normal text-blue-gray-900 antialiased">
                         {data?.response.match_info.teamb.scores_full}
 
 
@@ -247,12 +246,12 @@ const Commentary = ({ data, balldata }) => {
                         alt="Tania Andrew"
                         className="relative inline-block h-10 w-10 border rounded-full object-cover object-center"
                       />
-                      <p className="block font-sans text-base font-semibold leading-relaxed tracking-normal  antialiased">
+                      <p className="block font-sans md:text-base text-xs font-semibold leading-relaxed tracking-normal  antialiased">
                         {data?.response.match_info.teama.short_name}
                       </p>
 
                     </div>
-                    <p className="block font-sans md:text-base text-sm  font-semibold leading-relaxed tracking-normal text-blue-gray-900 antialiased">
+                    <p className="block font-sans md:text-base text-xs  font-semibold leading-relaxed tracking-normal text-blue-gray-900 antialiased">
                       {data?.response.match_info.teama.scores_full}
 
                     </p>
@@ -268,12 +267,12 @@ const Commentary = ({ data, balldata }) => {
                         alt="John Micheal"
                         className="relative inline-block h-10 w-10 border rounded-full object-cover object-center"
                       />
-                      <p className="block font-sans text-base font-semibold leading-relaxed tracking-normal text-blue-gray-900 antialiased">
+                      <p className="block font-sans md:text-base text-xs font-semibold leading-relaxed tracking-normal text-blue-gray-900 antialiased">
                         {data?.response.match_info.teamb.short_name}
                       </p>
 
                     </div>
-                    <p className="block font-sans md:text-base text-sm font-semibold leading-relaxed tracking-normal text-blue-gray-900 antialiased">
+                    <p className="block font-sans md:text-base text-xs font-semibold leading-relaxed tracking-normal text-blue-gray-900 antialiased">
                       {data?.response.match_info.teamb.scores_full}
 
 
@@ -323,22 +322,21 @@ const Commentary = ({ data, balldata }) => {
           {data?.response.live?.live_score ?
 
             <div className='flex text-blue-950 gap-3'>
-              <p className=' font-medium text-sm mt-2'>CRR:  {data?.response.live?.live_score.runrate}</p>
-              <p className=' font-medium text-sm mt-2 '>RRR: {data?.response.live?.live_score?.required_runrate ? data?.response.live.live_score?.required_runrate : "0"}</p>
+              <p className=' font-medium md:text-base text-xs  mt-2'>CRR:  {data?.response.live?.live_score.runrate}</p>
+              <p className=' font-medium md:text-base text-xs mt-2 '>RRR: {data?.response.live?.live_score?.required_runrate ? data?.response.live.live_score?.required_runrate : "0"}</p>
 
-              <p className=' font-medium text-sm mt-2 '>Target: {data?.response.live?.live_score.target}</p>
+              <p className=' font-medium md:text-base text-xs mt-2 '>Target: {data?.response.live?.live_score.target}</p>
             </div>
             :
 
             ""}
 
-          <p className=' font-medium text-md mt-2  text-red-600 '>{data?.response.live.status_note}</p>
+          <p className=' font-medium md:text-base text-xs mt-2  text-red-600 '>{data?.response.live.status_note}</p>
 
-          <div className='flex mt-4 overflow-x-auto pr-4 scrollbar-hide custom-scrollbar' ref={scrollContainerRef}>
-            {BData.map((item, index) => (
+          <div className='flex mt-2 overflow-x-auto pr-4 scrollbar-hide custom-scrollbar' ref={scrollContainerRef}>
+            {Data.reverse().map((item, index) => (
 
               item.event == "overend" ? (
-
 
                 <div key={index} className='items-center  flex   '>
 
@@ -380,7 +378,7 @@ const Commentary = ({ data, balldata }) => {
 
 
           {/* odds from here  */}
-          <div className="flex flex-col  items-center  mt-4 py-2 px-1 bg-gray-100 md:w-full">
+          <div className="flex flex-col  items-center  mt-2 py-2 px-1 bg-gray-100 md:w-full">
 
 
 
@@ -752,7 +750,7 @@ const Commentary = ({ data, balldata }) => {
 
 
 
-          <div className='hidden mt-4 w-full border'>
+          <div className='hidden mt-2 w-full border'>
             <img src='/playerofmatch.png' className='w-24  h-24' />
             <div className=' pl-4 bg-gray-100 items-center grid w-full'>
               <p>Player of the match</p>
@@ -1036,32 +1034,14 @@ const Commentary = ({ data, balldata }) => {
 
               <div key={index} className='mt-6 bg-gray-100  border w-full p-4'>
 
-                <div className='flex border-b font-medium pb-4 '>
+                <div className='flex border-b md:text-base text-xs  font-medium pb-1 '>
                   <p className='w-72'>Over-{item.over} </p>
-                  <p>{item.commentary}</p>
+                  <p className=' '>{item.commentary}</p>
 
 
                 </div>
 
-                <div className='flex mt-4 '>
-                  <p className='md:w-72 w-fit pr-4 border-r font-medium '></p>
-
-                  {/* 
-              <div className='ml-4'>
-
-                <p>Mehdi <span className='pl-4'>55(107)</span></p>
-                <p>Mehidy Hasan Miraz <span className='pl-4'>55(107)</span></p>
-
-                <p>Mehidy Hasan Miraz <span className='pl-4'>55(107)</span></p>
-
-
-              </div> */}
-
-
-
-
-
-                </div>
+                
 
 
 
@@ -1077,13 +1057,13 @@ const Commentary = ({ data, balldata }) => {
 
                 <div key={index} className='mt-6 flex   gap-x-3  border-b  px-4 pt-4'>
                   <div className=' font-medium pb-4 '>
-                    <p className='mb-2'>{item.over}.{item.ball} </p>
-                    <p className='border bg-blue-950 w-8 h-8 rounded-full text-white flex items-center justify-center'>{item.score}</p>
+                    <p className='mb-2 md:text-base text-xs'>{item.over}.{item.ball} </p>
+                    <p className='border bg-blue-950 md:text-base text-xs w-8 h-8 rounded-full text-white flex items-center justify-center'>{item.score}</p>
 
                   </div>
 
                   <div className='flex w-full '>
-                    <p className='   '>{item.commentary}</p>
+                    <p className=' md:text-base text-xs '>{item.commentary}</p>
                   </div>
 
                 </div>

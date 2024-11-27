@@ -1,26 +1,60 @@
 import React, { useEffect, useRef, useState } from 'react';
-import FbConnect  from "../components/FbConnect"
+import FbConnect from "../components/FbConnect"
 
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FaShare } from 'react-icons/fa';
+import axios from "axios"
+import { formatDistanceToNow, isAfter, addDays, format } from 'date-fns';
+import { IoArrowBackSharp } from "react-icons/io5";
+
+
 
 const CricketNews = () => {
+    const backUrl = process.env.REACT_APP_BACK_URL;
     const [isOpen, setIsOpen] = useState(false);
+    const [data, setData] = useState([]);
+    const [selectedNews, setSelectedNews] = useState(null); // Store the selected news
+    const navigate = useNavigate();
+
     const popupRef = useRef(null);  // Reference for the popup element
 
     // Function to handle share button click
-    const handleShareClick = (event) => {
-        // const button = event.target.closest('button');
-        // const buttonRect = button.getBoundingClientRect();
+    // const handleShareClick = (event) => {
 
-        // Set the popup position relative to the button
-        // setPopupPosition({
-        //     top: buttonRect.bottom + window.scrollY + 10,  // 10px below the button
-        //     left: buttonRect.left + window.scrollX,  // Align left with the button
-        // });
 
-        setIsOpen(!isOpen);  // Toggle popup visibility
+    //     setIsOpen(!isOpen);  // Toggle popup visibility
+    // };
+
+    const handleShareClick = (dropdown) => {
+        setIsOpen((prevState) => ({
+            ...prevState,
+            [dropdown]: !prevState[dropdown],
+        }));
     };
+
+    const formatUrl = (text) => {
+        return text.replace(/\s+/g, '-').toLowerCase(); // Replace spaces with dashes
+    };
+
+    const handleNewsClick = (newsID) => {
+        const newsItem = data.find((item) => item.newsID === newsID);
+        const permalink = newsItem?.permalink || "null";
+        setSelectedNews(newsItem);  // Set the selected news
+        navigate(`/cricket-news/${newsID}/${formatUrl(permalink)}`);
+        // Update the URL dynamically
+    };
+
+
+    const handleBackClick = () => {
+        setSelectedNews(null);  // Reset to show the full list
+        navigate("/cricket-news");
+
+        // Go back to the full list view
+    };
+
+
+
+
 
     // Function to copy the link
     const copyLink = () => {
@@ -46,6 +80,36 @@ const CricketNews = () => {
         };
     }, []);
 
+    useEffect(() => {
+        axios.get(`${backUrl}/admin/allnews`)
+            .then((res) => {
+                console.log(res, "list of news")
+                // const result = [...res.data]
+                if (Array.isArray(res.data)) {
+                    setData(res.data.reverse());  // Only reverse if it's an array
+                } else {
+                    console.error('res.data is not an array');
+                    setData([]);  // Optionally set an empty array or handle error
+                }
+            })
+    }, [])
+
+    // const crypto = require('crypto');
+
+    const formatCreatedAt = (createdAt) => {
+        const createdDate = new Date(createdAt);
+        const sevenDaysFromNow = addDays(createdDate, 7);
+        const now = new Date();
+
+        if (isAfter(sevenDaysFromNow, now)) {
+            return `${formatDistanceToNow(createdDate, { addSuffix: true })}`;
+        }
+
+        return format(createdDate, 'EEEE dd-MMM-yyyy');
+    };
+
+
+
     return (
         <div className='md:mx-20 mx-4 h-full'>
             <div className='flex px-1 py-10 justify-between'>
@@ -59,111 +123,231 @@ const CricketNews = () => {
                     placeholder='Search...'
                 />
             </div>
-
+            {data?.length > 0 ?
             <div className='flex gap-x-8'>
-                <div className='border mb-4 bg-white rounded-xl md:w-3/4 w-full h-full'>
+                
 
-                    <div className='grid gap-y-2.5 grid-flow-row py-5 px-6'>
+                    <div className='border mb-4 bg-white rounded-xl md:w-3/4 w-full h-full'>
 
 
-                        <div className='md:flex gap-4 border-b pb-2.5 items-center'>
-                            <img
-                                src='viratnews.webp'
-                                alt='Virat Kohli News'
-                                className='relative border inline-block md:h-24 md:w-36 rounded-md object-cover object-center'
-                            />
+                        {
+                            selectedNews ?
 
-                            <div className='grid tracking-normal antialiased relative'>
-                                <div className='flex items-center justify-between'>
-                                    <Link
-                                        to='#'
-                                        className='text-xl pr-6 line-clamp-2 font-semibold'
-                                    >
-                                        “Sometimes you make the right call, sometimes you don’t”:
-                                        Rohit Sharma on batting first against NZ
-                                    </Link>
+                                (
+                                    // Show selected news
+                                    <div className="py-5 px-6">
+                                        <button
+                                            onClick={handleBackClick}
+                                            className="mb-4 flex gap-2 items-center bg-gray-200 hover:bg-gray-300 p-2 rounded"
+                                        >
+                                            <IoArrowBackSharp /> Back
+                                        </button>
 
-                                    <button type='button' data-modal-target="default-modal" data-modal-toggle="default-modal"
-                                        onClick={handleShareClick}
-                                        className='relative hover:bg-gray-100 p-2.5 h-10 w-10 rounded-full'
-                                    >
-                                        <FaShare style={{ color: 'gray' }} />
-                                    </button>
-                                </div>
 
-                                <span className='text-base text-gray-600'>1 day ago</span>
-                                <span className='text-base pr-12 truncate'>
-                                    Australia’s dangerous batter Travis Head has signed up with
-                                    Adelaide
-                                </span>
 
-                                {/* Share popup */}
-                                {isOpen && (
-                                    <div ref={popupRef}
-                                        style={{ top: "2.5rem", minWidth: '12rem' }}
-                                        className='absolute right-0 top-10 mt-2 w-48 bg-white border border-gray-200 shadow-lg rounded-lg p-3 z-10'
 
-                                    >
-                                        <div className='flex flex-col space-y-2'>
-                                            <a
-                                                href={`https://wa.me/?text=${window.location.href}`}
-                                                target='_blank'
-                                                rel='noopener noreferrer'
-                                                className='flex items-center text-gray-700 hover:text-green-500'
-                                            >
-                                                <img
-                                                    src='https://cdn-icons-png.flaticon.com/24/124/124034.png'
-                                                    alt='WhatsApp'
-                                                    className='w-5 h-5 mr-2'
-                                                />
-                                                WhatsApp
-                                            </a>
-                                            <a
-                                                href={`https://twitter.com/intent/tweet?url=${window.location.href}`}
-                                                target='_blank'
-                                                rel='noopener noreferrer'
-                                                className='flex items-center text-gray-700 hover:text-blue-400'
-                                            >
-                                                <img
-                                                    src='https://cdn-icons-png.flaticon.com/24/733/733579.png'
-                                                    alt='Twitter'
-                                                    className='w-5 h-5 mr-2'
-                                                />
-                                                Twitter
-                                            </a>
-                                            <button
-                                                onClick={copyLink}
-                                                className='flex items-center text-gray-700 hover:text-blue-600'
-                                            >
-                                                <img
-                                                    src='https://cdn-icons-png.flaticon.com/24/54/54702.png'
-                                                    alt='Copy Link'
-                                                    className='w-5 h-5 mr-2'
-                                                />
-                                                Copy Link
-                                            </button>
+                                        <div className=' gap-4 border-b pb-2.5 items-center'>
+                                            <div className=' items-center justify-between'>
+                                                <div
+                                                    className=' pr-6 text-lg line-clamp-2 font-medium'
+                                                    dangerouslySetInnerHTML={{ __html: selectedNews.headline }}
+
+
+                                                ></div>
+
+
+                                            </div>
+
+                                            <span className="text-base  text-gray-600">
+                                                {formatCreatedAt(selectedNews.createdAt)}
+                                            </span>
+                                            <img
+                                                src={`${backUrl}/${selectedNews.selectedFile}`}
+                                                alt='Virat Kohli News'
+                                                className='relative border mt-2 inline-block md:h-full md:w-full rounded-md object-cover object-center'
+                                            />
+
+                                            <div className='grid tracking-normal antialiased relative flex-1'>
+
+
+                                                <div
+                                                    className="text-base  max-w-full"
+                                                    dangerouslySetInnerHTML={{ __html: selectedNews.text }}
+                                                ></div>
+
+                                                {selectedNews.description ?
+
+                                                    <div className="text-base  max-w-full">
+                                                        <p className='text-lg font-medium my-4'>Tags</p>
+                                                        <div className=" flex gap-2">
+                                                            {selectedNews?.description
+                                                                .split(",") // Split the description by commas
+                                                                .map((item, index) => (
+                                                                    item ? (
+
+                                                                        <Link to="#" key={index} className="bg-gray-300 hover:bg-gray-100 hover:underline px-4 py-2 rounded-md">
+                                                                            {item.trim()} {/* Trim any extra spaces */}
+                                                                        </Link>
+
+                                                                    ) : ""
+
+                                                                ))}
+                                                        </div>
+                                                    </div>
+
+                                                    : ""}
+
+
+
+
+
+
+
+
+
+                                            </div>
+
                                         </div>
+
+
                                     </div>
-                                )}
+                                ) : (
+
+                                    <div className='grid gap-y-2.5 grid-flow-row py-5 px-6'>
+
+                                        {data?.map((item, index) => (
+                                            item ? (
+
+                                                <div className='md:flex gap-4 border-b pb-2.5 items-center'>
+                                                    <img
+                                                        src={`${backUrl}/${item.selectedFile}`}
+                                                        alt='Virat Kohli News'
+                                                        className='relative border inline-block md:h-24 md:w-36 rounded-md object-cover object-center'
+                                                    />
+
+                                                    <div className='grid tracking-normal antialiased relative flex-1'>
+                                                        <div className='flex items-center justify-between'>
+                                                            <button
+                                                                onClick={() => handleNewsClick(item.newsID, item.permalink)}
+                                                                className=' pr-6 text-lg line-clamp-2 font-medium'
+                                                                dangerouslySetInnerHTML={{ __html: item.headline }}
+
+
+                                                            ></button>
+                                                            {/* <button
+                                                                type="button"
+                                                                className="relative hover:bg-gray-600 p-2.5 h-10 w-10 rounded-full"
+                                                                onClick={() => handleNewsClick(item.newsID, item.permalink)}
+                                                            ></button> */}
+
+                                                            <button key={item.newsID} type='button' data-modal-target="default-modal" data-modal-toggle="default-modal"
+                                                                onClick={() => handleShareClick(item.newsID)}
+                                                                className='relative hidden hover:bg-gray-100 p-2.5 h-10 w-10 rounded-full'
+                                                            >
+                                                                <FaShare style={{ color: 'gray' }} />
+                                                            </button>
+                                                        </div>
+
+                                                        <span className="text-base text-gray-600">
+                                                            {formatCreatedAt(item.createdAt)}
+                                                        </span>
+
+                                                        <div
+                                                            className="text-base pr-12 line-clamp-1 truncate max-w-full"
+                                                            style={{
+                                                                overflow: "hidden",
+                                                                whiteSpace: "nowrap",
+                                                                textOverflow: "ellipsis",
+                                                            }}
+                                                            dangerouslySetInnerHTML={{ __html: item.text }}
+                                                        ></div>
 
 
 
-                            </div>
+                                                        {/* Share popup */}
+                                                        {isOpen[item.newsID] && (
+                                                            <div ref={popupRef}
+                                                                style={{ top: "2.5rem", minWidth: '12rem' }}
+                                                                className='absolute right-0 top-10 mt-2 w-48 bg-white border border-gray-200 shadow-lg rounded-lg p-3 z-10'
 
-                        </div>
+                                                            >
+                                                                <div className='flex flex-col space-y-2'>
+                                                                    <a
+                                                                        href={`https://wa.me/?text=${window.location.href}`}
+                                                                        target='_blank'
+                                                                        rel='noopener noreferrer'
+                                                                        className='flex items-center text-gray-700 hover:text-green-500'
+                                                                    >
+                                                                        <img
+                                                                            src='https://cdn-icons-png.flaticon.com/24/124/124034.png'
+                                                                            alt='WhatsApp'
+                                                                            className='w-5 h-5 mr-2'
+                                                                        />
+                                                                        WhatsApp
+                                                                    </a>
+                                                                    <a
+                                                                        href={`https://twitter.com/intent/tweet?url=${window.location.href}`}
+                                                                        target='_blank'
+                                                                        rel='noopener noreferrer'
+                                                                        className='flex items-center text-gray-700 hover:text-blue-400'
+                                                                    >
+                                                                        <img
+                                                                            src='https://cdn-icons-png.flaticon.com/24/733/733579.png'
+                                                                            alt='Twitter'
+                                                                            className='w-5 h-5 mr-2'
+                                                                        />
+                                                                        Twitter
+                                                                    </a>
+                                                                    <button
+                                                                        onClick={copyLink}
+                                                                        className='flex items-center text-gray-700 hover:text-blue-600'
+                                                                    >
+                                                                        <img
+                                                                            src='https://cdn-icons-png.flaticon.com/24/54/54702.png'
+                                                                            alt='Copy Link'
+                                                                            className='w-5 h-5 mr-2'
+                                                                        />
+                                                                        Copy Link
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        )}
 
 
 
+                                                    </div>
+
+                                                </div>
+
+
+                                            ) : ""
+                                        ))}
+
+
+
+
+
+
+
+
+
+
+                                    </div>
+
+                                )
+                        }
 
 
 
 
                     </div>
-                    
-                </div>
 
-                <FbConnect/>
+                    
+
+
+                <FbConnect />
             </div>
+            : <p>No News Available</p>}
         </div>
     );
 };
