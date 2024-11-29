@@ -15,18 +15,6 @@ import HomeDropdown from '../components/HomeDropdown';
 const HomePage = () => {
 
 
-
-
-
-
-
-
-
-
-
-
-
-
   return (
 
     <div className=''>

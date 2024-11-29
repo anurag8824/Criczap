@@ -1,9 +1,29 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { FaEdit } from 'react-icons/fa'
 import { MdDelete } from 'react-icons/md'
+import axios from "axios"
+
 import { Link } from 'react-router-dom'
 
 const Newspost = () => {
+    const [data, setData] = useState([])
+    const backUrl = process.env.REACT_APP_BACK_URL;
+
+
+    useEffect(() => {
+        axios.get(`${backUrl}/admin/allnews`)
+            .then((res) => {
+                console.log(res, "list of news")
+                // const result = [...res.data]
+                if (Array.isArray(res.data)) {
+                    setData(res.data.reverse());  // Only reverse if it's an array
+                } else {
+                    console.error('res.data is not an array');
+                    setData([]);  // Optionally set an empty array or handle error
+                }
+            })
+    }, [])
+
     return (
         <div className='md:min-h-screen md:pb-0 pb-10'>
 
@@ -43,6 +63,8 @@ const Newspost = () => {
 
                         <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                             <tr>
+                                <th scope="col" className="px-6 py-3">No.</th>
+
                                 <th scope="col" className="px-6 py-3">News ID</th>
                                 <th scope="col" className="px-6 py-3">News headline</th>
                                 <th scope="col" className="px-6 py-3"></th>
@@ -54,15 +76,26 @@ const Newspost = () => {
                         </thead>
 
                         <tbody>
-                            <tr className="bg-white text-blue-950 border-b dark:bg-gray-800 dark:border-gray-700">
-                                <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">1</th>
-                                <td className="px-6 py-4">ind vs wi news live updates</td>
-                                {/* <td className="px-6 py-4">Add</td> */}
-                                {/* <td className="px-6 py-4">Remove</td> */}
-                                <td className="px-6 py-4 text-xl "><Link to='/add-post'><FaEdit /></Link></td>
-                                <td className="px-6 py-4 text-xl text-red-500"><button><MdDelete /></button></td>
 
-                            </tr>
+                            {data.map((item, index) => (
+                                item ? (
+                                    <tr key={index} className="bg-white text-blue-950 border-b dark:bg-gray-800 dark:border-gray-700">
+                                        <td className="px-6 py-4  ">{index + 1}</td>
+
+                                        <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">{item.newsID}</th>
+
+                                        <td className="px-6 py-4 line-clamp-2" dangerouslySetInnerHTML={{ __html: item.headline }} ></td>
+                                        {/* <td className="px-6 py-4">Add</td> */}
+                                        {/* <td className="px-6 py-4">Remove</td> */}
+                                        <td className="px-6 py-4 text-xl hidden "><Link to='/add-post'><FaEdit /></Link></td>
+                                        <td className="px-6 py-4 text-xl hidden text-red-500"><button><MdDelete /></button></td>
+
+                                    </tr>
+
+                                ) : ""
+                            ))}
+
+
                         </tbody>
                     </table>
                 </div>
