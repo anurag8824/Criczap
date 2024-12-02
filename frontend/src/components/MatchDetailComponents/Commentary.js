@@ -9,7 +9,6 @@ import { AiOutlineInfoCircle } from "react-icons/ai";
 
 
 
-
 const Commentary = ({ data, balldata }) => {
   const [isMuted, setIsMuted] = useState(true);
   const audioRef = useRef(null);
@@ -685,17 +684,19 @@ const Commentary = ({ data, balldata }) => {
 
 
 
-                          <div className='flex pb-1 items-center justify-between'>
+                          <div className=' '>
                             {data?.response?.featured_session ?
+
                               <>
+
 
                                 {data?.response?.featured_session?.map((item, index) => (
                                   item ? (
 
+                                    <div key={index} className='flex pb-1 items-center justify-between'>
 
-                                    <><p>{item.title.split(' ').slice(0, 2).join(' ')} </p>
+                                      <p>{item.title.split(' ').slice(0, 2).join(' ')} </p>
                                       <div className='flex gap-2'>
-
                                         <p className='px-4 font-medium py-1 items-center flex justify-center bg-green-700 text-white border'> {Math.max(0, Math.round((parseFloat(item.lay_condition)))).toString().padStart(2, '0')}</p>
                                         <p className='px-4 font-medium py-1 items-center flex justify-center bg-red-700 text-white border'>
                                           {item.back_condition ? Math.max(0, Math.round((parseFloat(item.back_condition))))
@@ -706,7 +707,13 @@ const Commentary = ({ data, balldata }) => {
                                         </p>
 
 
-                                      </div></>
+                                      </div>
+
+                                    </div>
+
+
+
+
 
 
 
@@ -1041,7 +1048,7 @@ const Commentary = ({ data, balldata }) => {
 
                 </div>
 
-                
+
 
 
 
@@ -1079,17 +1086,16 @@ const Commentary = ({ data, balldata }) => {
 
 
 
-        : <p className=' font-medium text-center text-md mt-2  text-red-600 '>
+        : <p className=' font-medium flex  justify-center text-center text-md mt-2  text-red-600 '>
 
           {/* <div className="flex  justify-center ">
             <div className="w-4 h-4 border-2 border-blue-950 border-solid border-t-transparent rounded-full animate-spin"></div>
           </div> */}
 
-          <div>
+          <img className='size-20' src="/Animation.gif"/>
 
-            <Player className='md:h-28 h-14' autoplay loop src="/throw-ball.json" />
 
-          </div>
+          
 
 
         </p>}

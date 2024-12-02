@@ -6,6 +6,7 @@ import { LiaTrophySolid } from "react-icons/lia";
 import { BiSolidVideos } from "react-icons/bi";
 import { FaThList } from "react-icons/fa";
 import { PiRankingBold } from "react-icons/pi";
+import BackToTop from './BackToTop';
 
 
 
@@ -56,7 +57,7 @@ const Footer = () => {
 
                     {/* 2nd Column - Follow Us */}
                     <div class="text-base   text-white font-medium w-full rounded-xl px-3 overflow-hidden">
-                        <p class="mb-4">FOLLOW US ON</p>
+                        <p class="mb-4">SOCIAL</p>
 
                         <div class="flex items-center gap-x-3 mb-4">
                             <img
@@ -96,9 +97,7 @@ const Footer = () => {
                     <div className=' w-full'>
                         <h2 class="mb-6  text-base uppercase  text-white font-semibold">Quick Links</h2>
                         <ul className="text-white font-normal space-y-6">
-                            <li>
-                                <Link to="/" className="hover:underline">Home</Link>
-                            </li>
+
                             <li>
                                 <Link to="cricket-schedule" className="hover:underline">Schedule</Link>
                             </li>
@@ -111,9 +110,7 @@ const Footer = () => {
                             <li>
                                 <Link to="cricket-videos" className="hover:underline">Videos</Link>
                             </li>
-                            <li>
-                                <Link to="polls" className="hover:underline">Polls</Link>
-                            </li>
+
                         </ul>
 
                     </div>
@@ -134,7 +131,7 @@ const Footer = () => {
                 </div>
             </div>
 
-            <div className='block fixed bottom-0  w-full     sm:hidden bg-gray-900 text-white '>
+            <div className='block fixed bottom-0  w-full     sm:hidden bg-blue-950 text-white '>
 
                 <div className='flex justify-between  px-2 py-2'>
                     <Link to="/" className='justify-center items-center flex flex-col  text-center' >
@@ -160,8 +157,8 @@ const Footer = () => {
                     </Link>
 
                     <Link to="cricket-rankings" className='justify-center items-center flex flex-col  text-center'>
-                        <PiRankingBold 
-                        className='w-6 h-6' />
+                        <PiRankingBold
+                            className='w-6 h-6' />
                         <p>Ranking</p>
 
                     </Link>
@@ -172,6 +169,8 @@ const Footer = () => {
 
 
             </div>
+
+            <BackToTop />
 
 
         </footer>

@@ -1,9 +1,20 @@
 import React, { useState } from 'react'
+import { BiDownArrow } from 'react-icons/bi';
+import { FaAngleDown } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 const Header = () => {
 
   const [menuOpen, setMenuOpen] = useState(false);
+  const [isDropdownVisible, setIsDropdownVisible] = useState(false);
+  const [isDropdownVisible1, setIsDropdownVisible1] = useState(false);
+
+
+  const showDropdown = () => setIsDropdownVisible(true);
+  const hideDropdown = () => setIsDropdownVisible(false);
+
+  const showDropdown1 = () => setIsDropdownVisible1(true);
+  const hideDropdown1 = () => setIsDropdownVisible1(false);
 
   // Function to toggle the menu
   const toggleMenu = () => {
@@ -72,16 +83,77 @@ const Header = () => {
                 <Link onClick={toggleCloseMenu} to="cricket-players" class="block py-2 pr-4 pl-3 text-white border-b border-gray-100 hover:bg-gray-50 hover:text-black lg:hover:text-white  lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Players</Link>
               </li>
               <li>
-                <Link onClick={toggleCloseMenu} to="cricket-news" href="#" class="block py-2 pr-4 pl-3 text-white border-b border-gray-100 hover:bg-gray-50 hover:text-black lg:hover:text-white  lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">News</Link>
-              </li>
-              <li>
-                <Link onClick={toggleCloseMenu} to="cricket-videos" class="block py-2 pr-4 pl-3 text-white border-b border-gray-100 hover:bg-gray-50 hover:text-black lg:hover:text-white  lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Videos</Link>
+                <div
+                  onMouseEnter={showDropdown1}
+                  onMouseLeave={hideDropdown1}
+                  className="relative inline-block w-full"
+                >
+                  <Link
+                    onClick={toggleCloseMenu}
+
+                    className=" items-center gap-2 flex py-2 pr-4 pl-3 text-white border-b border-gray-100 hover:bg-gray-50 hover:text-black lg:hover:text-white lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
+                  >
+                    Media <FaAngleDown className='hidden mt-1 md:block' />
+                  </Link>
+                  {isDropdownVisible1 && (
+                    <div className="absolute w-40 top-full text-sm left-0 bg-white border border-gray-200 shadow-lg py-2 z-10">
+                      <Link
+                        onClick={toggleCloseMenu}
+
+                        to="cricket-news"
+                        className="block  px-4 py-2 text-black hover:bg-gray-100"
+                      >
+                        News
+                      </Link>
+                      <Link
+                        to="cricket-videos"
+                        onClick={toggleCloseMenu}
+
+                        className="block px-4 py-2 text-black hover:bg-gray-100"
+                      >
+                        Videos
+                      </Link>
+                    </div>
+                  )}
+                </div>
               </li>
 
               <li>
-                <Link onClick={toggleCloseMenu} to="cricket-rankings" class="block py-2 pr-4 pl-3 text-white border-b border-gray-100 hover:bg-gray-50 hover:text-black lg:hover:text-white lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Ranking</Link>
+                <div
+                  onMouseEnter={showDropdown}
+                  onMouseLeave={hideDropdown}
+                  className="relative inline-block w-full"
+                >
+                  <Link
+                    onClick={toggleCloseMenu}
+
+                    className=" items-center gap-2 flex py-2 pr-4 pl-3 text-white border-b border-gray-100 hover:bg-gray-50 hover:text-black lg:hover:text-white lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
+                  >
+                    Ranking <FaAngleDown className='hidden mt-1 md:block' />
+                  </Link>
+                  {isDropdownVisible && (
+                    <div className="absolute w-40 top-full text-sm left-0 bg-white border border-gray-200 shadow-lg py-2 z-10">
+                      <Link
+                        onClick={toggleCloseMenu}
+
+                        to="cricket-rankings"
+                        className="block  px-4 py-2 text-black hover:bg-gray-100"
+                      >
+                        Men Ranking
+                      </Link>
+                      <Link
+                        onClick={toggleCloseMenu}
+
+                        to="cricket-rankings"
+                        className="block px-4 py-2 text-black hover:bg-gray-100"
+                      >
+                        Women Ranking
+                      </Link>
+                    </div>
+                  )}
+                </div>
               </li>
-              
+
               <li>
                 <Link onClick={toggleCloseMenu} to="polls" class="block py-2 pr-4 pl-3 text-white border-b border-gray-100 hover:bg-gray-50 hover:text-black lg:hover:text-white lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Polls</Link>
               </li>

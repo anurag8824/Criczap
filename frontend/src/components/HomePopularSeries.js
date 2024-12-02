@@ -7,52 +7,57 @@ import axios from 'axios'
 const HomePopularSeries = () => {
 
 
-    // const [livematch, setLivematch] = useState([])
-    // const [filter, setFilter] = useState('all'); // State to control what to display
-
-    // const [schedule, setSchedule] = useState([])
-    // const [complete, setComplete] = useState([])
-    // const backUrl = process.env.REACT_APP_BACK_URL
-
-    // useEffect = () => {
-
-    //     axios.get(`${backUrl}/api/v1/homedata`)
-    //         .then((res) => {
-
-    //             console.log(res);
-    //             const dataFromApi = res.data.response.items
-    //             const filteredData = dataFromApi.filter(item => item.status_str
-    //                 === 'Live' && (item.competition.category === "international" || item.competition.category === "women" || item.competition.title === "Abu Dhabi T10 League" ));
-
-
-    //             setLivematch(filteredData)
-    //             // item.competition.category === ""||
-
-    //             // console.log(filteredData, "filtrr")
-
-
-    //             const upcomingMatch = dataFromApi.filter(item => item.status_str === "Scheduled" && (item.competition.category === "international" || item.competition.category === "women" || item.competition.title === "Abu Dhabi T10 League"));
-    //             console.log(upcomingMatch, "uppp")
-
-    //             setSchedule(upcomingMatch)
-
-
-    //             const completedMatch = dataFromApi.filter(item => item.status_str === "Completed" && (item.competition.category === "international" || item.competition.category === "women" || item.competition.title === "Abu Dhabi T10 League"));
-    //             console.log(completedMatch, "compled")
-
-    //             setComplete(completedMatch)
+    const [complete, setComplete] = useState([])
+    const backUrl = process.env.REACT_APP_BACK_URL
 
 
 
+    useEffect(() => {
+        axios.get(`${backUrl}/api/v1/homedata`)
+            .then((res) => {
+
+                console.log(res);
+                const dataFromApi = res.data.response.items
+                const filteredData = dataFromApi.filter(item => item.status_str
+                    === 'Live' && (item.competition.category === "international" || item.competition.category === "women" || item.competition.title === "Abu Dhabi T10 League"));
+
+
+                // setLivematch(filteredData)
+                // item.competition.category === ""||
+
+                console.log(filteredData, "filtrr")
+
+
+                const upcomingMatch = dataFromApi.filter(item => item.status_str === "Scheduled" && (item.competition.category === "international" || item.competition.category === "women" || item.competition.title === "Abu Dhabi T10 League"));
+                console.log(upcomingMatch, "uppp")
+
+                // setSchedule(upcomingMatch)
+
+
+                const completedMatch = dataFromApi.filter(item => item.status_str === "Completed" && (item.competition.category === "international" || item.competition.category === "women" || item.competition.title === "Abu Dhabi T10 League"));
+                console.log(completedMatch, "compled")
+
+
+                const topdata = ([...filteredData, ...upcomingMatch, ...completedMatch]);
+
+                console.log(topdata, "cccc")
+                setComplete(topdata)
 
 
 
 
 
-    //             // console.log(filteredData, "ressss");
-    //         })
 
-    // }
+
+
+                // console.log(filteredData, "ressss");
+            })
+
+        console.log("top useefect hit")
+    }, [])
+    const formatUrl = (text) => {
+        return text.replace(/\s+/g, '-').toLowerCase(); // Replace spaces with dashes
+    };
 
 
     return (
@@ -66,18 +71,25 @@ const HomePopularSeries = () => {
                     <div class="flex items-center justify-between pb-3 pt-3  last:pb-0">
                         <div class="grid items-center gap-x-3 ">
 
+                            {[...new Map(
+                                complete.map((item) => [item.competition.title, item])
+                            ).values()].map((item, index) => (
+                                item.competition.title ? (
+                                    <Link
+                                        to={`cricket-series/${item.competition.cid}/${formatUrl(item.competition.title)}/overview`}
+
+                                        key={index}
+                                        class="block border-b py-2.5 leading-relaxed tracking-normal antialiased hover:underline"
+                                    >
+                                        {item.competition.title}
+                                    </Link>
+                                ) : ""
+                            ))}
 
 
 
-                            <div class=" block border-b py-2.5 leading-relaxed tracking-normal antialiased hover:underline">Nepal tour of United States of America 2024</div>
 
 
-
-                            <div class="block border-b py-2.5  leading-relaxed tracking-normal antialiased hover:underline">Womens T20 World Cup 2024 🏆</div>
-
-
-
-                            <div class="block border-b py-2.5  leading-relaxed tracking-normal antialiased hover:underline">Womens T20 World Cup 2024 🏆</div>
                         </div>
                     </div>
 

@@ -11,6 +11,7 @@ import axios from 'axios'
 import { useMyContext } from './MyProvider';
 
 import { io } from "socket.io-client";
+import BoxLoader from './BoxLoader';
 
 
 
@@ -60,7 +61,7 @@ const MatchDetailView = () => {
             console.log("Connected to the Socket.IO server");
         });
 
-      
+
         socket.on("scoreUpdate", (data) => {
 
             if (data.response.match_id == matchId) {
@@ -111,16 +112,19 @@ const MatchDetailView = () => {
         <div className='md:mx-20 mx-4  '>
 
             <div className='flex px-1 text-blue-950 py-10 justify-between'>
-                <div>
-                    <p className='text-2xl  font-medium'>{livedata?.response.match_info.title}, {livedata?.response.match_info.subtitle} Match</p>
-                    <p className='text-base  font-normal text-gray-500'>Date & Time: {livedata?.response.match_info.date_start_ist}</p>
+                {livedata ?
+                    <div>
+                        <p className='text-2xl  font-medium'>{livedata?.response.match_info.title}, {livedata?.response.match_info.subtitle} Match</p>
+                        <p className='text-base  font-normal text-gray-500'>Date & Time: {livedata?.response.match_info.date_start_ist}</p>
 
-                    <p className='pb-2 '><span className='font-medium text-sm'>Toss:</span> {livedata?.response.match_info.toss.text}</p>
+                        <p className='pb-2 '><span className='font-medium text-sm'>Toss:</span> {livedata?.response.match_info.toss.text}</p>
 
 
+                    </div>
 
+                    : <BoxLoader/>
 
-                </div>
+                }
 
 
 

@@ -23,7 +23,7 @@ const HomeScrollCard = ({ data }) => {
                             {item.competition.title}
                         </Link>
 
-                        <a href={`match-detail/${item.match_id}/${formatUrl(`${item.short_title}-${item.competition.title}`)}/commentary`}>
+                        <Link to={`match-detail/${item.match_id}/${formatUrl(`${item.short_title}-${item.competition.title}`)}/commentary`}>
                             <div class="px-4 py-2 pb-1 mb-2 bg-white  items-center  h-56 grid shadow-sm rounded-xl">
                                 <p class="block text-red-600 mb-1 text-sm font-bold antialiased">
                                     {item.
@@ -94,7 +94,7 @@ const HomeScrollCard = ({ data }) => {
                                     </div>
                                 </div>
                             </div>
-                        </a>
+                        </Link>
 
 
                         {item.status_str === "Scheduled" ? (

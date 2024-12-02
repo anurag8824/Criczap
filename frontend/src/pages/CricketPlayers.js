@@ -1,44 +1,30 @@
 import React, { useContext, useEffect, useState } from 'react'
-
 import FbConnect from "../components/FbConnect"
 import axios from "axios"
-
 import { Link } from 'react-router-dom'
 
 const CricketPlayers = () => {
     const [data, setData] = useState([])
-
     const [search, setSearch] = useState('')
     const backUrl = process.env.REACT_APP_BACK_URL;
-
+    console.log("p hit")
 
     useEffect(() => {
         axios.get(`${backUrl}/api/v1/allplayer`)
           .then((res) => {
-            console.log(res, "allplayers");
+            // console.log(res, "allplayers");
             setData(res.data.msg.items)
           }).catch((err) => {
             console.error("Error fetching players data", err);
           })
-      }, [backUrl]);
-
-
-
-
- 
-
-
-
+      }, []);
 
     const handleSearch = () => {
-
         axios.post(`${backUrl}/api/v1/searchplayer`, { search })
             .then((res) => {
                 console.log(res, "send serach");
                 setData(res.data.msg.items)
-
             })
-
     }
 
     const formatUrl = (text) => {
@@ -66,14 +52,10 @@ const CricketPlayers = () => {
 
             <div className='flex gap-x-8'>
 
-                {data ?
+                {/* {data ? */}
 
                     <div className='border mb-4 bg-white rounded-xl md:w-3/4 w-full h-full'>
-
                         <div className='grid gap-y-2.5 grid-flow-row p-8'>
-
-
-
                             {data?.map((item, index) => (
                                 item ? (
 
@@ -98,26 +80,12 @@ const CricketPlayers = () => {
 
                                 ) : null
                             ))}
-
-
-
-
-
-
-
-
-
                         </div>
-
-
-
-
-
                     </div>
 
-                    : <div className="flex  justify-center ">
+                    {/* : <div className="flex  justify-center ">
                         <div className="w-4 h-4 border-2 border-blue-500 border-solid border-t-transparent rounded-full animate-spin">o</div>
-                    </div>}
+                    </div>} */}
 
                 <FbConnect />
 

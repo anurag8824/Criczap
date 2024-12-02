@@ -13,7 +13,7 @@ const HomeScroller = () => {
     const [complete, setComplete] = useState([])
     const backUrl = process.env.REACT_APP_BACK_URL
 
-    useEffect = () => {
+    useEffect(() => {
 
         axios.get(`${backUrl}/api/v1/homedata`)
             .then((res) => {
@@ -21,7 +21,7 @@ const HomeScroller = () => {
                 console.log(res);
                 const dataFromApi = res.data.response.items
                 const filteredData = dataFromApi.filter(item => item.status_str
-                    === 'Live' && (item.competition.category === "international" || item.competition.category === "women" || item.competition.title === "Abu Dhabi T10 League" ));
+                    === 'Live' && (item.competition.category === "international" || item.competition.category === "women" || item.competition.title === "Abu Dhabi T10 League"));
 
 
                 setLivematch(filteredData)
@@ -51,7 +51,7 @@ const HomeScroller = () => {
                 // console.log(filteredData, "ressss");
             })
 
-    }
+    }, [])
 
 
 
