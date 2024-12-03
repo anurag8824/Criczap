@@ -21,7 +21,7 @@ const Footer = () => {
             <div class="mx-auto w-full md:w-full hidden sm:block max-w-screen-xl p-4 py-6 md:py-8">
                 <div class="sm:flex sm:justify-between grid grid-col-2  gap-6 ">
 
-                    
+
 
                     <div className='space-y-4'>
 
@@ -93,25 +93,25 @@ const Footer = () => {
                         </div>
 
                         <div className='ffflex hidden  gap-4 w-full'>
-                        <h2 class="mb-6  text-base uppercase  text-white border-r pr-11 font-semibold">Quick Links</h2>
-                        <ul className="text-white flex font-normal space-x-4">
+                            <h2 class="mb-6  text-base uppercase  text-white border-r pr-11 font-semibold">Quick Links</h2>
+                            <ul className="text-white flex font-normal space-x-4">
 
-                            <li>
-                                <Link to="cricket-schedule" className="hover:underline">Schedule</Link>
-                            </li>
-                            <li>
-                                <Link to="cricket-series" className="hover:underline">Series</Link>
-                            </li>
-                            <li>
-                                <Link to="cricket-news" className="hover:underline">News</Link>
-                            </li>
-                            <li>
-                                <Link to="cricket-videos" className="hover:underline">Videos</Link>
-                            </li>
+                                <li>
+                                    <Link to="cricket-schedule" className="hover:underline">Schedule</Link>
+                                </li>
+                                <li>
+                                    <Link to="cricket-series" className="hover:underline">Series</Link>
+                                </li>
+                                <li>
+                                    <Link to="cricket-news" className="hover:underline">News</Link>
+                                </li>
+                                <li>
+                                    <Link to="cricket-videos" className="hover:underline">Videos</Link>
+                                </li>
 
-                        </ul>
+                            </ul>
 
-                    </div>
+                        </div>
 
                     </div>
 
@@ -124,7 +124,7 @@ const Footer = () => {
                     </div>
 
                     {/* 3rd Column - Quick Links */}
-                    
+
 
                 </div>
 

@@ -21,7 +21,7 @@ const HomeScroller = () => {
                 console.log(res);
                 const dataFromApi = res.data.response.items
                 const filteredData = dataFromApi.filter(item => item.status_str
-                    === 'Live' && (item.competition.category === "international" || item.competition.category === "women" || item.competition.title === "Abu Dhabi T10 League"));
+                    === 'Live' && (item.competition.category === "international" || item.competition.category === "women" || item.competition.title === "Abu Dhabi T10 League" || item.competition.title === "ACC U19 Asia Cup"));
 
 
                 setLivematch(filteredData)

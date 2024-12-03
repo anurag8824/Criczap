@@ -2,6 +2,7 @@ const AdminData = require("../model/Admin.model");
 const NewsData = require("../model/News.model");
 const crypto = require('crypto');
 const VideoData = require("../model/Video.model");
+const PollList = require("../model/Polls.model");
 
 
 
@@ -130,4 +131,30 @@ const AllVideo = async (req, res) => {
     }
 }
 
-module.exports = { AdminLogin, AllNews, AddVideo, AllVideo, AdminAdd, AddNews }
+const AddPoll = async (req, res) => {
+    const poll_id = crypto.randomBytes(8).toString('hex');
+    await PollList.create({
+
+        PollId: poll_id,
+        question: req.body.question,
+        option1: req.body.option1,
+        option2: req.body.option2
+
+
+    })
+    res.json("Poll Add succesfully")
+
+
+}
+
+const GetPolls = async(req,res) =>{
+    const allpolls = await PollList.find({})
+    if(allpolls.length > 0){
+        res.json(allpolls)
+    }else{
+        res.json({msg: "No poll found"})
+    }
+
+}
+
+module.exports = { AdminLogin, AddPoll, GetPolls, AllNews, AddVideo, AllVideo, AdminAdd, AddNews }

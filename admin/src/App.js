@@ -7,7 +7,7 @@ import TextEditor from './pages/TextEditor';
 import Newspost from './pages/Newspost';
 import Videos from './pages/Videos';
 import AddVideo from './pages/AddVideo';
-import SEO from './pages/SEO';
+import Polls from './pages/Polls';
 
 
 
@@ -26,7 +26,7 @@ function App() {
             <Route path="news" element={<Newspost />} />
             <Route path="videos" element={<Videos />} />
             <Route path="add-video" element={<AddVideo />} />
-            {/* <Route path="seo" element={<SEO />} /> */}
+            <Route path="polls" element={<Polls />} />
 
 
 
