@@ -8,6 +8,8 @@ const CricketTeams = () => {
     const [data, setData] = useState([])
 
     const [search, setSearch] = useState("")
+    const [itemm, SetItemm] = useState(true)
+
     const backUrl = process.env.REACT_APP_BACK_URL
 
 
@@ -80,6 +82,8 @@ const CricketTeams = () => {
             .then((res) => {
                 console.log(res, "send serach");
                 setData(res.data.msg.items)
+                // SetItemm(false)
+
 
             })
 
@@ -164,11 +168,11 @@ const CricketTeams = () => {
 
 
 
-                        {Topteam.map((item, index) => (
+                        {Topteam?.map((item, index) => (
                             item ? (
 
 
-                                <div key={index} class="flex gap-4 border-b pb-2.5 items-center">
+                                <div key={index} class="flex gap-4  border-b pb-2.5 items-center">
                                     <img
                                         src={item.logo_url}
                                         alt="Tania Andrew"
@@ -183,6 +187,7 @@ const CricketTeams = () => {
 
                             ) : null
                         ))}
+
 
 
 

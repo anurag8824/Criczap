@@ -58,60 +58,67 @@ const HomeScroller = () => {
     return (
 
 
-        <>
-            <div className="flex">
-                <button
-                    type="button"
-                    className="py-2.5 px-5 me-2 mb-2 text-sm font-medium text-white focus:outline-none bg-blue-950 rounded-lg border border-gray-200  dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
-                    onClick={() => setFilter('all')} // Set filter to "all"
-                >
-                    All
-                </button>
+        <div>
+            {livematch ?
+                <>
 
-                <button
-                    type="button"
-                    className="focus:outline-none text-white bg-red-700 hover:bg-red-800 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"
-                    onClick={() => setFilter('live')} // Set filter to "live"
-                >
-                    Live ({livematch.length})
-                </button>
-            </div>
+                    <div className="flex">
+                        <button
+                            type="button"
+                            className="py-2.5 px-5 me-2 mb-2 text-sm font-medium text-white focus:outline-none bg-blue-950 rounded-lg border border-gray-200  dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
+                            onClick={() => setFilter('all')} // Set filter to "all"
+                        >
+                            All
+                        </button>
 
-
-
-
-
-            <div className='md:flex md:space-x-4 md:overflow-x-scroll mx-auto custom-scrollbar overflow-x-hidden'>
-
-                {filter === 'all' && (
-                    <>
-                        {livematch.length > 0 && <HomeScrollCard data={livematch} />}
+                        <button
+                            type="button"
+                            className="focus:outline-none text-white bg-red-700 hover:bg-red-800 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"
+                            onClick={() => setFilter('live')} // Set filter to "live"
+                        >
+                            Live ({livematch.length})
+                        </button>
+                    </div>
 
 
+                    <div className='md:flex md:space-x-4 md:overflow-x-scroll mx-auto custom-scrollbar overflow-x-hidden'>
 
-                        {schedule.length > 0 && <HomeScrollCard data={schedule} />}
-                        {complete.length > 0 && <HomeScrollCard data={complete} />}
+                        {filter === 'all' && (
+                            <>
+                                {livematch.length > 0 && <HomeScrollCard data={livematch} />}
 
-                        {livematch.length === 0 && schedule.length === 0 && complete.length === 0 && (
-                            <p className="text-red-500 font-medium text-center mt-4">No match found</p>
+
+
+                                {schedule.length > 0 && <HomeScrollCard data={schedule} />}
+                                {complete.length > 0 && <HomeScrollCard data={complete} />}
+
+                                {livematch.length === 0 && schedule.length === 0 && complete.length === 0 && (
+                                    <p className="text-red-500 font-medium text-center mt-4">No match found</p>
+                                )}
+                            </>
                         )}
-                    </>
-                )}
-                {filter === 'live' && (
-                    livematch.length > 0 ? (
-                        <HomeScrollCard data={livematch} />
-                    ) : (
-                        <p className="text-red-500 font-medium  text-center mt-4">No Live match found</p>
-                    )
-                )}
+                        {filter === 'live' && (
+                            livematch.length > 0 ? (
+                                <HomeScrollCard data={livematch} />
+                            ) : (
+                                <p className="text-red-500 font-medium  text-center mt-4">No Live match found</p>
+                            )
+                        )}
 
 
 
 
 
-            </div>
+                    </div>
 
-        </>
+
+                </>
+
+                : "fg"}
+
+
+
+        </div>
     )
 }
 

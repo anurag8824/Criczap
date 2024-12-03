@@ -6,11 +6,11 @@ const Series = () => {
   return (
     <div>
 
-      <TeamSeriesFilter/>
+      {/* <TeamSeriesFilter/> */}
 
       {/* table starts  */}
 
-      <div class="relative  overflow-x-auto ">
+      <div class="relative hidden  overflow-x-auto ">
         <table class=" text-sm w-full text-left rtl:text-right text-white ">
           <thead class="text-lg font-medium bg-blue-950   ">
             <tr>
@@ -100,6 +100,7 @@ const Series = () => {
           </tbody>
         </table>
       </div>
+      <p className='font-medium text-base text-red-500 text-center'>Not Available</p>
 
     </div>
   )

@@ -10,6 +10,7 @@ import Squads from '../components/CricketSeriesComponents/Squads';
 import Stats from '../components/CricketSeriesComponents/Stats';
 import Venues from '../components/CricketSeriesComponents/Venues';
 import axios from "axios"
+import BoxLoader from './BoxLoader';
 
 
 
@@ -40,7 +41,7 @@ const SeriesView = () => {
                 .then((res) => {
                     const finaldata = res.data
                     setMlist(finaldata)
-                    console.log(finaldata, "tournamentinfo")
+                    console.log(finaldata, "tournamentinfo df")
 
                 })
         } catch (error) {
@@ -85,23 +86,28 @@ const SeriesView = () => {
     return (
         <div className='md:mx-20 mx-4 '>
 
-            <div className='  px-1  py-10 justify-between'>
-                <p className='text-2xl  font-medium'>{pointdata?.response?.title}</p>
+           
 
+                <div className='  px-1  py-10 justify-between'>
+                    <p className='text-2xl  font-medium'>{pointdata?.response?.title}</p>
 
-                <p className=' flex text-sm text-gray-500 '>
-                    {new Date(pointdata?.response?.datestart).toLocaleDateString('en-GB', {
-                        day: '2-digit',
-                        month: 'short',
-                        year: 'numeric'
-                    })} to  {new Date(pointdata?.response?.dateend).toLocaleDateString('en-GB', {
-                        day: '2-digit',
-                        month: 'short',
-                        year: 'numeric'
-                    })}
-                </p>
+                    {pointdata?.response?.datestart ?
+                    <p className=' flex text-sm text-gray-500 '>
+                        {new Date(pointdata?.response?.datestart).toLocaleDateString('en-GB', {
+                            day: '2-digit',
+                            month: 'short',
+                            year: 'numeric'
+                        })} to  {new Date(pointdata?.response?.dateend).toLocaleDateString('en-GB', {
+                            day: '2-digit',
+                            month: 'short',
+                            year: 'numeric'
+                        })}
+                    </p>
+                    : <BoxLoader/>}
 
-            </div>
+                </div>
+
+              
 
             <div className='flex gap-x-8'>
                 <div className='border mb-4 bg-white rounded-xl md:w-3/4 w-full'>

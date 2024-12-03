@@ -111,7 +111,7 @@ const formatCreatedAt = (createdAt) => {
             </div>
   
             <span className='text-base  text-gray-600'>{formatCreatedAt(item.createdAt)}</span>
-            <span className='text-base text-gray-700 line-clamp-1 truncate max-w-full  pr-12 '
+            <span className='text-sm text-gray-700 line-clamp-1 truncate max-w-full  pr-12 '
             dangerouslySetInnerHTML={{ __html: item.text }}
 
             >

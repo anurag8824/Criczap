@@ -471,16 +471,16 @@ const Commentary = ({ data, balldata }) => {
 
                           <div className='flex  items-center justify-between'>
 
-                            <p>{data?.response.match_info.teama.short_name} </p>
+                            <p>{data?.response?.match_info?.teama?.short_name} </p>
 
-                            {data?.response.live_odds ?
+                            {data?.response?.live_odds ?
 
 
                               <div className='flex gap-2'>
 
-                                <p className='px-4 font-medium py-1 items-center flex justify-center bg-green-700 text-white border'> {Math.max(0, ((parseFloat(data?.response.live_odds.matchodds.teama.back)))).toString().padStart(2, '0')}</p>
+                                <p className='px-4 font-medium py-1 items-center flex justify-center bg-green-700 text-white border'> {Math.max(0, ((parseFloat(data?.response?.live_odds?.matchodds?.teama?.back)))).toString().padStart(2, '0')}</p>
                                 <p className='px-4 font-medium py-1 items-center flex justify-center bg-red-700 text-white border'>
-                                  {data?.response.live_odds.matchodds.teama.lay ? Math.max(0, ((parseFloat(data?.response.live_odds.matchodds.teama.lay))))
+                                  {data?.response?.live_odds?.matchodds?.teama.lay ? Math.max(0, ((parseFloat(data?.response?.live_odds?.matchodds?.teama?.lay))))
                                     .toString()
                                     .padStart(2, '0')
                                     : "0"}
@@ -501,16 +501,16 @@ const Commentary = ({ data, balldata }) => {
 
                           <div className='flex items-center justify-between'>
 
-                            <p>{data?.response.match_info.teamb.short_name} </p>
+                            <p>{data?.response?.match_info?.teamb?.short_name} </p>
 
-                            {data?.response.live_odds.matchodds ?
+                            {data?.response?.live_odds?.matchodds ?
 
 
 
                               <div className='flex gap-2' >
-                                {data?.response.live_odds.matchodds.teamb ?
+                                {data?.response?.live_odds?.matchodds?.teamb ?
                                   <p className='px-4 font-medium py-1 items-center flex justify-center bg-green-700 text-white border'>
-                                    {Math.max(0, ((parseFloat(data?.response.live_odds.matchodds.teamb.back)))).toString().padStart(2, '0')}
+                                    {Math.max(0, ((parseFloat(data?.response?.live_odds?.matchodds?.teamb?.back)))).toString().padStart(2, '0')}
                                   </p>
                                   : ''}
 
@@ -518,7 +518,7 @@ const Commentary = ({ data, balldata }) => {
 
                                 <p className='px-4 font-medium py-1 items-center flex justify-center bg-red-700 text-white border'>
 
-                                  {data?.response.live_odds.matchodds.teamb.lay ? Math.max(0, ((parseFloat(data?.response.live_odds.matchodds.teamb.lay)))).toString().padStart(2, '0') : "0"}
+                                  {data?.response?.live_odds?.matchodds?.teamb?.lay ? Math.max(0, ((parseFloat(data?.response?.live_odds?.matchodds?.teamb?.lay)))).toString().padStart(2, '0') : "0"}
 
                                 </p>
 
@@ -535,14 +535,14 @@ const Commentary = ({ data, balldata }) => {
 
                             <p>Draw </p>
 
-                            {data?.response.live_odds.matchodds ?
+                            {data?.response?.live_odds?.matchodds ?
 
 
 
                               <div className='flex gap-2' >
-                                {data?.response.live_odds.matchodds.draw ?
+                                {data?.response?.live_odds?.matchodds?.draw ?
                                   <p className='px-4 font-medium py-1 items-center flex justify-center bg-green-700 text-white border'>
-                                    {Math.max(0, Math.round((parseFloat(data?.response.live_odds.matchodds.draw.back)))).toString().padStart(2, '0')}
+                                    {Math.max(0, Math.round((parseFloat(data?.response?.live_odds?.matchodds?.draw?.back)))).toString().padStart(2, '0')}
                                   </p>
                                   : ''}
 
@@ -550,7 +550,7 @@ const Commentary = ({ data, balldata }) => {
 
                                 <p className='px-4 font-medium py-1 items-center flex justify-center bg-red-700 text-white border'>
 
-                                  {data?.response.live_odds.matchodds.draw.lay ? Math.max(0, Math.round((parseFloat(data?.response.live_odds.matchodds.draw.lay)))).toString().padStart(2, '0') : "0"}
+                                  {data?.response?.live_odds?.matchodds?.draw?.lay ? Math.max(0, Math.round((parseFloat(data?.response?.live_odds?.matchodds?.draw?.lay)))).toString().padStart(2, '0') : "0"}
 
                                 </p>
 
@@ -613,20 +613,20 @@ const Commentary = ({ data, balldata }) => {
 
 
 
-                          {data?.response.teamwinpercentage.team_a_win > data?.response.teamwinpercentage.team_b_win ?
+                          {data?.response.teamwinpercentage?.team_a_win > data?.response.teamwinpercentage?.team_b_win ?
 
                             <div className='flex pb-1 items-center justify-between'>
 
-                              <p>{data?.response.match_info.teama.short_name} </p>
+                              <p>{data?.response?.match_info?.teama.short_name} </p>
 
-                              {data?.response.live_odds ?
+                              {data?.response?.live_odds ?
 
 
                                 <div className='flex gap-2'>
 
-                                  <p className='px-4 font-medium py-1 items-center flex justify-center bg-green-700 text-white border'> {Math.max(0, Math.round((parseFloat(data?.response.live_odds.matchodds.teama.back) * 100) - 100)).toString().padStart(2, '0')}</p>
+                                  <p className='px-4 font-medium py-1 items-center flex justify-center bg-green-700 text-white border'> {Math.max(0, Math.round((parseFloat(data?.response?.live_odds?.matchodds?.teama?.back) * 100) - 100)).toString().padStart(2, '0')}</p>
                                   <p className='px-4 font-medium py-1 items-center flex justify-center bg-red-700 text-white border'>
-                                    {data?.response.live_odds.matchodds.teama.lay ? Math.max(0, Math.round((parseFloat(data?.response.live_odds.matchodds.teama.lay) * 100) - 100))
+                                    {data?.response?.live_odds?.matchodds?.teama?.lay ? Math.max(0, Math.round((parseFloat(data?.response?.live_odds?.matchodds?.teama?.lay) * 100) - 100))
                                       .toString()
                                       .padStart(2, '0')
                                       : "0"}
@@ -648,18 +648,18 @@ const Commentary = ({ data, balldata }) => {
 
                             <div className='flex items-center justify-between'>
 
-                              <p>{data?.response.match_info.teamb.short_name} </p>
+                              <p>{data?.response?.match_info?.teamb?.short_name} </p>
 
 
 
-                              {data?.response.live_odds.matchodds ?
+                              {data?.response?.live_odds?.matchodds ?
 
 
 
                                 <div className='flex gap-2' >
-                                  {data?.response.live_odds.matchodds.teamb ?
+                                  {data?.response.live_odds?.matchodds?.teamb ?
                                     <p className='px-4 font-medium py-1 items-center flex justify-center bg-green-700 text-white border'>
-                                      {Math.max(0, Math.round((parseFloat(data?.response.live_odds.matchodds.teamb.back) * 100) - 100)).toString().padStart(2, '0')}
+                                      {Math.max(0, Math.round((parseFloat(data?.response.live_odds?.matchodds?.teamb?.back) * 100) - 100)).toString().padStart(2, '0')}
                                     </p>
                                     : ''}
 
@@ -667,7 +667,7 @@ const Commentary = ({ data, balldata }) => {
 
                                   <p className='px-4 font-medium py-1 items-center flex justify-center bg-red-700 text-white border'>
 
-                                    {data?.response.live_odds.matchodds.teamb.lay ? Math.max(0, Math.round((parseFloat(data?.response.live_odds.matchodds.teamb.lay) * 100) - 100)).toString().padStart(2, '0') : "0"}
+                                    {data?.response.live_odds?.matchodds?.teamb?.lay ? Math.max(0, Math.round((parseFloat(data?.response.live_odds?.matchodds?.teamb?.lay) * 100) - 100)).toString().padStart(2, '0') : "0"}
 
                                   </p>
 

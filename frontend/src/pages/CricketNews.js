@@ -229,7 +229,7 @@ const CricketNews = () => {
                                                         <div className='flex items-center justify-between'>
                                                             <button
                                                                 onClick={() => handleNewsClick(item.newsID, item.permalink)}
-                                                                className=' pr-6 text-lg line-clamp-2 font-medium'
+                                                                className=' pr-6 text-lg text-left line-clamp-2 font-medium'
                                                                 dangerouslySetInnerHTML={{ __html: item.headline }}
 
 

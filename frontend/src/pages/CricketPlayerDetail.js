@@ -284,7 +284,7 @@ const PlayerDetail = () => {
 
 
 
-                                <div className=' mt-6 w-full'>
+                                <div className='hidden mt-6 w-full'>
                                     <p className='text-lg font-medium'>Career Information</p>
 
                                     <div className='mx-4 '>
@@ -300,7 +300,7 @@ const PlayerDetail = () => {
 
                                 </div>
 
-                                <div className=' mt-6 w-full'>
+                                <div className='hidden mt-6 w-full'>
                                     <p className='text-lg font-medium'>About Suryakumar Yadav</p>
 
                                     <div className=''>
