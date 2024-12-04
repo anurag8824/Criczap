@@ -78,12 +78,30 @@ const AddNews = async (req, res) => {
     }
 }
 
+
+
 const AllNews = async (req, res) => {
     const allnews = await NewsData.find({})
     if (allnews.length > 0) {
         res.json(allnews)
     } else {
         res.json({ msg: "No post Found" })
+    }
+
+}
+
+const NewsInfo = async (req, res) => {
+
+    const id = req.body.newsid
+    console.log(id)
+
+    if (!id) {
+        return res.json({ msg: "Invalid ID" })
+    } else {
+        const onenews = await NewsData.findOne({newsID: id})
+        return res.json(onenews)
+
+
     }
 
 }
@@ -147,14 +165,14 @@ const AddPoll = async (req, res) => {
 
 }
 
-const GetPolls = async(req,res) =>{
+const GetPolls = async (req, res) => {
     const allpolls = await PollList.find({})
-    if(allpolls.length > 0){
+    if (allpolls.length > 0) {
         res.json(allpolls)
-    }else{
-        res.json({msg: "No poll found"})
+    } else {
+        res.json({ msg: "No poll found" })
     }
 
 }
 
-module.exports = { AdminLogin, AddPoll, GetPolls, AllNews, AddVideo, AllVideo, AdminAdd, AddNews }
+module.exports = { AdminLogin, AddPoll, NewsInfo, GetPolls, AllNews, AddVideo, AllVideo, AdminAdd, AddNews }

@@ -46,7 +46,7 @@ const HomeTopStories = () => {
 
 
 
-          <Link to="cricket-news" class="items-center mt-2 text-center text-gray-500  justify-between block tracking-normal antialiased hover:underline hover:text-blue-950">
+          <Link to="/cricket-news" class="items-center mt-2 text-center text-gray-500  justify-between block tracking-normal antialiased hover:underline hover:text-blue-950">
             See More
           </Link>
 

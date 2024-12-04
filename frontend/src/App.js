@@ -63,7 +63,7 @@ function App() {
 
 
 
-          <Route path="cricket-news/:id/:xyz" element={<CricketNews/>} />
+          <Route path="cricket-news/:id/:xyz" element={<CNView/>} />
 
 
 

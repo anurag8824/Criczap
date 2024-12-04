@@ -14,6 +14,7 @@ router.get("/allvideos", Admin.AllVideo)
 
 router.post("/addpoll", Admin.AddPoll)
 router.get("/getpolls", Admin.GetPolls)
+router.post("/newsinfo", Admin.NewsInfo)
 
 
 

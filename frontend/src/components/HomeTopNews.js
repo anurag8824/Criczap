@@ -77,6 +77,11 @@ const formatCreatedAt = (createdAt) => {
   return format(createdDate, 'EEEE dd-MMM-yyyy');
 };
 
+const formatUrl = (text) => {
+  return text.replace(/\s+/g, '-').toLowerCase(); // Replace spaces with dashes
+};
+
+
   return (
     <div>
 
@@ -94,7 +99,7 @@ const formatCreatedAt = (createdAt) => {
           <div className='grid tracking-normal antialiased relative flex-1'>
             <div className='flex items-center justify-between'>
               <Link
-                to='#'
+                to={`/cricket-news/${item.newsID}/${formatUrl(item.permalink)}`}
                 className=' text-blue-950 pr-6  line-clamp-2 font-semibold'
             dangerouslySetInnerHTML={{ __html: item.headline }}
 

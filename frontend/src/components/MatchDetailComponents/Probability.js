@@ -242,6 +242,8 @@ const Probability = ({ data }) => {
 
 
                                                             <p>RXB</p>
+                                                            {data?.response?.featured_session.length > 0 ? 
+
                                                             <div className='flex gap-2'>
 
                                                                 <p className='px-4 font-medium py-1 items-center flex justify-center bg-green-700 text-white border'>
@@ -264,12 +266,8 @@ const Probability = ({ data }) => {
                                                                 </p>
 
 
-
-
-
-
-
                                                             </div>
+                                                            : <p>Suspended..</p>}
 
                                                         </div>
 
@@ -407,7 +405,10 @@ const Probability = ({ data }) => {
 
 
                                                             <p>RXB</p>
+                                                            {data?.response?.featured_session.length > 0 ? 
+
                                                             <div className='flex gap-2'>
+
 
                                                                 <p className='px-4 font-medium py-1 items-center flex justify-center bg-green-700 text-white border'>
                                                                     {data?.response?.featured_session[0]?.back_condition ? Math.max(0, Math.round((parseFloat(data?.response?.featured_session[0]?.back_condition)) - (parseFloat(data?.response?.live?.live_score?.runs))))
@@ -436,6 +437,7 @@ const Probability = ({ data }) => {
 
 
                                                             </div>
+                                                             : <p>Suspended..</p>}
 
                                                         </div>
 

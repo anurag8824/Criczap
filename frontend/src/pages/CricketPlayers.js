@@ -11,13 +11,13 @@ const CricketPlayers = () => {
 
     useEffect(() => {
         axios.get(`${backUrl}/api/v1/allplayer`)
-          .then((res) => {
-            // console.log(res, "allplayers");
-            setData(res.data.msg.items)
-          }).catch((err) => {
-            console.error("Error fetching players data", err);
-          })
-      }, []);
+            .then((res) => {
+                console.log(res, "allplayers");
+                setData(res.data.msg.items)
+            }).catch((err) => {
+                console.error("Error fetching players data", err);
+            })
+    }, []);
 
     const handleSearch = () => {
         axios.post(`${backUrl}/api/v1/searchplayer`, { search })
@@ -30,6 +30,66 @@ const CricketPlayers = () => {
     const formatUrl = (text) => {
         return text.replace(/\s+/g, '-').toLowerCase(); // Replace spaces with dashes
     };
+
+
+    const TopPlayer = [
+        {
+
+            title: "Suryakumar Yadav",
+            nationality: "India",
+            pid:"598"
+        },
+
+        {
+            title: "Philip Salt",
+            nationality: "England",
+            pid: "49818"
+        }, {
+            title: "Mohammad Rizwan",
+            nationality: "Pakistan",
+            pid: "44054"
+        }, {
+            title: "Yashasvi Jaiswal",
+            nationality: "India",
+            pid: "94184"
+        }, {
+            title: "Glenn Phillips",
+            nationality: "New Zealand",
+            pid: "1082"
+        }, {
+            title: "Babar Azam",
+            nationality: "Pakistan",
+            pid: "43371"
+        },
+
+        {
+            title: "Jos Buttler",
+            nationality: "England",
+            pid: "105"
+        },
+
+        {
+            title: "Virat Kohli",
+            nationality: "India",
+            pid: "119"
+        },
+
+        {
+            title: "Kane Williamson",
+            nationality: "New Zealand",
+            pid: "31"
+        },
+        {
+            title: "Aiden Markram",
+            nationality:"South Africa",
+            pid:"46117"
+        }
+
+
+
+
+
+    ]
 
     return (
         <div className='md:mx-20 mx-4 h-full'>
@@ -54,36 +114,64 @@ const CricketPlayers = () => {
 
                 {/* {data ? */}
 
-                    <div className='border mb-4 bg-white rounded-xl md:w-3/4 w-full h-full'>
-                        <div className='grid gap-y-2.5 grid-flow-row p-8'>
-                            {data?.map((item, index) => (
-                                item ? (
+                <div className='border mb-4 bg-white rounded-xl md:w-3/4 w-full h-full'>
+                    <div className='grid gap-y-2.5 grid-flow-row p-8'>
+
+                    {TopPlayer?.map((item, index) => (
+                            item ? (
 
 
 
 
-                                    <div key={index} class="flex gap-4 border-b pb-2.5 items-center">
-                                        <img
-                                            src="/demoplayer.png"
-                                            alt="Tania Andrew"
-                                            class="relative border inline-block h-14 w-14 rounded-full object-cover object-center"
-                                        />
+                                <div key={index} class="flex gap-4 border-b pb-2.5 items-center">
+                                    <img
+                                        src="/demoplayer.png"
+                                        alt="Tania Andrew"
+                                        class="relative border inline-block h-14 w-14 rounded-full object-cover object-center"
+                                    />
 
-                                        <p class=" grid font-sans text-base font-normal leading-relaxed tracking-normal  antialiased">
-                                            <Link
-                                                to={`/cricket-player-detail/${item.pid}/${(formatUrl(item.title))}`}
+                                    <p class=" grid font-sans text-base font-normal leading-relaxed tracking-normal  antialiased">
+                                        <Link
+                                            to={`/cricket-player-detail/${item.pid}/${(formatUrl(item.title))}`}
 
-                                                className='cursor-pointer hover:underline'>{item.title}</Link>
-                                            <span>{item.nationality}</span>
-                                        </p>
-                                    </div>
+                                            className='cursor-pointer hover:underline'>{item.title}</Link>
+                                        <span>{item.nationality}</span>
+                                    </p>
+                                </div>
 
-                                ) : null
-                            ))}
-                        </div>
+                            ) : null
+                        ))}
+
+
+                        {data?.map((item, index) => (
+                            item ? (
+
+
+
+
+                                <div key={index} class="flex gap-4 border-b pb-2.5 items-center">
+                                    <img
+                                        src="/demoplayer.png"
+                                        alt="Tania Andrew"
+                                        class="relative border inline-block h-14 w-14 rounded-full object-cover object-center"
+                                    />
+
+                                    <p class=" grid font-sans text-base font-normal leading-relaxed tracking-normal  antialiased">
+                                        <Link
+                                            to={`/cricket-player-detail/${item.pid}/${(formatUrl(item.title))}`}
+
+                                            className='cursor-pointer hover:underline'>{item.title}</Link>
+                                        <span>{item.nationality}</span>
+                                    </p>
+                                </div>
+
+                            ) : null
+                        ))}
+
                     </div>
+                </div>
 
-                    {/* : <div className="flex  justify-center ">
+                {/* : <div className="flex  justify-center ">
                         <div className="w-4 h-4 border-2 border-blue-500 border-solid border-t-transparent rounded-full animate-spin">o</div>
                     </div>} */}
 

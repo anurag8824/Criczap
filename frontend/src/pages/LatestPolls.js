@@ -2,10 +2,14 @@ import React from 'react'
 import FbConnect from '../components/FbConnect'
 import { useState, useEffect } from "react"
 import axios from "axios"
+import Cookies from "js-cookie";
+
 
 const LatestPolls = () => {
 
     const [data, setData] = useState([])
+    const [selectedOptions, setSelectedOptions] = useState({});
+
 
     const backUrl = process.env.REACT_APP_BACK_URL
 
@@ -20,8 +24,28 @@ const LatestPolls = () => {
                     console.error('res.data is not an array');
                     setData([]);  // Optionally set an empty array or handle error
                 }
+                const savedSelections = Cookies.get("pollSelections");
+                if (savedSelections) {
+                    setSelectedOptions(JSON.parse(savedSelections));
+                }
             })
     }, [])
+
+    const handleSelection = (PollId, option) => {
+        // Update the selected option in state
+        setSelectedOptions((prev) => {
+            const updatedSelections = { ...prev, [PollId]: option };
+            Cookies.set("pollSelections", JSON.stringify(updatedSelections)); // Save to cookies
+            return updatedSelections;
+        });
+    };
+
+    const handleSubmit = (PollId) => {
+        
+            alert(`Poll submitted with option: ${selectedOptions[PollId]}`);
+
+    
+    };
 
     return (
 
@@ -34,6 +58,7 @@ const LatestPolls = () => {
             </div>
 
             <div className='flex gap-x-8'>
+
                 <div className='border mb-4 bg-white rounded-xl md:w-3/4 w-full h-full'>
                     {data.length > 0 ?
                         <div class="flex flex-col md:flex-row p-6 space-y-4 md:space-y-0 md:space-x-4 w-full md:overflow-x-scroll custom-scrollbar">
@@ -41,7 +66,7 @@ const LatestPolls = () => {
 
                             {data?.map((item, index) => (
                                 item ? (
-                                    <div class="h-96 flex-shrink-0 w-full md:max-w-xs rounded-lg border bg-white">
+                                    <div key={item._id} class="h-96 flex-shrink-0 w-full md:max-w-xs rounded-lg border bg-white">
                                         <div class="w-full rounded-lg rounded-b-none bg-blue-950 text-center">
                                             <p class="truncate p-3 text-sm tracking-tight text-white">
                                                 {item.question}
@@ -53,33 +78,41 @@ const LatestPolls = () => {
 
                                         <div class="mt-4 items-center text-center">
                                             Who will win ?
+
+                                            
                                             <div class="my-4 flex items-center pl-8">
                                                 <input
-                                                    id="default-radio-1"
+                                                    id={`${item._id}_option1`}
                                                     type="radio"
                                                     value=""
-                                                    name="default-radio"
+                                                    name={`poll-${item._id}`}
+                                                    checked={selectedOptions[item._id] === item.option1}
+                                                    onChange={() => handleSelection(item._id, item.option1)}
                                                     class="h-4 w-4 border-gray-300 bg-gray-100 text-blue-600 "
                                                 />
-                                                <label for="default-radio-1" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                                                <label htmlFor={`${item._id}_option1`} class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">
                                                     {item.option1}
                                                 </label>
                                             </div>
                                             <div class="flex items-center pl-8">
                                                 <input
-                                                    id="default-radio-2"
+                                                    id={`${item._id}_option2`}
                                                     type="radio"
                                                     value=""
-                                                    name="default-radio"
+                                                    name={`poll-${item._id}`}
+                                                    checked={selectedOptions[item._id] === item.option2}
+                                                    onChange={() => handleSelection(item._id, item.option2)}
                                                     class="h-4 w-4 border-gray-300 bg-gray-100 text-blue-600  "
                                                 />
-                                                <label for="default-radio-2" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                                                <label htmlFor={`${item._id}_option2`} class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">
                                                     {item.option2}
                                                 </label>
                                             </div>
-                                            <button class="my-5 rounded-lg bg-violet-900 px-3 py-2 text-center text-sm font-medium text-white hover:bg-blue-800">
-                                                Submit
+
+                                            <button onClick={() => handleSubmit(item._id)} class="my-5 rounded-lg bg-violet-900 px-3 py-2 text-center text-sm font-medium text-white hover:bg-blue-800">
+                                                {selectedOptions[item._id] ? "Submit" : "Select "}
                                             </button>
+                                            
                                         </div>
                                     </div>
 
