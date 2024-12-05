@@ -9,6 +9,8 @@ import Series from '../components/TeamDetailComponents/Series'
 import { useNavigate, useParams } from 'react-router-dom'
 import FbConnect from '../components/FbConnect'
 import axios from 'axios'
+import NewsBundle from '../components/NewsBundle'
+
 
 const CricketTeamDetail = () => {
 
@@ -19,13 +21,13 @@ const CricketTeamDetail = () => {
 
     const [nextM, setNextM] = useState([])
 
-    const [pdata , setPdata] = useState([])
+    const [pdata, setPdata] = useState([])
 
     const navigate = useNavigate();
 
     // const scrollRef = useRef(null)
 
-    const tabs = ["home", "recent", "upcoming", "news", "videos", "players", "series"]
+    const tabs = ["home", "recent", "upcoming", "news", "series", "players", "videos"]
 
     const activeIndex = tabs.indexOf(activeTab);
 
@@ -176,9 +178,23 @@ const CricketTeamDetail = () => {
 
                             {activeTab === "news" && (
                                 <div className="transition-opacity duration-500 ease-in-out opacity-100">
-                                    <News />
+                                    <NewsBundle />
                                 </div>
                             )}
+
+                            {activeTab === "series" && (
+                                <div className="transition-opacity duration-500 ease-in-out opacity-100">
+                                    <Series data={[...liveM, ...nextM, ...resultM,]} />
+                                </div>
+                            )}
+
+                            {activeTab === "players" && (
+                                <div className="transition-opacity duration-500 ease-in-out opacity-100">
+                                    <Players data={pdata} />
+                                </div>
+                            )}
+
+
 
                             {activeTab === "videos" && (
                                 <div className="transition-opacity duration-500 ease-in-out opacity-100">
@@ -187,17 +203,7 @@ const CricketTeamDetail = () => {
                             )}
 
 
-                            {activeTab === "players" && (
-                                <div className="transition-opacity duration-500 ease-in-out opacity-100">
-                                    <Players data={pdata} />
-                                </div>
-                            )}
 
-                            {activeTab === "series" && (
-                                <div className="transition-opacity duration-500 ease-in-out opacity-100">
-                                    <Series />
-                                </div>
-                            )}
 
 
                         </div>

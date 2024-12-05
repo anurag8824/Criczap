@@ -27,7 +27,7 @@ const HomePage = () => {
     e.preventDefault()
 
     try {
-      axios.post(`${backUrl}/admin/adminlogin` , loginData , {withcredentials : true})
+      axios.post(`${backUrl}/admin/adminlogin` , loginData )
       .then((res) =>{
         console.log(res)
         if(res.data.msg == "Email is not exist!" || res.data.msg ==  "Password is wrong"){

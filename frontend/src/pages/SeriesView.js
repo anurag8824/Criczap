@@ -11,6 +11,7 @@ import Stats from '../components/CricketSeriesComponents/Stats';
 import Venues from '../components/CricketSeriesComponents/Venues';
 import axios from "axios"
 import BoxLoader from './BoxLoader';
+import NewsBundle from '../components/NewsBundle';
 
 
 
@@ -28,7 +29,7 @@ const SeriesView = () => {
     const cId = useParams().id;
     // console.log(cid,"compid")
 
-    const tabs = ["overview", "fixtures", "news", "videos", "points", "stats", "venues"]
+    const tabs = ["overview", "fixtures", "news", "videos", "points", "venues"]
 
     const activeIndex = tabs.indexOf(activeTab);
 
@@ -174,7 +175,8 @@ const SeriesView = () => {
 
                             {activeTab === "news" && (
                                 <div className="transition-opacity duration-500 ease-in-out opacity-100">
-                                    <News />
+                                    {/* <News /> */}
+                                    <NewsBundle/>
                                 </div>
                             )}
 
@@ -194,7 +196,7 @@ const SeriesView = () => {
                             {activeTab === "stats" && (
                                 <div className="transition-opacity duration-500 ease-in-out opacity-100">
                                     {/* <Stats /> */}
-                                    <p className='text-center text-red-500 font-medium'>Not available</p>
+                                    <p className='text-center text-red-500 text-sm font-medium'>Not available</p>
 
                                 </div>
                             )}

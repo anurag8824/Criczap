@@ -103,7 +103,7 @@ const TeamMatches = async (req, res) => {
         const livMatches = allcomp.filter(match => match.status_str === 'Live');
         const upMatches = allcomp.filter(match => match.status_str === 'Scheduled');
         const fourMonthsAgo = new Date();
-        fourMonthsAgo.setMonth(fourMonthsAgo.getMonth() - 4);
+        fourMonthsAgo.setMonth(fourMonthsAgo.getMonth() - 6);
 
         const resultMatches = allcomp.filter(match => {
             const matchDate = new Date(match.date_start); // Parse the date string
@@ -123,7 +123,7 @@ const TeamMatches = async (req, res) => {
 const TeamInfo = async (req, res) => {
     try {
         const tid = req.body.tid;
-        axios.get(`https://rest.entitysport.com/exchange/teams/${tid}?token=${token}&&paged=3&per_page=50`).then((resp) => {
+        axios.get(`https://rest.entitysport.com/exchange/teams/${tid}/?token=${token}&&paged=3&per_page=50`).then((resp) => {
             // console.log(data);
             //   console.log(resp.data)
             res.json({ msg: resp.data })

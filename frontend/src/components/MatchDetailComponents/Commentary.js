@@ -427,6 +427,9 @@ const Commentary = ({ data, balldata }) => {
 
             <div className='md:w-2/3 w-full'>
 
+            {data?.response?.live?.batsmen ?
+
+
               <div className="relative  overflow-x-auto ">
                 <table className="w-full text-center  rtl:text-right text-gray-950 ">
                   <thead className="bg-blue-950 text-white   ">
@@ -520,9 +523,11 @@ const Commentary = ({ data, balldata }) => {
                   </tbody>
 
                 </table>
-              </div>
+              </div> : ""}
 
               {/* 2nd table  */}
+
+              {data?.response.live.bowlers ?
               <div className="relative  overflow-x-auto ">
                 <table className=" w-full text-center   rtl:text-right text-gray-950 ">
                   <thead className="bg-blue-950 text-white   ">
@@ -607,7 +612,7 @@ const Commentary = ({ data, balldata }) => {
 
                   </tbody>
                 </table>
-              </div>
+              </div> : ""}
 
             </div>
 
@@ -625,9 +630,12 @@ const Commentary = ({ data, balldata }) => {
 
                 <p className='bg-blue-950 font-normal text-white py-2  px-2  '>Key Stats</p>
 
-                <p className='py-2 gap-2 px-2'><span className='font-medium text-sm'>Partership:</span> {data?.response.live.live_inning.current_partnership.runs}({data?.response.live.live_inning.current_partnership.balls})</p>
+                {data?.response?.live?.live_inning?.current_partnership ? 
 
-                {data?.response.live.live_inning.last_wicket.name ?
+                <p className='py-2 gap-2 px-2'><span className='font-medium text-sm'>Partership:</span> {data?.response?.live?.live_inning?.current_partnership?.runs}({data?.response?.live?.live_inning?.current_partnership.balls})</p>
+                : ""}
+
+                {data?.response.live?.live_inning?.last_wicket?.name ?
 
                   <p className='pb-2 px-2'><span className='font-medium text-sm'>Last Wickets:</span> {data?.response.live.live_inning.last_wicket.name}{data?.response.live.live_inning.last_wicket.how_out}{data?.response.live.live_inning.last_wicket.runs}({data?.response.live.live_inning.last_wicket.balls}) ‐ {data?.response.live.live_inning.last_wicket.score_at_dismissal}/{data?.response.live.live_inning.last_wicket.number} in {data?.response.live.live_inning.last_wicket.overs_at_dismissal}ov</p> : null
 

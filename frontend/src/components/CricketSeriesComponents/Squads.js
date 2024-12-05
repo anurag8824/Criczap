@@ -159,7 +159,7 @@ const Squads = ({ data }) => {
 
         </>
 
-        : <p className="text-red-500 text-center font-medium">Not available</p>}
+        : <p className="text-red-500 text-center text-sm font-medium">Not available for this Series.</p>}
 
 
 

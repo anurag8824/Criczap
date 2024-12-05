@@ -48,8 +48,11 @@ const Videos = () => {
   return (
     <div>
 
+<div className=' text-sm text-red-600  text-center font-semibold'>There are no videos available yet.</div>
 
-      <div className='grid gap-y-2.5 grid-flow-row py-5 px-6'>
+
+
+      <div className='griddddd hidden gap-y-2.5 grid-flow-row py-5 px-6'>
 
 
         <div className='md:flex gap-4 border-b pb-2.5 items-center'>
