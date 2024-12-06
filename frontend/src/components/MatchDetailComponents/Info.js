@@ -28,7 +28,7 @@ const Info = ({ data }) => {
 
       </div>
 
-      <div>
+      <div className=''>
 
         <div className='border-b mt-4 flex justify-between  w-full   '>
           <p className='font-medium md:text-base text-xs py-3 pl-3 w-1/2 md:w-1/3 '>Series:</p>

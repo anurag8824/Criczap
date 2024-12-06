@@ -111,7 +111,7 @@ const MatchDetailView = () => {
     return (
         <div className='md:mx-20 mx-4  '>
 
-            <div className='flex px-1 text-blue-950 py-10 justify-between'>
+            <div className='flex px-1 dark:text-white text-blue-950 py-10 justify-between'>
                 {livedata ?
                     <div>
                         <p className='text-2xl  font-medium'>{livedata?.response.match_info.title}, {livedata?.response.match_info.subtitle} Match</p>
@@ -134,7 +134,7 @@ const MatchDetailView = () => {
 
             <div className='flex gap-x-8 w-full'>
 
-                <div className='border mb-4 bg-white rounded-xl lg:w-3/4 w-full'>
+                <div className='border mb-4 bg-white dark:border-none dark:bg-gray-800 dark:text-white  rounded-xl lg:w-3/4 w-full'>
 
                     <div className="w-full max-w-4xl mx-auto mt-8">
 
@@ -142,7 +142,7 @@ const MatchDetailView = () => {
                             {tabs.map((tab, index) => (
                                 <button
                                     key={tab}
-                                    className={`md:w-1/5 w-1/3  gap-2 flex-shrink-0 text-center py-2 text-lg font-normal ${activeTab === tab ? "text-black" : "text-gray-500"
+                                    className={`md:w-1/5 w-1/3  gap-2 flex-shrink-0 text-center py-2 text-lg font-normal ${activeTab === tab ? "text-black dark:text-white" : "text-gray-500"
                                         }`}
                                     onClick={() => handleTabClick(tab)}
                                 >

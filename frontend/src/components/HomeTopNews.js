@@ -93,14 +93,14 @@ const formatUrl = (text) => {
             src={`${backUrl}/${item.selectedFile}`}
 
             alt='Virat Kohli News'
-            className='relative border inline-block md:h-24 md:w-36  rounded-md object-cover object-center'
+            className='relative border dark:border-none inline-block md:h-24 md:w-36  rounded-md object-cover object-center'
           />
   
-          <div className='grid tracking-normal antialiased relative flex-1'>
+          <div className='grid  tracking-normal antialiased relative flex-1'>
             <div className='flex items-center justify-between'>
               <Link
                 to={`/cricket-news/${item.newsID}/${formatUrl(item.permalink)}`}
-                className=' text-blue-950 pr-6  line-clamp-2 font-semibold'
+                className=' text-blue-950 dark:text-white pr-6  line-clamp-2 font-semibold'
             dangerouslySetInnerHTML={{ __html: item.headline }}
 
               >
@@ -115,8 +115,8 @@ const formatUrl = (text) => {
               </button>
             </div>
   
-            <span className='text-base  text-gray-600'>{formatCreatedAt(item.createdAt)}</span>
-            <span className='text-sm text-gray-700 line-clamp-1 truncate max-w-full  pr-12 '
+            <span className='text-base dark:text-gray-400  text-gray-600'>{formatCreatedAt(item.createdAt)}</span>
+            <span className='text-sm dark:text-gray-300 text-gray-700 line-clamp-1 truncate max-w-full  pr-12 '
             dangerouslySetInnerHTML={{ __html: item.text }}
 
             >

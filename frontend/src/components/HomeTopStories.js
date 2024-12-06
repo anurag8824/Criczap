@@ -11,8 +11,8 @@ const HomeTopStories = () => {
 
 
   return (
-    <div><div className='rounded-xl border bg-white px-3 py-3'>
-      <div className="text-2xl text-blue-950 font-medium border-b pb-3">Top Stories</div>
+    <div><div className='rounded-xl text-blue-950 dark:border-none border dark:bg-gray-800 dark:text-white bg-white px-3 py-3'>
+      <div className="text-2xl  font-medium border-b pb-3">Top Stories</div>
 
       <div class="flex  items-center justify-between pb-3 pt-3 last:pb-0">
         <div class="grid items-center gap-x-3">

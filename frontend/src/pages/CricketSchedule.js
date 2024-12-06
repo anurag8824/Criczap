@@ -88,7 +88,7 @@ const CricketSchedule = () => {
             </div> */}
 
             <div className='flex py-10 gap-x-8'>
-                <div className='border mb-4 bg-white rounded-xl md:w-3/4 w-full'>
+                <div className='border mb-4 bg-white dark:bg-gray-800 dark:border-none  rounded-xl md:w-3/4 w-full'>
 
 
 
@@ -106,7 +106,7 @@ const CricketSchedule = () => {
                                 <button
 
                                     key={tab}
-                                    className={` w-1/3  gap-2 flex-shrink-0 text-center py-2 text-lg font-normal ${activeTab === tab ? "text-black" : "text-gray-500"
+                                    className={` w-1/3  gap-2 flex-shrink-0 text-center py-2 text-lg font-normal ${activeTab === tab ? "text-black dark:text-white" : "text-gray-500"
                                         }`}
                                     // style={{width:"14.28%"}}
                                     // style={{ width: `${100 / tabs.length}%`}}
@@ -148,7 +148,7 @@ const CricketSchedule = () => {
 
 
                                                 <table class="  w-full text-left rtl:text-right  ">
-                                                    <thead class=" bg-gray-100 text-blue-950   ">
+                                                    <thead class=" bg-gray-100 dark:bg-gray-700 dark:text-white text-blue-950   ">
                                                         <th scope="col" class="px-6 hidden md:block w-1/3 py-3">
                                                             Date
                                                         </th>
@@ -162,16 +162,16 @@ const CricketSchedule = () => {
 
                                                         {complete?.map((item, index) => (
                                                             item ? (
-                                                                <tr key={index} class="border-b border-gray-200 dark:border-gray-700">
+                                                                <tr key={index} class="border-b dark:text-white text-blue-950  border-gray-200 dark:border-gray-700">
 
-                                                                    <th scope="row" className=" text-blue-950 hidden md:block font-medium text-lg  align-text-top py-3 px-3 whitespace-nowrap">
+                                                                    <th scope="row" className="  hidden md:block font-medium text-lg  align-text-top py-3 px-3 whitespace-nowrap">
                                                                         {new Date(item.competition?.datestart).toLocaleString('en-US', { day: '2-digit', month: 'short', year: 'numeric' })}
                                                                     </th>
 
 
 
 
-                                                                    <td class="list-none py-2.5 text-blue-950">
+                                                                    <td class="list-none py-2.5 ">
                                                                         {/* <li className='px-6'>{new Date(item.competition?.datestart).toLocaleString('en-US', { month: 'long', year: 'numeric' })}</li> */}
                                                                         <li class="px-6 py-1  grid">
                                                                             <Link to={`/match-detail/${item.match_id}/${formatUrl(`${item.short_title}-${item.competition.title}`)}/commentary`} className='font-medium text-base hover:underline'>
@@ -183,7 +183,7 @@ const CricketSchedule = () => {
 
 
                                                                         <li class="px-6 py-1  grid">
-                                                                            <Link to={`/match-detail/${item.match_id}/${formatUrl(`${item.short_title}-${item.competition.title}`)}/commentary`} className=' md:w-full w-72 items-center grid grid-rows-2 gap-y-2 px-3 py-2 justify-start bg-gray-200'>
+                                                                            <Link to={`/match-detail/${item.match_id}/${formatUrl(`${item.short_title}-${item.competition.title}`)}/commentary`} className=' md:w-full w-72 items-center grid grid-rows-2 gap-y-2 px-3 py-2 justify-start dark:bg-gray-700 bg-gray-200'>
 
 
                                                                                 <div class="flex items-center md:justify-between   gap-4 pb-3 pt-3 last:pb-0">
@@ -294,7 +294,7 @@ const CricketSchedule = () => {
 
 
                                             <table class="  w-full text-left rtl:text-right  ">
-                                                <thead class=" bg-gray-100   ">
+                                                <thead class=" bg-gray-100 dark:bg-gray-700 dark:text-white   ">
                                                     <th scope="col" class="px-6 hidden md:block w-1/3  py-3">
                                                         Date
                                                     </th>
@@ -308,80 +308,81 @@ const CricketSchedule = () => {
 
                                                     {schedule?.map((item, index) => (
                                                         item ? (
-                                                            <tr key={index} class="border-b border-gray-200 dark:border-gray-700">
+                                                            <tr key={index} class="border-b dark:text-white text-blue-950  border-gray-200 dark:border-gray-700">
 
-                                                                <th scope="row" class=" text-blue-950 hidden md:block font-medium text-lg  align-text-top py-3 px-3 whitespace-nowrap">
-                                                                    {new Date(item.competition?.datestart).toLocaleString('en-US', { day: '2-digit', month: 'short', year: 'numeric' })}
-                                                                </th>
-
-
+                                                                    <th scope="row" className="  hidden md:block font-medium text-lg  align-text-top py-3 px-3 whitespace-nowrap">
+                                                                        {new Date(item.competition?.datestart).toLocaleString('en-US', { day: '2-digit', month: 'short', year: 'numeric' })}
+                                                                    </th>
 
 
-                                                                <td class="list-none py-2.5 text-blue-950">
-                                                                    <li class="px-6 py-1  grid">
-                                                                        <Link to={`/match-detail/${item.match_id}/${formatUrl(`${item.short_title}-${item.competition.title}`)}/commentary`} className='font-medium text-base hover:underline'>
-                                                                            {item.competition?.title} </Link>
-                                                                        <span className=''>    {item.date_start_ist}</span>
-
-                                                                        <span>{item.venue?.location},{item.venue?.country}</span>
-                                                                    </li>
 
 
-                                                                    <li class="px-6 py-1  grid">
-                                                                        <Link to={`/match-detail/${item.match_id}/${formatUrl(`${item.short_title}-${item.competition.title}`)}/commentary`} className=' md:w-full w-72 items-center grid grid-rows-2 gap-y-2 px-3 py-2 justify-start bg-gray-200'>
+                                                                    <td class="list-none py-2.5 ">
+                                                                        {/* <li className='px-6'>{new Date(item.competition?.datestart).toLocaleString('en-US', { month: 'long', year: 'numeric' })}</li> */}
+                                                                        <li class="px-6 py-1  grid">
+                                                                            <Link to={`/match-detail/${item.match_id}/${formatUrl(`${item.short_title}-${item.competition.title}`)}/commentary`} className='font-medium text-base hover:underline'>
+                                                                                {item.competition?.title}, {item?.subtitle} </Link>
+                                                                            <span className=''>    {item.date_start_ist}</span>
+
+                                                                            <span>{item.venue?.location},{item.venue?.country}</span>
+                                                                        </li>
 
 
-                                                                            <div class="flex items-center md:justify-between   gap-4 pb-3 pt-3 last:pb-0">
-                                                                                <div class="flex items-center gap-x-3">
-                                                                                    <img
-                                                                                        src={item.teama?.logo_url}
-                                                                                        alt="Tania Andrew"
-                                                                                        class="relative inline-block h-9 w-9 rounded-full object-cover object-center"
-                                                                                    />
-                                                                                    <div>
-                                                                                        <p class="block font-sans text-base font-semibold leading-relaxed tracking-normal text-blue-gray-900 antialiased">
-                                                                                            {item.teama?.short_name}
-                                                                                        </p>
+                                                                        <li class="px-6 py-1  grid">
+                                                                            <Link to={`/match-detail/${item.match_id}/${formatUrl(`${item.short_title}-${item.competition.title}`)}/commentary`} className=' md:w-full w-72 items-center grid grid-rows-2 gap-y-2 px-3 py-2 justify-start dark:bg-gray-700 bg-gray-200'>
 
+
+                                                                                <div class="flex items-center md:justify-between   gap-4 pb-3 pt-3 last:pb-0">
+                                                                                    <div class="flex items-center gap-x-3">
+                                                                                        <img
+                                                                                            src={item.teama?.logo_url}
+                                                                                            alt="Tania Andrew"
+                                                                                            class="relative inline-block h-9 w-9 rounded-full object-cover object-center"
+                                                                                        />
+                                                                                        <div>
+                                                                                            <p class="block font-sans text-base font-semibold leading-relaxed tracking-normal text-blue-gray-900 antialiased">
+                                                                                                {item.teama?.short_name}
+                                                                                            </p>
+
+                                                                                        </div>
                                                                                     </div>
+                                                                                    <p class="block font-sans md:text-base text-sm  font-semibold leading-relaxed tracking-normal text-blue-gray-900 antialiased">
+                                                                                        {item.teama?.scores_full}
+
+                                                                                    </p>
                                                                                 </div>
-                                                                                <p class="block font-sans md:text-base text-sm  font-semibold leading-relaxed tracking-normal text-blue-gray-900 antialiased">
-                                                                                    {item.teama?.scores_full}
 
-                                                                                </p>
-                                                                            </div>
+                                                                                <div class="flex items-center md:justify-between   gap-4 pb-3 pt-3 last:pb-0">
+                                                                                    <div class="flex items-center gap-x-3">
+                                                                                        <img
+                                                                                            src={item.teamb?.logo_url}
+                                                                                            alt="Tania Andrew"
+                                                                                            class="relative inline-block h-9 w-9 rounded-full object-cover object-center"
+                                                                                        />
+                                                                                        <div>
+                                                                                            <p class="block font-sans text-base font-semibold leading-relaxed tracking-normal text-blue-gray-900 antialiased">
+                                                                                                {item.teamb?.short_name}
+                                                                                            </p>
 
-                                                                            <div class="flex items-center md:justify-between   gap-4 pb-3 pt-3 last:pb-0">
-                                                                                <div class="flex items-center gap-x-3">
-                                                                                    <img
-                                                                                        src={item.teamb?.logo_url}
-                                                                                        alt="Tania Andrew"
-                                                                                        class="relative inline-block h-9 w-9 rounded-full object-cover object-center"
-                                                                                    />
-                                                                                    <div>
-                                                                                        <p class="block font-sans text-base font-semibold leading-relaxed tracking-normal text-blue-gray-900 antialiased">
-                                                                                            {item.teamb?.short_name}
-                                                                                        </p>
-
+                                                                                        </div>
                                                                                     </div>
+                                                                                    <p class="block font-sans md:text-base text-sm  font-semibold leading-relaxed tracking-normal text-blue-gray-900 antialiased">
+                                                                                        {item.teamb?.scores_full}
+
+                                                                                    </p>
                                                                                 </div>
-                                                                                <p class="block font-sans md:text-base text-sm  font-semibold leading-relaxed tracking-normal text-blue-gray-900 antialiased">
-                                                                                    {item.teamb?.scores_full}
-
-                                                                                </p>
-                                                                            </div>
 
 
 
 
-                                                                            <p className='text-red-500 text-sm'>{item.status_note}</p>
+                                                                                <p className='text-red-500 text-sm'>{item.status_note}</p>
 
 
 
 
 
-                                                                        </Link>
-                                                                    </li>
+                                                                            </Link>
+                                                                        </li>
 
 
 
@@ -390,10 +391,10 @@ const CricketSchedule = () => {
 
 
 
-                                                                </td>
+                                                                    </td>
 
 
-                                                            </tr>
+                                                                </tr>
 
                                                         ) : <div className="flex  justify-center ">
                                                             <div className="w-4 h-4 border-2 border-blue-500 border-solid border-t-transparent rounded-full animate-spin"></div>

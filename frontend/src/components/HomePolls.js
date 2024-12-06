@@ -3,13 +3,13 @@ import { Link } from 'react-router-dom'
 
 const HomePolls = () => {
     return (
-        <div>  <div className='rounded-xl border bg-white px-3 py-3'>
-            <div class="text-2xl text-blue-950 font-medium border-b pb-3">Latest Polls</div>
+        <div>  <div className='rounded-xl text-blue-950 border dark:border-none dark:text-white dark:bg-gray-800 bg-white px-3 py-3'>
+            <div class="text-2xl  font-medium  border-b pb-3">Latest Polls</div>
 
 
             <div className="lg:grid md:grid-cols-2 gap-6  mt-3 w-full md:justify-items-center ">
                 {/* First Column */}
-                <div class="h-96 w-full mt-2 mx-auto max-w-xs rounded-lg border bg-white">
+                <div class="h-96 w-full mt-2 mx-auto max-w-xs rounded-lg border ">
                     <div class="w-full rounded-lg rounded-b-none bg-blue-950 text-center">
                         <h5 class="truncate p-3 text-sm tracking-tight text-white dark:text-white">
                             T20 Spring Challenge 2024
@@ -18,7 +18,7 @@ const HomePolls = () => {
                             <span>28th Match </span>|<span> 19 Oct 2024 </span>|<span> 09:30 PM</span>
                         </h5>
                     </div>
-                    <div class="mt-4 items-center text-blue-950 text-center">
+                    <div class="mt-4 items-center text-blue-950 dark:bg-gray-800 dark:text-white text-center">
                         Who will win ?
                         <div class="my-4 pl-12 flex items-center ">
                             <input
@@ -58,7 +58,8 @@ const HomePolls = () => {
                 </div>
 
                 {/* Second Column */}
-                <div class="h-96 w-full mt-2 mx-auto max-w-xs rounded-lg border bg-white">
+
+                <div class="h-96 w-full mt-2 mx-auto max-w-xs rounded-lg border ">
                     <div class="w-full rounded-lg rounded-b-none bg-blue-950 text-center">
                         <h5 class="truncate p-3 text-sm tracking-tight text-white dark:text-white">
                             T20 Spring Challenge 2024
@@ -67,7 +68,7 @@ const HomePolls = () => {
                             <span>28th Match </span>|<span> 19 Oct 2024 </span>|<span> 09:30 PM</span>
                         </h5>
                     </div>
-                    <div class="mt-4 items-center text-blue-950 text-center">
+                    <div class="mt-4 items-center text-blue-950 dark:bg-gray-800 dark:text-white text-center">
                         Who will win ?
                         <div class="my-4 pl-12 flex items-center ">
                             <input
@@ -105,6 +106,7 @@ const HomePolls = () => {
                         </button>
                     </div>
                 </div>
+              
 
 
             </div>

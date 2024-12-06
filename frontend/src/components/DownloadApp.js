@@ -2,7 +2,7 @@ import React from 'react'
 
 const DownloadApp = () => {
   return (
-    <div>  <div class="grid text-2xl font-medium w-full  top-0 rounded-xl px-3 py-3 border bg-white  overflow-hidden ">
+    <div>  <div class="grid dark:bg-gray-800 dark:text-white dark:border-none text-2xl font-medium w-full  top-0 rounded-xl px-3 py-3 border bg-white  overflow-hidden ">
     Download The App
 
     <div class="flex  pb-2 pt-4 border-b w-full object-cover    items-center gap-x-6">

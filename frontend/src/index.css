@@ -6,8 +6,23 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #eef0f3;
+
   
 }
+
+
+html {
+  transition: background-color 0.3s ease, color 0.3s ease; /* Optional smooth transition */
+}
+
+body.dark {
+  background-color: #0c131a; /* Dark background */
+  
+
+}
+
+
+
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',

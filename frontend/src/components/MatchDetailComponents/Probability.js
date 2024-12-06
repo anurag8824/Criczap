@@ -19,11 +19,11 @@ const Probability = ({ data }) => {
 
 
 
-                <div className="flex flex-col  items-center  mt-2 py-2 px-1 bg-gray-100 md:w-full">
+                <div className="flex flex-col  items-center rounded  mt-2 py-2 px-1 bg-grjay-100 md:w-full">
 
 
                     <div className='w-full flex  border-b items-center pb-2 justify-between'>
-                        <div className=" pl-4 flex gap-2 text-sm md:w-1/2 ">
+                        <div className=" pl-4 font-medium text-blue-950 dark:text-white flex gap-2 text-sm md:w-1/2 ">
                             Probability
                             {/* <button onClick={() => handleViewChange('full')} className='underline'><AiOutlineInfoCircle className='h-4 w-4' />
     </button> */}
@@ -61,7 +61,7 @@ const Probability = ({ data }) => {
 
 
                     {/* The view content below the buttons */}
-                    <div className="  w-full  px-4  rounded-md">
+                    <div className="  w-full mt-2 py-1 px-4 bg-gray-100 dark:bg-gray-700 dark:border-none dark:text-white  rounded">
 
                         <p className="text-lg">
                             {view === '%' ?
@@ -122,8 +122,8 @@ const Probability = ({ data }) => {
 
                                                         <div className='flex gap-2'>
 
-                                                            <p className='px-4 font-medium py-1 items-center flex justify-center bg-green-700 text-white border'> {Math.max(0, ((parseFloat(data?.response?.live_odds?.matchodds?.teama?.back)))).toString().padStart(2, '0')}</p>
-                                                            <p className='px-4 font-medium py-1 items-center flex justify-center bg-red-700 text-white border'>
+                                                            <p className='px-4 font-medium py-1 items-center flex justify-center bg-green-700 rounded dark:border-none text-white border'> {Math.max(0, ((parseFloat(data?.response?.live_odds?.matchodds?.teama?.back)))).toString().padStart(2, '0')}</p>
+                                                            <p className='px-4 font-medium py-1 items-center flex justify-center bg-red-700 rounded dark:border-none text-white border'>
                                                                 {data?.response?.live_odds?.matchodds?.teama.lay ? Math.max(0, ((parseFloat(data?.response?.live_odds?.matchodds?.teama?.lay))))
                                                                     .toString()
                                                                     .padStart(2, '0')
@@ -155,14 +155,14 @@ const Probability = ({ data }) => {
 
                                                         <div className='flex gap-2' >
                                                             {data?.response?.live_odds?.matchodds?.teamb ?
-                                                                <p className='px-4 font-medium py-1 items-center flex justify-center bg-green-700 text-white border'>
+                                                                <p className='px-4 font-medium py-1 items-center  flex justify-center bg-green-700 rounded dark:border-none text-white border'>
                                                                     {Math.max(0, ((parseFloat(data?.response?.live_odds?.matchodds?.teamb?.back)))).toString().padStart(2, '0')}
                                                                 </p>
                                                                 : ''}
 
 
 
-                                                            <p className='px-4 font-medium py-1 items-center flex justify-center bg-red-700 text-white border'>
+                                                            <p className='px-4 font-medium py-1 items-center flex justify-center bg-red-700 rounded dark:border-none text-white border'>
 
                                                                 {data?.response?.live_odds?.matchodds?.teamb?.lay ? Math.max(0, ((parseFloat(data?.response?.live_odds?.matchodds?.teamb?.lay)))).toString().padStart(2, '0') : "0"}
 
@@ -187,14 +187,14 @@ const Probability = ({ data }) => {
 
                                                         <div className='flex gap-2' >
                                                             {data?.response?.live_odds?.matchodds?.draw ?
-                                                                <p className='px-4 font-medium py-1 items-center flex justify-center bg-green-700 text-white border'>
+                                                                <p className='px-4 font-medium py-1 items-center flex justify-center bg-green-700 rounded dark:border-none text-white border'>
                                                                     {Math.max(0, Math.round((parseFloat(data?.response?.live_odds?.matchodds?.draw?.back)))).toString().padStart(2, '0')}
                                                                 </p>
                                                                 : ''}
 
 
 
-                                                            <p className='px-4 font-medium py-1 items-center flex justify-center bg-red-700 text-white border'>
+                                                            <p className='px-4 font-medium py-1 items-center flex justify-center bg-red-700 rounded dark:border-none text-white border'>
 
                                                                 {data?.response?.live_odds?.matchodds?.draw?.lay ? Math.max(0, Math.round((parseFloat(data?.response?.live_odds?.matchodds?.draw?.lay)))).toString().padStart(2, '0') : "0"}
 
@@ -225,8 +225,8 @@ const Probability = ({ data }) => {
                                                                         <p>{item.title.split(' ').slice(0, 2).join(' ')} </p>
                                                                         <div className='flex gap-2'>
 
-                                                                            <p className='px-4 font-medium py-1 items-center flex justify-center bg-green-700 text-white border'> {Math.max(0, Math.round((parseFloat(item.lay_condition)))).toString().padStart(2, '0')}</p>
-                                                                            <p className='px-4 font-medium py-1 items-center flex justify-center bg-red-700 text-white border'>
+                                                                            <p className='px-4 font-medium py-1 items-center flex justify-center bg-green-700 rounded dark:border-none text-white border'> {Math.max(0, Math.round((parseFloat(item.lay_condition)))).toString().padStart(2, '0')}</p>
+                                                                            <p className='px-4 font-medium py-1 items-center flex justify-center rounded dark:border-none bg-red-700 text-white border'>
                                                                                 {item.back_condition ? Math.max(0, Math.round((parseFloat(item.back_condition))))
                                                                                     .toString()
                                                                                     .padStart(2, '0')
@@ -243,7 +243,7 @@ const Probability = ({ data }) => {
                                                                 ) : ""
                                                             ))}
 
-                                                            <div className='flex items-center justify-between'>
+                                                            <div className='flex space-y-1 items-center justify-between'>
 
 
                                                                 <p>RXB</p>
@@ -251,7 +251,7 @@ const Probability = ({ data }) => {
 
                                                                     <div className='flex gap-2'>
 
-                                                                        <p className='px-4 font-medium py-1 items-center flex justify-center bg-green-700 text-white border'>
+                                                                        <p className='px-4 font-medium py-1 items-center flex justify-center rounded dark:border-none bg-green-700 text-white border'>
                                                                             {data?.response?.featured_session[0]?.back_condition ? Math.max(0, Math.round((parseFloat(data?.response?.featured_session[0]?.back_condition)) - (parseFloat(data?.response?.live?.live_score?.runs))))
                                                                                 .toString()
                                                                                 .padStart(2, '0')
@@ -259,7 +259,7 @@ const Probability = ({ data }) => {
 
                                                                         </p>
 
-                                                                        <p className='px-4 font-medium py-1 items-center flex justify-center bg-red-700 text-white border'>
+                                                                        <p className='px-4 font-medium py-1 items-center flex justify-center rounded dark:border-none  bg-red-700 text-white border'>
                                                                             {Math.max(
                                                                                 0,
                                                                                 Math.floor(
@@ -293,7 +293,7 @@ const Probability = ({ data }) => {
                                         :
                                         <>
 
-                                            <div className=' pt-1  text-xs items-center '>
+                                            <div className=' pt-1 space-y-1  text-xs items-center '>
 
 
 
@@ -308,8 +308,8 @@ const Probability = ({ data }) => {
 
                                                             <div className='flex gap-2'>
 
-                                                                <p className='px-4 font-medium py-1 items-center flex justify-center bg-green-700 text-white border'> {Math.max(0, Math.round((parseFloat(data?.response?.live_odds?.matchodds?.teama?.back) * 100) - 100)).toString().padStart(2, '0')}</p>
-                                                                <p className='px-4 font-medium py-1 items-center flex justify-center bg-red-700 text-white border'>
+                                                                <p className='px-4 font-medium py-1 items-center flex justify-center bg-green-700 rounded dark:border-none text-white border'> {Math.max(0, Math.round((parseFloat(data?.response?.live_odds?.matchodds?.teama?.back) * 100) - 100)).toString().padStart(2, '0')}</p>
+                                                                <p className='px-4 font-medium py-1 items-center flex justify-center bg-red-700 rounded dark:border-none text-white border'>
                                                                     {data?.response?.live_odds?.matchodds?.teama?.lay ? Math.max(0, Math.round((parseFloat(data?.response?.live_odds?.matchodds?.teama?.lay) * 100) - 100))
                                                                         .toString()
                                                                         .padStart(2, '0')
@@ -342,14 +342,14 @@ const Probability = ({ data }) => {
 
                                                             <div className='flex gap-2' >
                                                                 {data?.response.live_odds?.matchodds?.teamb ?
-                                                                    <p className='px-4 font-medium py-1 items-center flex justify-center bg-green-700 text-white border'>
+                                                                    <p className='px-4 font-medium py-1 items-center flex justify-center rounded dark:border-none bg-green-700 text-white border'>
                                                                         {Math.max(0, Math.round((parseFloat(data?.response.live_odds?.matchodds?.teamb?.back) * 100) - 100)).toString().padStart(2, '0')}
                                                                     </p>
                                                                     : ''}
 
 
 
-                                                                <p className='px-4 font-medium py-1 items-center flex justify-center bg-red-700 text-white border'>
+                                                                <p className='px-4 font-medium py-1 items-center flex justify-center bg-red-700 rounded dark:border-none text-white border'>
 
                                                                     {data?.response.live_odds?.matchodds?.teamb?.lay ? Math.max(0, Math.round((parseFloat(data?.response.live_odds?.matchodds?.teamb?.lay) * 100) - 100)).toString().padStart(2, '0') : "0"}
 
@@ -381,8 +381,8 @@ const Probability = ({ data }) => {
 
                                                                         <p>{item.title.split(' ').slice(0, 2).join(' ')} </p>
                                                                         <div className='flex gap-2'>
-                                                                            <p className='px-4 font-medium py-1 items-center flex justify-center bg-green-700 text-white border'> {Math.max(0, Math.round((parseFloat(item.lay_condition)))).toString().padStart(2, '0')}</p>
-                                                                            <p className='px-4 font-medium py-1 items-center flex justify-center bg-red-700 text-white border'>
+                                                                            <p className='px-4 font-medium py-1 items-center flex justify-center bg-green-700 rounded dark:border-none text-white border'> {Math.max(0, Math.round((parseFloat(item.lay_condition)))).toString().padStart(2, '0')}</p>
+                                                                            <p className='px-4 font-medium py-1 items-center flex justify-center rounded dark:border-none bg-red-700 text-white border'>
                                                                                 {item.back_condition ? Math.max(0, Math.round((parseFloat(item.back_condition))))
                                                                                     .toString()
                                                                                     .padStart(2, '0')
@@ -406,7 +406,7 @@ const Probability = ({ data }) => {
                                                                 ) : ""
                                                             ))}
 
-                                                            <div className='flex items-center justify-between'>
+                                                            <div className='flex space-y-1 items-center justify-between'>
 
 
                                                                 <p>RXB</p>
@@ -415,7 +415,7 @@ const Probability = ({ data }) => {
                                                                     <div className='flex gap-2'>
 
 
-                                                                        <p className='px-4 font-medium py-1 items-center flex justify-center bg-green-700 text-white border'>
+                                                                        <p className='px-4 font-medium py-1 items-center flex justify-center rounded dark:border-none bg-green-700 text-white border'>
                                                                             {data?.response?.featured_session[0]?.back_condition ? Math.max(0, Math.round((parseFloat(data?.response?.featured_session[0]?.back_condition)) - (parseFloat(data?.response?.live?.live_score?.runs))))
                                                                                 .toString()
                                                                                 .padStart(2, '0')
@@ -423,7 +423,7 @@ const Probability = ({ data }) => {
 
                                                                         </p>
 
-                                                                        <p className='px-4 font-medium py-1 items-center flex justify-center bg-red-700 text-white border'>
+                                                                        <p className='px-4 font-medium py-1 items-center flex justify-center bg-red-700 rounded dark:border-none text-white border'>
                                                                             {Math.max(
                                                                                 0,
                                                                                 Math.floor(

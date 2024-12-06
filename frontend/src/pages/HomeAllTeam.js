@@ -58,18 +58,18 @@ const HomeAllTeam = () => {
     return (
         <div className=''>
 
-            <div className='relative  bg-white grid grid-flow-col scrollbar-hide auto-cols-max gap-4 m-4 border rounded-2xl mx-auto py-2 px-4 overflow-x-auto'>
+            <div className='relative  bg-white dark:bg-gray-800 dark:text-white dark:border-none grid grid-flow-col scrollbar-hide auto-cols-max gap-4 m-4 border rounded-2xl mx-auto py-2 px-4 overflow-x-auto'>
 
                 {Topteam.map((item, index) => (
                     item ? (
-                        <Link to={`/cricket-team-detail/${item.teamid}/home`} class="flex border rounded-full w-fit py-1 px-6  items-center gap-x-3 hover:bg-gray-100">
+                        <Link to={`/cricket-team-detail/${item.teamid}/home`} class="flex border rounded-full w-fit py-1 px-6  items-center gap-x-3 ">
                             <img
                                 src={item.logo}
                                 alt="Tania Andrew"
                                 class="relative inline-block h-9 w-9 rounded-full object-cover object-center"
                             />
 
-                            <p class="block font-sans text-base font-normal leading-relaxed tracking-normal text-blue-950 antialiased">
+                            <p class="block font-sans text-base font-normal leading-relaxed dark:text-white tracking-normal text-blue-950 antialiased">
                                 {item.name}
                             </p>
                         </Link>

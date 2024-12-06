@@ -143,7 +143,7 @@ const Commentary = ({ data, balldata }) => {
 
           <div className='md:w-full md:flex grid grid-cols-1 md:grid-cols-2 gap-4 '>
 
-            <div className='justify-between md:order-1 order-2 text-blue-950   dark:bg-black dark:text-white w-full md:w-1/2'>
+            <div className='justify-between md:order-1 order-2 text-blue-950 dark:text-white    w-full md:w-1/2'>
 
 
 
@@ -289,7 +289,7 @@ const Commentary = ({ data, balldata }) => {
 
             {/* {data?.response.live.status_str === "Live" ?  */}
 
-            <div className=' md:w-1/2 py-5 md:order-2 order-1 md:py-0 text-3xl font-bold  flex items-center justify-center bg-blue-950 text-white text-center'>
+            <div className=' md:w-1/2 py-5 md:order-2 order-1 md:py-0 text-3xl font-bold  flex items-center justify-center rounded bg-blue-950  text-white text-center'>
 
               <div className='' onClick={handleUserInteraction}>
                 <div className='absolute top-2 right-4 text-white text-base cursor-pointer' onClick={handleClick}>
@@ -324,7 +324,7 @@ const Commentary = ({ data, balldata }) => {
 
           {data?.response.live?.live_score ?
 
-            <div className='flex text-blue-950 gap-3'>
+            <div className='flex text-blue-950 dark:text-white gap-3'>
               <p className=' font-medium md:text-base text-xs  mt-2'>CRR:  {data?.response.live?.live_score.runrate}</p>
               <p className=' font-medium md:text-base text-xs mt-2 '>RRR: {data?.response.live?.live_score?.required_runrate ? data?.response.live.live_score?.required_runrate : "0"}</p>
 
@@ -366,9 +366,9 @@ const Commentary = ({ data, balldata }) => {
                   <div key={index} className=' flex   px-2.5 pt-4'>
                     <div className=' font-medium  pb-4 '>
 
-                      {item.score === "w" ? <p className='border bg-red-700 text-xs w-8 h-8 rounded-full text-white flex items-center justify-center'>{item.score}</p> :
+                      {item.score === "w" ? <p className='border bg-red-700 text-xs w-8 h-8 rounded-full text-white dark:text-white flex items-center justify-center'>{item.score}</p> :
 
-                        <p className='border bg-gray-100 w-8 h-8 text-xs rounded-full flex items-center justify-center'>{item.score}</p>}
+                        <p className='border bg-gray-100 dark:bg-gray-800 dark:text-white w-8 h-8 text-xs rounded-full flex items-center justify-center'>{item.score}</p>}
 
                     </div>
                   </div>
@@ -380,9 +380,9 @@ const Commentary = ({ data, balldata }) => {
 
 
 
-          {/* odds from here  */}          
+          {/* odds from here  */}
 
-          <Probability data={data}/>
+          <Probability data={data} />
 
 
 
@@ -427,178 +427,179 @@ const Commentary = ({ data, balldata }) => {
 
             <div className='md:w-2/3 w-full'>
 
-            {data?.response?.live?.batsmen ?
+              { data.response.live?.batsmen?.length > 0 && data.response?.live?.batsmen ?
 
 
-              <div className="relative  overflow-x-auto ">
-                <table className="w-full text-center  rtl:text-right text-gray-950 ">
-                  <thead className="bg-blue-950 text-white   ">
-                    <tr>
-                      <th scope="col" className=" px-2 py-2  font-normal">
-                        Batter
-                      </th>
+                <div className="relative rounded overflow-x-auto ">
+                  <table className="w-full text-center  rtl:text-right text-gray-950 ">
+                    <thead className="bg-blue-950 dark:bg-gray-700  text-white   ">
+                      <tr>
+                        <th scope="col" className=" px-2 py-2 text-left font-normal">
+                          Batter
+                        </th>
 
 
-                      <th scope="col" className=" font-normal  ">
-                        R
-                      </th>
+                        <th scope="col" className=" font-normal  ">
+                          R
+                        </th>
 
-                      <th scope="col" className=" font-normal  ">
-                        B
-                      </th>
+                        <th scope="col" className=" font-normal  ">
+                          B
+                        </th>
 
-                      <th scope="col" className=" font-normal ">
-                        4s
-                      </th>
+                        <th scope="col" className=" font-normal ">
+                          4s
+                        </th>
 
-                      <th scope="col" className="font-normal ">
-                        6s
-                      </th>
+                        <th scope="col" className="font-normal ">
+                          6s
+                        </th>
 
+                        <th scope="col" className=" font-normal  ">
+                          SR
+                        </th>
 
-                      <th scope="col" className=" font-normal  ">
-                        SR
-                      </th>
+                      </tr>
+                    </thead>
 
-                    </tr>
-                  </thead>
+                    <tbody>
 
-                  <tbody>
+                      {data?.response.live.batsmen ?
 
-                    {data?.response.live.batsmen ?
+                        <>
 
-                      <>
+                          {data?.response.live?.batsmen.map((item, index) => (
+                            item ? (
+                              <tr key={index} className="border-b border-gray-200 dark:text-white text-center align-text-top dark:border-gray-700">
+                                <td scope='row' className='text-blue-600'>
+                                  {index === 0 ? (
+                                    <Link to={`/cricket-player-detail/${item.batsman_id}/${(formatUrl(item.name))}`}
 
-                        {data?.response.live?.batsmen.map((item, index) => (
-                          item ? (
-                            <tr key={index} className="border-b border-gray-200 text-center align-text-top dark:border-gray-700">
-                              <td scope='row' className='text-blue-600'>
-                                {index === 0 ? (
-                                  <Link to={`/cricket-player-detail/${item.batsman_id}/${(formatUrl(item.name))}`}
+                                      className='hover:underline text-left pl-2 flex gap-2 items-center justify-start'>
+                                      {item.name}
+                                      <img className='h-3 w-3' src='/bat.png' alt='bat icon' />
+                                    </Link>
+                                  ) : (
+                                    <Link to={`/cricket-player-detail/${item.batsman_id}/${(formatUrl(item.name))}`} className='hover:underline text-left flex gap-2 items-center justify-start pl-2'>
+                                      {item.name}
+                                    </Link>
+                                  )}
+                                </td>
 
-                                    className='hover:underline text-left flex gap-2 items-center justify-center'>
-                                    {item.name}
-                                    <img className='h-3 w-3' src='/bat.png' alt='bat icon' />
-                                  </Link>
-                                ) : (
-                                  <Link to={`/cricket-player-detail/${item.batsman_id}/${(formatUrl(item.name))}`} className='hover:underline text-left flex gap-2 items-center justify-center'>
-                                    {item.name}
-                                  </Link>
-                                )}
-                              </td>
+                                <td scope='row' className=''>
+                                  {item.runs}
+                                </td>
 
-                              <td scope='row' className=''>
-                                {item.runs}
-                              </td>
+                                <td scope='row' className=''>
+                                  {item.balls_faced}
+                                </td>
 
-                              <td scope='row' className=''>
-                                {item.balls_faced}
-                              </td>
+                                <td scope='row' className=''>
+                                  {item.fours}
+                                </td>
 
-                              <td scope='row' className=''>
-                                {item.fours}
-                              </td>
+                                <td scope='row' className=''>
+                                  {item.sixes}
+                                </td>
 
-                              <td scope='row' className=''>
-                                {item.sixes}
-                              </td>
-
-                              <td scope='row' className=''>
-                                {item.strike_rate}
-                              </td>
-                            </tr>
-                          ) : null
-                        ))}
-
-
-
-
-                      </>
-
-
-                      : ""}
+                                <td scope='row' className=''>
+                                  {item.strike_rate}
+                                </td>
+                              </tr>
+                            ) : "No Found"
+                          ))}
 
 
 
-                  </tbody>
 
-                </table>
-              </div> : ""}
+                        </>
+
+
+                        : ""}
+
+
+
+                    </tbody>
+
+                  </table>
+                </div>
+
+                : ""}
 
               {/* 2nd table  */}
 
-              {data?.response.live.bowlers ?
-              <div className="relative  overflow-x-auto ">
-                <table className=" w-full text-center   rtl:text-right text-gray-950 ">
-                  <thead className="bg-blue-950 text-white   ">
-                    <tr>
-                      <th scope="col" className="px-2  py-2 font-normal ">
-                        Bowler
-                      </th>
+              {data?.response?.live?.bowlers && data?.response?.live?.bowlers?.length > 0 ?
+                <div className="relative rounded  overflow-x-auto ">
+                  <table className=" w-full text-center dark:text-white  rtl:text-right text-gray-950 ">
+                    <thead className="bg-blue-950 dark:bg-gray-700 text-white   ">
+                      <tr>
+                        <th scope="col" className="px-2 text-left py-2 font-normal ">
+                          Bowler
+                        </th>
 
-                      <th scope="col" className="font-normal ">
-                        O
-                      </th>
+                        <th scope="col" className="font-normal ">
+                          O
+                        </th>
 
-                      <th scope="col" className="font-normal ">
-                        M
-                      </th>
+                        <th scope="col" className="font-normal ">
+                          M
+                        </th>
 
-                      <th scope="col" className="font-normal ">
-                        R
-                      </th>
+                        <th scope="col" className="font-normal ">
+                          R
+                        </th>
 
-                      <th scope="col" className="font-normal ">
-                        W
-                      </th>
-
-
-                      <th scope="col" className="font-normal ">
-                        ECO
-                      </th>
-
-                    </tr>
-                  </thead>
-
-                  <tbody>
-
-                    {data?.response.live.bowlers ?
-
-                      <tr className="border-b border-gray-200 text-center  align-text-top dark:border-gray-700">
-
-                        <td scope='row' className='  text-blue-600'>
-
-                          {data?.response.live.bowlers[0]?.bowler_id ?
-
-                            <Link to={`/cricket-player-detail/${data?.response.live.bowlers[0].bowler_id}/${(formatUrl(data?.response.live.bowlers[0].name))}`} className='hover:underline flex gap-2 items-center  justify-center text-sm'>{data?.response.live.bowlers[0] ? data?.response.live.bowlers[0].name : ""}<img className='h-3 w-3' src='/ball.jpg' /></Link> : ''}
-
-                        </td>
-
-                        <td scope='row' className="">
-                          {data?.response.live.bowlers[0]?.overs}
-                        </td>
-
-                        <td className=''>
-                          {data?.response.live.bowlers[0]?.maidens}
-                        </td>
-
-                        <td className=''>
-                          {data?.response.live.bowlers[0]?.runs_conceded}
-                        </td>
-
-                        <td className=''>
-                          {data?.response.live.bowlers[0]?.wickets}
-                        </td>
-
-                        <td className=''>
-                          {data?.response.live.bowlers[0]?.econ}
-                        </td>
+                        <th scope="col" className="font-normal ">
+                          W
+                        </th>
 
 
+                        <th scope="col" className="font-normal ">
+                          ECO
+                        </th>
 
                       </tr>
+                    </thead>
 
-                      : ""}
+                    <tbody>
+
+                      {data?.response.live.bowlers ?
+
+                        <tr className="border-b border-gray-200 text-center  align-text-top dark:border-gray-700">
+
+                          <td scope='row' className='   text-blue-600'>
+
+                            {data?.response.live.bowlers[0]?.bowler_id ?
+
+                              <Link to={`/cricket-player-detail/${data?.response.live.bowlers[0].bowler_id}/${(formatUrl(data?.response.live.bowlers[0].name))}`} className='hover:underline text-left flex gap-2 items-center  justify-start pl-2'>{data?.response.live.bowlers[0] ? data?.response.live.bowlers[0].name : ""}<img className='h-3 w-3' src='/ball.jpg' /></Link> : ''}
+
+                          </td>
+
+                          <td scope='row' className="">
+                            {data?.response.live.bowlers[0]?.overs}
+                          </td>
+
+                          <td className=''>
+                            {data?.response.live.bowlers[0]?.maidens}
+                          </td>
+
+                          <td className=''>
+                            {data?.response.live.bowlers[0]?.runs_conceded}
+                          </td>
+
+                          <td className=''>
+                            {data?.response.live.bowlers[0]?.wickets}
+                          </td>
+
+                          <td className=''>
+                            {data?.response.live.bowlers[0]?.econ}
+                          </td>
+
+
+
+                        </tr>
+
+                        : ""}
 
 
 
@@ -610,9 +611,9 @@ const Commentary = ({ data, balldata }) => {
 
 
 
-                  </tbody>
-                </table>
-              </div> : ""}
+                    </tbody>
+                  </table>
+                </div> : ""}
 
             </div>
 
@@ -624,16 +625,16 @@ const Commentary = ({ data, balldata }) => {
 
 
 
-              <div className='w-full md:w-1/3 text-sm border bg-gray-100'>
+              <div className='w-full md:w-1/3 text-sm  rounded-t bg-gray-100 dark:bg-gray-800 dark:text-white'>
 
 
 
-                <p className='bg-blue-950 font-normal text-white py-2  px-2  '>Key Stats</p>
+                <p className='bg-blue-950 font-normal rounded-t text-white py-2 dark:bg-gray-700   px-2  '>Key Stats</p>
 
-                {data?.response?.live?.live_inning?.current_partnership ? 
+                {data?.response?.live?.live_inning?.current_partnership ?
 
-                <p className='py-2 gap-2 px-2'><span className='font-medium text-sm'>Partership:</span> {data?.response?.live?.live_inning?.current_partnership?.runs}({data?.response?.live?.live_inning?.current_partnership.balls})</p>
-                : ""}
+                  <p className='py-2 gap-2 px-2'><span className='font-medium text-sm'>Partership:</span> {data?.response?.live?.live_inning?.current_partnership?.runs}({data?.response?.live?.live_inning?.current_partnership.balls})</p>
+                  : ""}
 
                 {data?.response.live?.live_inning?.last_wicket?.name ?
 
@@ -679,7 +680,7 @@ const Commentary = ({ data, balldata }) => {
             item.event == "overend" ? (
 
 
-              <div key={index} className='mt-6 bg-gray-100  border w-full p-4'>
+              <div key={index} className='mt-6 bg-gray-100 dark:bg-gray-700 rounded dark:border-none  border w-full p-4'>
 
                 <div className='flex border-b md:text-base text-xs  font-medium pb-1 '>
                   <p className='w-72'>Over-{item.over} </p>

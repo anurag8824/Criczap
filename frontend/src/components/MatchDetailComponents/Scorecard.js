@@ -34,7 +34,7 @@ const Scorecard = ({ data }) => {
             <div key={item.iid}>
               <button
                 onClick={() => toggleDropdown(item.iid)}
-                className="w-full flex justify-between md:text-base text-xs uppercase text-left py-3 rounded-lg rounded-b px-6  font-medium bg-blue-950  text-white items-center  "
+                className="w-full flex justify-between md:text-base text-xs uppercase text-left py-3 rounded-lg  rounded-b px-6  font-medium bg-blue-950 dark:bg-gray-700 text-white items-center  "
               >
                 <p>{item.name}
                 </p>
@@ -50,7 +50,7 @@ const Scorecard = ({ data }) => {
 
 
 
-                <div className="p-4 border rounded-t-none border-t-0 rounded-lg space-y-2">
+                <div className="p-4 border rounded-t-none border-t-0 dark:border-none rounded-lg space-y-2">
 
                   <div class="relative  overflow-x-auto ">
                     <table class=" w-full text-left rtl:text-right text-gray-950 ">

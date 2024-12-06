@@ -7,7 +7,7 @@ const FbConnect = () => {
         <div class="md:w-72 lg:block hidden w-fit  mx-auto md:mx-0   ">
             <div class="grid items-center justify-between space-y-6 pb-3  ">
 
-                <div class="grid text-2xl h-96 font-medium w-full text-blue-950 top-0 rounded-xl px-3 py-3 border bg-white  overflow-hidden ">
+                <div class="grid text-2xl h-96 font-medium w-full dark:border-none dark:bg-gray-800 dark:text-white text-blue-950 top-0 rounded-xl px-3 py-3 border bg-white  overflow-hidden ">
                     Connect With Us
 
                     <iframe
@@ -24,7 +24,7 @@ const FbConnect = () => {
 
 
 
-                <div class="grid text-2xl font-medium w-full top-0 rounded-xl px-3 py-3 border text-blue-950 bg-white  overflow-hidden ">
+                <div class="grid text-2xl font-medium w-full top-0 rounded-xl px-3 py-3 border dark:border-none dark:bg-gray-800 dark:text-white text-blue-950 bg-white  overflow-hidden ">
                     Follow Us
 
 

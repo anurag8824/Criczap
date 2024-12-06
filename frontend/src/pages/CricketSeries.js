@@ -95,25 +95,25 @@ const CricketSeries = () => {
 
 
             <div className='flex px-1  py-10 justify-between'>
-                <p className='text-2xl  font-medium'>Seasons/Series</p>
+                <p className='text-2xl dark:text-white font-medium'>Seasons/Series</p>
                 {/* <input className=' bg-white rounded-full pr-6 pl-3 py-3 text-sm' placeholder='Search...' /> */}
             </div>
 
             <div className='flex gap-x-8'>
-                <div className='border mb-4 bg-white rounded-xl md:w-3/4 w-full'>
+                <div className='border mb-4 bg-white dark:bg-gray-800 dark:border-none rounded-xl md:w-3/4 w-full'>
 
                     <div className="w-full max-w-4xl mx-auto mt-8">
                         {/* Tab Buttons */}
                         <div className="relative flex gap-4 px-3">
                             <button
-                                className={`w-1/3 text-center py-2 text-lg font-normal ${activeTab === "current" ? "text-black" : "text-black"
+                                className={`w-1/3 text-center py-2 text-lg font-normal ${activeTab === "current" ? "text-black dark:text-white" : "text-gray-700"
                                     }`}
                                 onClick={() => handleTabClick("current")}
                             >
                                 Current & Future Series
                             </button>
                             <button
-                                className={`w-1/3 text-center py-2  text-lg font-normal ${activeTab === "archive" ? "text-black" : "text-black"
+                                className={`w-1/3 text-center py-2  text-lg font-normal ${activeTab === "archive" ? "text-black dark:text-white" : "text-gray-700"
                                     }`}
                                 onClick={() => handleTabClick("archive")}
                             >
@@ -153,7 +153,7 @@ const CricketSeries = () => {
 
                                     <div class="relative  overflow-x-auto ">
                                         <table class=" text-sm w-full text-left rtl:text-right text-white ">
-                                            <thead class="text-lg font-medium bg-blue-950   ">
+                                            <thead class="text-lg font-medium dark:bg-gray-700 bg-blue-950   ">
                                                 <tr>
                                                     <th scope="col" class="px-6 w-96 py-3">
                                                         Month
@@ -173,10 +173,10 @@ const CricketSeries = () => {
                                                     idata?.map((item, index) => (
                                                         item ? (
                                                             <tr key={index} className="border-b border-gray-200 dark:border-gray-700">
-                                                                <th scope="row" className="text-blue-900 font-medium text-lg text-center align-text-top py-3 px-3 bg-gray-200 whitespace-nowrap">
+                                                                <th scope="row" className="text-blue-900 dark:bg-gray-500 dark:text-white font-medium text-lg text-center align-text-top py-3 px-3 bg-gray-200 whitespace-nowrap">
                                                                     {new Date(item.datestart).toLocaleString('en-US', { month: 'long', year: 'numeric' })}
                                                                 </th>
-                                                                <td className="list-none w-full py-2.5 text-black">
+                                                                <td className="list-none w-full py-2.5 dark:text-white text-black">
                                                                     <li className="md:pl-6 md:pr-2 py-2 px-1 grid">
                                                                         <Link to={`${item.cid}/${formatUrl(item.title)}/overview`} className="text-sm font-medium hover:underline">{item.title}</Link>
                                                                         <span className="text-gray-500">{item.datestart + " to " + item.dateend}</span>
@@ -189,12 +189,12 @@ const CricketSeries = () => {
                                                     tdata?.map((item, index) => (
                                                         item ? (
                                                             <tr key={index} className="border-b border-gray-200 dark:border-gray-700">
-                                                                <th scope="row" className="text-blue-900 font-medium text-lg text-center align-text-top py-3 px-3 bg-gray-200 whitespace-nowrap">
+                                                                <th scope="row" className="text-blue-900 dark:bg-gray-500 dark:text-white font-medium text-lg text-center align-text-top py-3 px-3 bg-gray-200 whitespace-nowrap">
                                                                     {new Date(item.datestart).toLocaleString('en-US', { month: 'long', year: 'numeric' })}
                                                                 </th>
-                                                                <td className="list-none w-full py-2.5 text-black">
+                                                                <td className="list-none w-full py-2.5 dark:text-white text-black">
                                                                     <li className="md:pl-6 md:pr-2 py-2 px-1 grid">
-                                                                        <Link to={`${item.cid}/${(formatUrl(item.title))}/overview`} className="text-sm font-medium hover:underline">{item.title}</Link>
+                                                                        <Link to={`${item.cid}/${formatUrl(item.title)}/overview`} className="text-sm font-medium hover:underline">{item.title}</Link>
                                                                         <span className="text-gray-500">{item.datestart + " to " + item.dateend}</span>
                                                                     </li>
                                                                 </td>
@@ -204,16 +204,16 @@ const CricketSeries = () => {
                                                 ) : domdata?.map((item, index) => (
                                                     item ? (
                                                         <tr key={index} className="border-b border-gray-200 dark:border-gray-700">
-                                                            <th scope="row" className="text-blue-900 font-medium text-lg text-center align-text-top py-3 px-3 bg-gray-200 whitespace-nowrap">
-                                                                {new Date(item.datestart).toLocaleString('en-US', { month: 'long', year: 'numeric' })}
-                                                            </th>
-                                                            <td className="list-none w-full py-2.5 text-black">
-                                                                <li className="md:pl-6 md:pr-2 py-2 px-1 grid">
-                                                                    <Link to={`${item.cid}/${(formatUrl(item.title))}/overview`} className="text-sm font-medium hover:underline">{item.title}</Link>
-                                                                    <span className="text-gray-500">{item.datestart + " to " + item.dateend}</span>
-                                                                </li>
-                                                            </td>
-                                                        </tr>
+                                                                <th scope="row" className="text-blue-900 dark:bg-gray-500 dark:text-white font-medium text-lg text-center align-text-top py-3 px-3 bg-gray-200 whitespace-nowrap">
+                                                                    {new Date(item.datestart).toLocaleString('en-US', { month: 'long', year: 'numeric' })}
+                                                                </th>
+                                                                <td className="list-none w-full py-2.5 dark:text-white text-black">
+                                                                    <li className="md:pl-6 md:pr-2 py-2 px-1 grid">
+                                                                        <Link to={`${item.cid}/${formatUrl(item.title)}/overview`} className="text-sm font-medium hover:underline">{item.title}</Link>
+                                                                        <span className="text-gray-500">{item.datestart + " to " + item.dateend}</span>
+                                                                    </li>
+                                                                </td>
+                                                            </tr>
                                                     ) : null
                                                 ))}
 
@@ -235,7 +235,7 @@ const CricketSeries = () => {
 
                                     <div class="relative  overflow-x-auto ">
                                         <table class=" text-sm w-full text-left rtl:text-right text-white ">
-                                            <thead class="text-lg font-medium bg-blue-950   ">
+                                            <thead class="text-lg font-medium dark:bg-gray-700 bg-blue-950   ">
                                                 <tr>
                                                     <th scope="col" class="px-6 w-96 py-3">
                                                         Month
@@ -252,12 +252,12 @@ const CricketSeries = () => {
                                                 {rdata?.map((item, index) => (
                                                     item ? (
                                                         <tr key={index} className="border-b border-gray-200 dark:border-gray-700">
-                                                            <th scope="row" className="text-blue-900 font-medium text-lg text-center align-text-top py-3 px-3 bg-gray-200 whitespace-nowrap">
+                                                            <th scope="row" className="text-blue-900 dark:bg-gray-500 dark:text-white font-medium text-lg text-center align-text-top py-3 px-3 bg-gray-200 whitespace-nowrap">
                                                                 {new Date(item.datestart).toLocaleString('en-US', { month: 'long', year: 'numeric' })}
                                                             </th>
                                                             <td className="list-none w-full py-2.5 text-black">
                                                                 <li className="md:pl-6 md:pr-2 py-2 px-1 grid">
-                                                                    <Link to={`${item.cid}/${formatUrl(item.title)}/overview`} className="text-sm font-medium hover:underline">{item.title}</Link>
+                                                                    <Link to={`${item.cid}/${formatUrl(item.title)}/overview`} className="text-sm dark:text-white font-medium hover:underline">{item.title}</Link>
                                                                     <span className="text-gray-500">{item.datestart + " to " + item.dateend}</span>
                                                                 </li>
                                                             </td>

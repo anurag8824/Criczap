@@ -17,6 +17,7 @@ import CricketRanking from './pages/CricketRanking';
 import PrivacyPolicy from './pages/Privacy';
 import Termofuse from './pages/Termofuse';
 import CNView from './pages/CNView';
+import ThemeProvider from './ThemeProvider';
 
 
 
@@ -24,8 +25,10 @@ import CNView from './pages/CNView';
 function App() {
 
   return (
+    
 
     <BrowserRouter>
+
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
@@ -113,6 +116,8 @@ function App() {
 
       </Routes>
     </BrowserRouter >
+
+  
 
 
   );

@@ -18,13 +18,13 @@ const HomeScrollCard = ({ data }) => {
                     <div key={index} class="relative flex-shrink-0 flex  md:w-96 flex-col text-blue-950   bg-clip-border">
                         <Link
                             to={`cricket-series/${item.competition.cid}/${formatUrl(item.competition.title)}/overview`}
-                            class="block px-2 text-sm font-medium  py-2 truncate text-left  transition-all hover:underline"
+                            class="block px-2 text-sm font-medium  py-2 truncate text-left dark:text-white  transition-all hover:underline"
                         >
                             {item.competition.title}
                         </Link>
 
                         <Link to={`match-detail/${item.match_id}/${formatUrl(`${item.short_title}-${item.competition.title}`)}/commentary`}>
-                            <div class="px-4 py-2 pb-1 mb-2 bg-white  items-center  h-56 grid shadow-sm rounded-xl">
+                            <div class="px-4 py-2 pb-1 mb-2 bg-white dark:bg-gray-800 dark:text-white  items-center  h-56 grid shadow-sm rounded-xl">
                                 <p class="block text-red-600 mb-1 text-sm font-bold antialiased">
                                     {item.
                                         status_str === "Live" ? <> <span class="animate-blink">●</span> {item.status_str} </> : ""}

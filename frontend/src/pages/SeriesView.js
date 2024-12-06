@@ -89,7 +89,7 @@ const SeriesView = () => {
 
            
 
-                <div className='  px-1  py-10 justify-between'>
+                <div className='  px-1 dark:text-white  py-10 justify-between'>
                     <p className='text-2xl  font-medium'>{pointdata?.response?.title}</p>
 
                     {pointdata?.response?.datestart ?
@@ -111,7 +111,7 @@ const SeriesView = () => {
               
 
             <div className='flex gap-x-8'>
-                <div className='border mb-4 bg-white rounded-xl md:w-3/4 w-full'>
+                <div className='border mb-4 bg-white dark:bg-gray-800 dark:border-none dark:text-white rounded-xl md:w-3/4 w-full'>
 
 
 
@@ -129,7 +129,7 @@ const SeriesView = () => {
                                 <button
 
                                     key={tab}
-                                    className={`md:w-1/6 w-1/4  gap-2 flex-shrink-0 text-center py-2 text-lg font-normal ${activeTab === tab ? "text-black" : "text-gray-500"
+                                    className={`md:w-1/6 w-1/4  gap-2 flex-shrink-0 text-center py-2 text-lg font-normal ${activeTab === tab ? "text-black dark:text-white" : "text-gray-500"
                                         }`}
                                     // style={{width:"14.28%"}}
                                     // style={{ width: `${100 / tabs.length}%`}}

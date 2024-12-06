@@ -61,11 +61,11 @@ const HomePopularSeries = () => {
 
 
     return (
-        <div> <div class="md:w-72 md:block text-blue-950 w-full mx-auto md:mx-0   ">
+        <div> <div class="md:w-72 md:block text-blue-950   w-full mx-auto md:mx-0   ">
 
             <div class="grid items-center md:justify-between space-y-6 pb-3  ">
 
-                <div class="grid  w-full top-0 rounded-xl px-3 py-3 border bg-white  overflow-hidden ">
+                <div class="grid  w-full top-0 rounded-xl px-3 py-3 border dark:border-none bg-white dark:bg-gray-800 dark:text-white  overflow-hidden ">
                     <span className='text-2xl font-medium'>POPULAR SERIES</span>
 
                     <div class="flex items-center justify-between pb-3 pt-3  last:pb-0">
