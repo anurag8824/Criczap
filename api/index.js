@@ -7,7 +7,7 @@ const cors = require("cors");
 console.log(cors, "cors")
 
 app.use(cors({
-    origin: "*", credentials: true
+    origin: "*",
 }));
 
 
