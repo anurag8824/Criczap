@@ -102,12 +102,11 @@ const CricketTeamDetail = () => {
         <div className='md:mx-20 mx-4 '>
 
             <div className='flex px-1  py-10 justify-between'>
-                <p className='text-2xl  font-medium'>{name.msg?.response.title}</p>
-                {/* <input className=' bg-white rounded-full pr-6 pl-3 py-3 text-sm' placeholder='Search...' /> */}
+                <p className='text-2xl dark:text-white font-medium'>{name.msg?.response.title}</p>
             </div>
 
             <div className='flex gap-x-8'>
-                <div className='border mb-4 bg-white rounded-xl md:w-3/4 w-full'>
+                <div className='border mb-4 bg-white dark:border-none dark:text-white dark:bg-gray-800 rounded-xl md:w-3/4 w-full'>
 
 
 
@@ -125,7 +124,7 @@ const CricketTeamDetail = () => {
                                 <button
 
                                     key={tab}
-                                    className={`md:w-1/6 w-1/4  gap-2 flex-shrink-0 text-center py-2 text-lg font-normal ${activeTab === tab ? "text-black" : "text-gray-500"
+                                    className={`md:w-1/6 w-1/4  gap-2 flex-shrink-0 text-center py-2 text-lg font-normal ${activeTab === tab ? "text-black dark:text-white" : "text-gray-500"
                                         }`}
                                     // style={{width:"14.28%"}}
                                     // style={{ width: `${100 / tabs.length}%`}}
@@ -137,7 +136,7 @@ const CricketTeamDetail = () => {
 
                             {/* Underline */}
                             <div
-                                className="absolute md:w-1/6  w-1/4  bottom-0 h-1 bg-blue-800 transition-transform duration-300 ease-in-out rounded-lg"
+                                className="absolute md:w-1/6  w-1/4  bottom-0 h-1 bg-blue-800 dark:bg-gray-700 transition-transform duration-300 ease-in-out rounded-lg"
                                 style={{
                                     // width:'20%',
                                     // width: `${100 / tabs.length}%`, // The underline width is dynamically set based on the number of tabs

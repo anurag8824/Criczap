@@ -100,14 +100,14 @@ const CricketNews = () => {
 
     return (
         <div className='md:mx-20 mx-4 h-full'>
-            <p className='text-2xl py-10 px-1 font-medium'>Top Stories</p>
+            <p className='text-2xl py-10 px-1 dark:text-white font-medium'>Top Stories</p>
 
 
             {data?.length > 0 ?
                 <div className='flex gap-x-8'>
 
 
-                    <div className='border mb-4 bg-white rounded-xl md:w-3/4 w-full h-full'>
+                    <div className='border mb-4 bg-white dark:bg-gray-800 dark:text-white dark:border-none rounded-xl md:w-3/4 w-full h-full'>
 
 
 
@@ -121,7 +121,7 @@ const CricketNews = () => {
                                         <img
                                             src={`${backUrl}/${item.selectedFile}`}
                                             alt='Virat Kohli News'
-                                            className='relative border inline-block md:h-24 md:w-36 rounded-md object-cover object-center'
+                                            className='relative border dark:border-none inline-block md:h-24 md:w-36 rounded-md object-cover object-center'
                                         />
 
                                         <div className='grid tracking-normal antialiased relative flex-1'>

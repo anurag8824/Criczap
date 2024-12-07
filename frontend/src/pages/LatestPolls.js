@@ -54,7 +54,7 @@ const LatestPolls = () => {
 
             <div className='flex px-1  py-10 justify-between'>
                 <p className='text-2xl  font-medium'>Latest Polls</p>
-                <input className=' bg-white rounded-full pr-6 pl-3 py-3 text-sm' placeholder='Search...' />
+            
             </div>
 
             <div className='flex gap-x-8'>

@@ -95,7 +95,7 @@ const CricketPlayers = () => {
         <div className='md:mx-20 mx-4 h-full'>
 
             <div className='flex px-1  py-10 justify-between'>
-                <p className='text-2xl  font-medium'>Cricket Players</p>
+                <p className='text-2xl dark:text-white  font-medium'>Cricket Players</p>
                 <input
 
                     onKeyDown={(e) => {
@@ -106,7 +106,7 @@ const CricketPlayers = () => {
                     value={search}
                     onChange={(e) => setSearch(e.target.value)}
 
-                    className=' bg-white rounded-full pr-6 pl-3 py-3 text-sm' placeholder='Search...' />
+                    className=' bg-white dark:text-black rounded-full pr-6 pl-3 py-3 text-sm' placeholder='Search...' />
             </div>
 
 
@@ -114,7 +114,7 @@ const CricketPlayers = () => {
 
                 {/* {data ? */}
 
-                <div className='border mb-4 bg-white rounded-xl md:w-3/4 w-full h-full'>
+                <div className='border mb-4 bg-white dark:text-white dark:border-none dark:bg-gray-800 rounded-xl md:w-3/4 w-full h-full'>
                     <div className='grid gap-y-2.5 grid-flow-row p-8'>
 
                     {TopPlayer?.map((item, index) => (

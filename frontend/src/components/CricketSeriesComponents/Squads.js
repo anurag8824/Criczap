@@ -103,7 +103,7 @@ const Squads = ({ data }) => {
           {data?.response?.standing?.standings.map((item, index) => (
 
             item ? (
-              <><p className="text-lg font-medium py-2.5 text-blue-950">{item?.round?.name}</p><div class="relative overflow-x-auto">
+              <><p className="text-lg font-medium py-2.5 dark:text-white text-blue-950">{item?.round?.name}</p><div class="relative overflow-x-auto">
 
 
                 <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
@@ -138,7 +138,7 @@ const Squads = ({ data }) => {
                           <td class="px-6 py-4">{item.draw}</td>
                           <td class="px-6 py-4">{item.nr}</td>
                           <td class="px-6 py-4">{item.netrr}</td>
-                          <td class="px-6 text-blue-950 text-lg font-medium py-4">{item.points}</td>
+                          <td class="px-6 text-blue-950 text-lg dark:text-white font-medium py-4">{item.points}</td>
 
 
 

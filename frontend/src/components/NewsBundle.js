@@ -120,7 +120,7 @@ const NewsBundle = () => {
                                         <img
                                             src={`${backUrl}/${item.selectedFile}`}
                                             alt='Virat Kohli News'
-                                            className='relative border inline-block md:h-24 md:w-36 rounded-md object-cover object-center'
+                                            className='relative border dark:border-none inline-block md:h-24 md:w-36 rounded-md object-cover object-center'
                                         />
 
                                         <div className='grid tracking-normal antialiased relative flex-1'>

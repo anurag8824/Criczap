@@ -25,20 +25,20 @@ const Players = ({ data }) => {
       <div className="flex  gap-4 mb-4">
         <button
           onClick={() => handleCategoryChange('ODI')}
-          className={`px-4 py-2 rounded-md ${selectedCategory === 'ODI' ? 'bg-blue-950 text-white' : 'bg-gray-200'}`}
+          className={`px-4 py-2 rounded-md ${selectedCategory === 'ODI' ? 'bg-blue-950 dark:bg-gray-700 text-white' : 'bg-gray-200 dark:bg-gray-500'}`}
         >
           ODI
         </button>
 
         <button
           onClick={() => handleCategoryChange('T20')}
-          className={`px-4 py-2 rounded-md ${selectedCategory === 'T20' ? 'bg-blue-950 text-white' : 'bg-gray-200'}`}
+          className={`px-4 py-2 rounded-md ${selectedCategory === 'T20' ? 'bg-blue-950 dark:bg-gray-700 text-white' : 'bg-gray-200 dark:bg-gray-500'}`}
         >
           T20
         </button>
         <button
           onClick={() => handleCategoryChange('T20I')}
-          className={`px-4 py-2 rounded-md ${selectedCategory === 'T20I' ? 'bg-blue-950 text-white' : 'bg-gray-200'}`}
+          className={`px-4 py-2 rounded-md ${selectedCategory === 'T20I' ? 'bg-blue-950 dark:bg-gray-700 text-white' : 'bg-gray-200 dark:bg-gray-500'}`}
         >
           T20I
         </button>
@@ -46,7 +46,7 @@ const Players = ({ data }) => {
 
         <button
           onClick={() => handleCategoryChange('Test')}
-          className={`px-4 py-2 rounded-md ${selectedCategory === 'Test' ? 'bg-blue-950 text-white' : 'bg-gray-200'}`}
+          className={`px-4 py-2 rounded-md ${selectedCategory === 'Test' ? 'bg-blue-950 text-white dark:bg-gray-700' : 'bg-gray-200 dark:bg-gray-500'}`}
         >
           Test
         </button>
@@ -61,7 +61,7 @@ const Players = ({ data }) => {
               item ? (
                 <div
                   key={index}
-                  className="flex gap-4 border rounded-md px-3 py-3 items-center"
+                  className="flex gap-4 border dark:bg-gray-700 dark:border-none rounded-md px-3 py-3 items-center"
                 >
                   <img
                     src="/demoplayer.png" // You can replace with player-specific image
@@ -91,7 +91,7 @@ const Players = ({ data }) => {
           (
             data?.t20?.map((item, index) => (
               item ?
-                (<div key={index} className="flex gap-4 border rounded-md px-3 py-3 items-center">
+                (<div key={index} className="flex gap-4 border dark:bg-gray-700 dark:border-none rounded-md px-3 py-3 items-center">
                   <img
                     src="/demoplayer.png" // You can replace with player-specific image
                     alt={item.title}
@@ -112,7 +112,7 @@ const Players = ({ data }) => {
 
           data?.t20i?.map((item, index) => (
             item ?
-             ( <div key={index} className="flex gap-4 border rounded-md px-3 py-3 items-center">
+             ( <div key={index} className="flex gap-4 border dark:bg-gray-700 dark:border-none rounded-md px-3 py-3 items-center">
                 <img
                   src="/demoplayer.png" // You can replace with player-specific image
                   alt={item.title}
@@ -134,7 +134,7 @@ const Players = ({ data }) => {
           data?.test?.map((item, index) => (
 
           item ?
-            (<div key={index} className="flex gap-4 border rounded-md px-3 py-3 items-center">
+            (<div key={index} className="flex gap-4 border dark:bg-gray-700 dark:border-none rounded-md px-3 py-3 items-center">
               <img
                 src="/demoplayer.png" // You can replace with player-specific image
                 alt={item.title}

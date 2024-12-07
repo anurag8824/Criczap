@@ -142,7 +142,7 @@ const Footer = () => {
                 </div>
             </div>
 
-            <div className='block fixed bottom-0  w-full     sm:hidden bg-blue-950 text-white '>
+            <div className='block fixed bottom-0  w-full     sm:hidden dark:bg-gray-800 bg-blue-950 text-white '>
 
                 <div className='flex justify-between text-sm px-2 py-2'>
                     <Link to="/" className='justify-center  items-center flex flex-col  text-center' >

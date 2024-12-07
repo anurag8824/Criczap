@@ -330,7 +330,7 @@ const CompationsList = async (req, res) => {
             // res.json({ msg: "hello world", allcomp});}
         }
         else {
-            res.json({ msg: "hello world", liveMatches: CacheLiveMatch, fixtureMatches: CacheFixtureMatch, resultMatches: CacheResultMatch });
+            res.json({ msg: "hello cache world", liveMatches: CacheLiveMatch, fixtureMatches: CacheFixtureMatch, resultMatches: CacheResultMatch });
 
         }
 

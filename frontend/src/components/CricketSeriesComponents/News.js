@@ -54,11 +54,11 @@ const News = () => {
       <div className='grid gap-y-2.5 grid-flow-row py-5 px-6'>
 
 
-        <div className='md:flex gap-4 border-b pb-2.5 items-center'>
+        <div className='md:flex gap-4  border-b pb-2.5 items-center'>
           <img
             src='/viratnews.webp'
             alt='Virat Kohli News'
-            className='relative border inline-block md:h-24 md:w-36 rounded-md object-cover object-center'
+            className='relative border dark:border-none inline-block md:h-24 md:w-36 rounded-md object-cover object-center'
           />
 
           <div className='grid tracking-normal antialiased relative'>

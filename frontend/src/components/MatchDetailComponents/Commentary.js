@@ -289,7 +289,7 @@ const Commentary = ({ data, balldata }) => {
 
             {/* {data?.response.live.status_str === "Live" ?  */}
 
-            <div className=' md:w-1/2 py-5 md:order-2 order-1 md:py-0 text-3xl font-bold  flex items-center justify-center rounded bg-blue-950  text-white text-center'>
+            <div className=' md:w-1/2 py-5 md:order-2 order-1 md:py-0 text-3xl font-bold  flex items-center justify-center rounded bg-blue-950 dark:bg-gray-700  text-white text-center'>
 
               <div className='' onClick={handleUserInteraction}>
                 <div className='absolute top-2 right-4 text-white text-base cursor-pointer' onClick={handleClick}>

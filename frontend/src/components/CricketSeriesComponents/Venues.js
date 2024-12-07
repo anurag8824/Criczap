@@ -14,7 +14,7 @@ const Venues = ({data}) => {
               <img
                 src='/wankhede.png'
                 alt='Virat Kohli News'
-                className='relative border inline-block md:h-24 md:w-36 rounded-md object-cover object-center'
+                className='relative border dark:border-none inline-block md:h-24 md:w-36 rounded-md object-cover object-center'
               />
 
               <div className='grid tracking-normal align-text-top antialiased relative'>

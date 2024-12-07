@@ -14,7 +14,7 @@ const Upcoming = ({ data }) => {
 
       <div class="relative  overflow-x-auto ">
         <table class="  w-full text-left rtl:text-right  ">
-          <thead class=" bg-gray-100   ">
+          <thead class=" bg-gray-100 dark:bg-gray-700  ">
             <th scope="col" class="px-6 w-96 py-3">
               Date
             </th>
@@ -31,7 +31,7 @@ const Upcoming = ({ data }) => {
               item ? (
                 <tr key={index} class="border-b border-gray-200 dark:border-gray-700">
 
-                  <th scope="row" class=" text-blue-950 grid font-medium text-lg text-left align-text-top py-3 px-3 whitespace-nowrap">
+                  <th scope="row" class=" dark:text-white text-blue-950 grid font-medium text-lg text-left align-text-top py-3 px-3 whitespace-nowrap">
 
                     <span>
                       {new Date(item.date_start_ist).toLocaleDateString('en-GB', {
@@ -48,7 +48,7 @@ const Upcoming = ({ data }) => {
 
 
 
-                  <td class="list-none py-2.5 text-blue-950">
+                  <td class="list-none py-2.5 dark:text-white text-blue-950">
                     <li class="px-6 py-1  grid">
                       <Link to={`/match-detail/${item.match_id}/${formatUrl(`${item.short_title}-${item.competition.title}`)}/commentary`} className='font-medium text-base hover:underline'>
                         {item.competition?.title}, {item?.subtitle} </Link>
@@ -59,7 +59,7 @@ const Upcoming = ({ data }) => {
 
 
                     <li class="px-6 py-1  grid">
-                      <Link to={`/match-detail/${item.match_id}/${formatUrl(`${item.short_title}-${item.competition.title}`)}/commentary`} className=' md:w-full w-72 items-center grid grid-rows-2 gap-y-2 px-3 py-2 justify-start bg-gray-200'>
+                      <Link to={`/match-detail/${item.match_id}/${formatUrl(`${item.short_title}-${item.competition.title}`)}/commentary`} className=' md:w-full w-72 items-center grid grid-rows-2 gap-y-2 px-3 py-2 justify-start dark:bg-gray-700 bg-gray-200'>
 
 
                         <div class="flex items-center md:justify-between   gap-4 pb-3 pt-3 last:pb-0">

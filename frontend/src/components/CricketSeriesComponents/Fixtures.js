@@ -19,7 +19,7 @@ const Fixtures = ({ data }) => {
 
         <div class="relative  overflow-x-auto ">
           <table class=" w-full text-left rtl:text-right text-gray-950 ">
-            <thead class="bg-gray-200   ">
+            <thead class="bg-gray-200 dark:bg-gray-700 dark:text-white ">
               <tr>
                 <th scope="col" class="px-6 font-normal w-1/4 py-3">
                   Series
@@ -41,9 +41,9 @@ const Fixtures = ({ data }) => {
                 item ? (
                   <tr key={index} class="border-b border-gray-200 dark:border-gray-700">
 
-                    <td scope="row" class="  text-blue-950 font-normal text-base text-center align-text-top py-3 px-3 whitespace-nowrap">
+                    <td scope="row" class=" dark:text-white  text-blue-950 font-normal text-base text-center align-text-top py-3 px-3 whitespace-nowrap">
                       <li className='grid text-left'>
-                        <Link className='text-blue-700'>{item.competition?.title}</Link>
+                        <Link className='text-blue-700 dark:text-white'>{item.competition?.title}</Link>
                         <span>
                           {new Date(item.date_start_ist).toLocaleDateString('en-GB', {
                             day: '2-digit',
@@ -59,7 +59,7 @@ const Fixtures = ({ data }) => {
 
                     <td class="list-none py-2.5 text-blue-950">
                       <li class="px-6 py-1  grid">
-                        <Link to={`/match-detail/${item.match_id}/${formatUrl(`${item.short_title}-${item.competition.title}`)}/commentary`} className='font-normal text-blue-950 text-base hover:underline'>
+                        <Link to={`/match-detail/${item.match_id}/${formatUrl(`${item.short_title}-${item.competition.title}`)}/commentary`} className='font-normal dark:text-white text-blue-950 text-base hover:underline'>
                           {item.title}, {item.match_number}-{item.format_str}
                         </Link>
 
@@ -71,7 +71,7 @@ const Fixtures = ({ data }) => {
 
                     <td className='list-none align-text-top'>
                       <li className='grid top-0'>
-                        <span className=''>{item.date_start_ist}</span>
+                        <span className='dark:text-white'>{item.date_start_ist}</span>
                         {/* <span className=''>(21 Nov, 2:30 AM GMT)</span> */}
 
                       </li>

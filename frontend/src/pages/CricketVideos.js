@@ -68,7 +68,7 @@ const CricketVideos = () => {
                     console.error('res.data is not an array');
                     setData([]);  // Optionally set an empty array or handle error
                 }
-               
+
             })
     }, [])
 
@@ -80,23 +80,20 @@ const CricketVideos = () => {
     return (
         <div className='md:mx-20 mx-4 h-full'>
             <div className='flex px-1 py-10 justify-between'>
-                <p className='text-2xl font-medium'>Top Videos</p>
+                <p className='text-2xl dark:text-white font-medium'>Top Videos</p>
 
 
 
 
-                <input
-                    className='bg-white rounded-full pr-6 pl-3 py-3 text-sm'
-                    placeholder='Search...'
-                />
+
             </div>
 
             {data.length > 0 ?
 
                 <div className='flex gap-x-8'>
-                    <div className='border mb-4 bg-white rounded-xl md:w-3/4 w-full h-full'>
+                    <div className='border mb-4 dark:border-none bg-white dark:text-white dark:bg-gray-800 rounded-xl md:w-3/4 w-full h-full'>
 
-                        <div className='grid gap-y-2.5 grid-flow-row py-5 px-6'>
+                        <div className='grid   gap-y-2.5 grid-flow-row py-5 px-6'>
 
 
 
@@ -111,7 +108,7 @@ const CricketVideos = () => {
 
                                         <div className="  " style={{}}>
                                             <iframe
-                                                class="relative left-0 top-0 border inline-block w-full h-full md:h-24 md:w-36 rounded-md object-cover object-center"
+                                                class="relative left-0 top-0 border dark:border-none inline-block w-full h-full md:h-24 md:w-36 rounded-md object-cover object-center"
                                                 src="https://www.youtube.com/embed/_sztki-L7bg"
                                                 title="YouTube video player"
                                                 frameborder="0"
@@ -120,16 +117,19 @@ const CricketVideos = () => {
                                                 allowfullscreen>
                                             </iframe>
                                         </div>
+
                                         <div className='grid tracking-normal antialiased relative'>
                                             <div className='flex items-center justify-between'>
                                                 <Link
 
                                                     to={`${item.link}`}
                                                     target='_blank'
-                                                    className='font-medium pr-6 line-clamp-2 '
+                                                    className='font-bold  pr-6 line-clamp-2 '
                                                     dangerouslySetInnerHTML={{ __html: item.title }}
+                                                  ></Link>
 
-                                                />
+
+
 
                                                 <button key={item.videoID} type='button' data-modal-target="default-modal" data-modal-toggle="default-modal"
                                                     onClick={() => handleShareClick(item.videoID)}
