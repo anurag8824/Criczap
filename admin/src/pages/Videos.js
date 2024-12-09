@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import { FaEdit } from 'react-icons/fa'
 import { MdDelete } from 'react-icons/md'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import axios from "axios"
 
 
 const Videos = () => {
     const [data, setData] = useState([])
     const backUrl = process.env.REACT_APP_BACK_URL;
+
+    const navigate = useNavigate()
 
     useEffect(() => {
         axios.get(`${backUrl}/admin/allvideos`)
@@ -21,6 +23,17 @@ const Videos = () => {
                 }
 
             })
+    }, [])
+
+    useEffect(() => {
+        const Email = localStorage.getItem('Email');  // get name of cookies
+        console.log(Email, "email recieved from localstorage");
+        if (Email == null) {
+            console.log("No email found")
+            navigate('/')
+
+        }
+
     }, [])
     return (
         <div className='md:min-h-screen md:pb-0 pb-10'>

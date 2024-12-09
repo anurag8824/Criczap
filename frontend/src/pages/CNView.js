@@ -60,7 +60,7 @@ const CNView = () => {
     return (
         <div className='md:mx-20 mx-4 '>
 
-            <p className='text-2xl px-1 py-10 font-medium'>Top Stories</p>
+            <p className='text-2xl px-1 py-10 dark:text-white font-medium'>Top Stories</p>
 
 
 
@@ -72,7 +72,7 @@ const CNView = () => {
             <div className='flex gap-x-8'>
                 {selectedNews ?
 
-                    <div className='border mb-4 bg-white rounded-xl md:w-3/4 min-w-1/3  p-4 '>
+                    <div className='border dark:border-none mb-4 bg-white dark:bg-gray-800 dark:text-white rounded-xl md:w-3/4 min-w-1/3  p-4 '>
 
 
                         <div className='grid gap-y-2.5 grid-flow-row py-5 px-6'>
@@ -95,7 +95,7 @@ const CNView = () => {
                                 <img
                                     src={`${backUrl}/${selectedNews?.selectedFile}`}
                                     alt='Virat Kohli News'
-                                    className='relative border mt-2 inline-block md:w-full rounded-md object-cover object-center' />
+                                    className='relative border dark:border-none mt-2 inline-block md:w-full rounded-md object-cover object-center' />
 
                                 <div className='grid tracking-normal antialiased relative flex-1'>
 
@@ -115,7 +115,7 @@ const CNView = () => {
                                                     .map((item, index) => (
                                                         item ? (
 
-                                                            <Link to="#" key={index} className="bg-gray-300 hover:bg-gray-100 hover:underline px-4 py-2 rounded-md">
+                                                            <Link to="#" key={index} className="bg-gray-300 hover:bg-gray-100 dark:bg-gray-700 hover:underline px-4 py-2 rounded-md">
                                                                 {item.trim()} {/* Trim any extra spaces */}
                                                             </Link>
 

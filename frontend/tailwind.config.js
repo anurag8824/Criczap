@@ -29,6 +29,7 @@ module.exports = {
       spacing: {
         '84': '21rem', // Custom width class (84)
       },
+      
     },
   },
 

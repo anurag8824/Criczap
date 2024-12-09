@@ -53,21 +53,21 @@ const LatestPolls = () => {
         <div className='md:mx-20 mx-4 min-h-screen'>
 
             <div className='flex px-1  py-10 justify-between'>
-                <p className='text-2xl  font-medium'>Latest Polls</p>
+                <p className='text-2xl dark:text-white  font-medium'>Latest Polls</p>
             
             </div>
 
             <div className='flex gap-x-8'>
 
-                <div className='border mb-4 bg-white rounded-xl md:w-3/4 w-full h-full'>
+                <div className='border mb-4 bg-white dark:bg-gray-800 dark:border-none rounded-xl md:w-3/4 w-full h-full'>
                     {data.length > 0 ?
                         <div class="flex flex-col md:flex-row p-6 space-y-4 md:space-y-0 md:space-x-4 w-full md:overflow-x-scroll custom-scrollbar">
 
 
                             {data?.map((item, index) => (
                                 item ? (
-                                    <div key={item._id} class="h-96 flex-shrink-0 w-full md:max-w-xs rounded-lg border bg-white">
-                                        <div class="w-full rounded-lg rounded-b-none bg-blue-950 text-center">
+                                    <div key={item._id} class="h-96 flex-shrink-0 w-full md:max-w-xs rounded-lg border  dark:bg-gray-800 bg-white">
+                                        <div class="w-full rounded-lg rounded-b-none bg-blue-950 dark:bg-gray-700 text-center">
                                             <p class="truncate p-3 text-sm tracking-tight text-white">
                                                 {item.question}
                                             </p>
@@ -76,7 +76,7 @@ const LatestPolls = () => {
                                             </p>
                                         </div>
 
-                                        <div class="mt-4 items-center text-center">
+                                        <div class="mt-4 items-center  dark:text-white text-center">
                                             Who will win ?
 
                                             

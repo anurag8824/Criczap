@@ -3,11 +3,12 @@ import { FaEdit } from 'react-icons/fa'
 import { MdDelete } from 'react-icons/md'
 import axios from "axios"
 
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 const Newspost = () => {
     const [data, setData] = useState([])
     const backUrl = process.env.REACT_APP_BACK_URL;
+    const navigate = useNavigate()
 
 
     useEffect(() => {
@@ -22,6 +23,17 @@ const Newspost = () => {
                     setData([]);  // Optionally set an empty array or handle error
                 }
             })
+    }, [])
+
+    useEffect(() => {
+        const Email = localStorage.getItem('Email');  // get name of cookies
+        console.log(Email, "email recieved from localstorage");
+        if (Email == null) {
+            console.log("No email found")
+            navigate('/')
+
+        }
+
     }, [])
 
     return (

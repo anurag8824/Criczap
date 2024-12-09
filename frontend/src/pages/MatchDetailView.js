@@ -64,7 +64,6 @@ const MatchDetailView = () => {
 
         socket.on("scoreUpdate", (data) => {
 
-            console.log(data,"alllives")
 
             if (data.response.match_id == matchId) {
                 console.log(data, "data");

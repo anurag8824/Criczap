@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
+import { useNavigate} from "react-router-dom"
 
 const Polls = () => {
 
@@ -8,6 +9,8 @@ const Polls = () => {
         option1: "",
         option2: "",
     });
+
+    const navigate = useNavigate()
 
     const backUrl = process.env.REACT_APP_BACK_URL;
 
@@ -32,6 +35,17 @@ const Polls = () => {
       .then((res)=>{
         console.log(res, "polls list")
       })
+    }, [])
+
+    useEffect(() => {
+        const Email = localStorage.getItem('Email');  // get name of cookies
+        console.log(Email, "email recieved from localstorage");
+        if (Email == null) {
+            console.log("No email found")
+            navigate('/')
+
+        }
+
     }, [])
     
 

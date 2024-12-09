@@ -28,6 +28,9 @@ module.exports = {
       spacing: {
         '84': '21rem', // Custom width class (84)
       },
+      backgroundImage: {
+        'blue-950': 'linear-gradient(to right, #3d4375 0%, #43356e 29%, #4a2565 53%, #4d1e62 100%)',
+      },
     },
   },
 

@@ -2,7 +2,7 @@ import React from 'react';
 
 const Termofuse = () => {
   return (
-    <div className="max-w-4xl mx-auto px-4 py-8 bg-white text-gray-800 md:px-6 md:py-12">
+    <div className="max-w-4xl mx-auto px-4 py-8  mt-3 bg-white dark:bg-gray-800 dark:text-white text-gray-800 md:px-6 md:py-12">
       <h1 className="text-2xl font-bold mb-4 md:text-3xl md:mb-6">Terms of Use</h1>
 
       <p className="mb-3 md:mb-4">

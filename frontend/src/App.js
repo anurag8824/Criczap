@@ -17,17 +17,21 @@ import CricketRanking from './pages/CricketRanking';
 import PrivacyPolicy from './pages/Privacy';
 import Termofuse from './pages/Termofuse';
 import CNView from './pages/CNView';
-import ThemeProvider from './ThemeProvider';
+
+
 
 
 
 
 function App() {
 
+   
+
   return (
     
 
     <BrowserRouter>
+     
 
       <Routes>
         <Route path="/" element={<Layout />}>

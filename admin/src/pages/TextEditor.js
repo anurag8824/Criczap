@@ -1,11 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css'; // Import the styles
 import axios from "axios"
 
+import {useNavigate} from "react-router-dom"
+
 const TextEditor = () => {
   const backUrl = process.env.REACT_APP_BACK_URL
   const [selectedFile, setSelectedFile] = useState(null);
+  const navigate = useNavigate()
 
   const [news, setNews] = useState(
     {
@@ -17,6 +20,7 @@ const TextEditor = () => {
 
     }
   );
+
 
   // Custom toolbar options
   const modules = {
@@ -90,6 +94,17 @@ const TextEditor = () => {
 
 
   };
+
+  useEffect(() => {
+    const Email = localStorage.getItem('Email');  // get name of cookies
+    console.log(Email, "email recieved from localstorage");
+    if (Email == null) {
+        console.log("No email found")
+        navigate('/')
+
+    }
+
+}, [])
 
 
 

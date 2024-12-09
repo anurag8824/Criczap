@@ -7,6 +7,9 @@ import { BiSolidVideos } from "react-icons/bi";
 import { FaThList } from "react-icons/fa";
 import { PiRankingBold } from "react-icons/pi";
 import BackToTop from './BackToTop';
+import ThemeProvider from '../ThemeProvider';
+import TranslateWideget from '../TranslateWidget'
+
 
 
 
@@ -182,6 +185,10 @@ const Footer = () => {
             </div>
 
             <BackToTop />
+            <ThemeProvider/>
+            <TranslateWideget/>
+
+
 
 
         </footer>

@@ -11,7 +11,7 @@
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background-color: #172554
+  background-color: #172554 
   cf6;
   /* Violet scrollbar color */
   border-radius: 80px;

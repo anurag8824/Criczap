@@ -47,25 +47,25 @@ const CricketRanking = () => {
         <div className='md:mx-20 mx-4 '>
 
             <div className='flex px-1  py-10 justify-between'>
-                <p className='text-2xl  font-medium'>Cricket Ranking</p>
+                <p className='text-2xl dark:text-white font-medium'>Cricket Ranking</p>
 
             </div>
 
-            <div className='border mb-4 md:p-8 p-1 bg-white py-10 rounded-xl w-full h-full'>
+            <div className='border mb-4 md:p-8 p-1 bg-white dark:border-none dark:text-white dark:bg-gray-800 py-10 rounded-xl w-full h-full'>
 
 
                 <div className="   mt-8">
                     {/* Tab Buttons */}
                     <div className="relative flex gap-4 ">
                         <button
-                            className={`md:w-1/2 w-full text-center py-2 text-lg font-normal ${activeTab === "current" ? "text-black" : "text-black"
+                            className={`md:w-1/2 w-full text-center py-2 text-lg font-normal ${activeTab === "men" ? "text-black dark:text-white" : "text-black dark:text-gray-300"
                                 }`}
                             onClick={() => handleTabClick("men")}
                         >
                             Men Ranking
                         </button>
                         <button
-                            className={`md:w-1/2 w-full text-center py-2  text-lg font-normal ${activeTab === "archive" ? "text-black" : "text-black"
+                            className={`md:w-1/2 w-full text-center py-2  text-lg font-normal ${activeTab === "women" ? "text-black dark:text-white" : "text-black dark:text-gray-300"
                                 }`}
                             onClick={() => handleTabClick("women")}
                         >
@@ -88,7 +88,7 @@ const CricketRanking = () => {
                     <div className="relative mt-6">
 
                         {activeTab === "men" && (
-                            <div className="transition-opacity duration-500 ease-in-out opacity-100">
+                            <div className="transition-opacity  duration-500 ease-in-out opacity-100">
 
                                 {/* table starts cuuret  */}
                                 <div className=''>
