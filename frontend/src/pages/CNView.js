@@ -4,6 +4,7 @@ import FbConnect from '../components/FbConnect';
 import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
 import BoxLoader from './BoxLoader';
+import { useTranslation } from 'react-i18next';
 
 
 const CNView = () => {
@@ -54,13 +55,13 @@ const CNView = () => {
     }, [])
 
 
-
+const {t} = useTranslation()
 
 
     return (
         <div className='md:mx-20 mx-4 '>
 
-            <p className='text-2xl px-1 py-10 dark:text-white font-medium'>Top Stories</p>
+            <p className='text-2xl px-1 py-10 dark:text-white font-medium'>{t("Top Stories")}</p>
 
 
 

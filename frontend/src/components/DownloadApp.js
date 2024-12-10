@@ -1,9 +1,11 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 
 const DownloadApp = () => {
+    const {t} = useTranslation()
   return (
     <div>  <div class="grid dark:bg-gray-800 dark:text-white dark:border-none text-2xl font-medium w-full  top-0 rounded-xl px-3 py-3 border bg-white  overflow-hidden ">
-    Download The App
+    {t("Download The App")}
 
     <div class="flex  pb-2 pt-4 border-b w-full object-cover    items-center gap-x-6">
         <img

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import FbConnect from '../components/FbConnect';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from "axios";
+import { useTranslation } from 'react-i18next';
 
 const CricketSchedule = () => {
 
@@ -77,6 +78,8 @@ const CricketSchedule = () => {
 
     }, [])
 
+    const {t} = useTranslation()
+
 
 
     return (
@@ -150,10 +153,10 @@ const CricketSchedule = () => {
                                                 <table class="  w-full text-left rtl:text-right  ">
                                                     <thead class=" bg-gray-100 dark:bg-gray-700 dark:text-white text-blue-950   ">
                                                         <th scope="col" class="px-6 hidden md:block w-1/3 py-3">
-                                                            Date
+                                                            {t("Date")}
                                                         </th>
                                                         <th scope="col" class="px-6  w-full py-3">
-                                                            Match Details
+                                                            {t("Match Details")}
                                                         </th>
 
                                                     </thead>
@@ -296,10 +299,10 @@ const CricketSchedule = () => {
                                             <table class="  w-full text-left rtl:text-right  ">
                                                 <thead class=" bg-gray-100 dark:bg-gray-700 dark:text-white   ">
                                                     <th scope="col" class="px-6 hidden md:block w-1/3  py-3">
-                                                        Date
+                                                        {t("Date")}
                                                     </th>
                                                     <th scope="col" class="px-6 w-full py-3">
-                                                        Match Details
+                                                        {t("Match Details")}
                                                     </th>
 
                                                 </thead>

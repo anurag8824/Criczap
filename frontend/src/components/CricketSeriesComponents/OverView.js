@@ -1,10 +1,13 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom'
 
 const OverView = ({ data }) => {
   const formatUrl = (text) => {
     return text.replace(/\s+/g, '-').toLowerCase(); // Replace spaces with dashes
   };
+
+  const {t} = useTranslation()
   return (
     <div>
 
@@ -20,10 +23,10 @@ const OverView = ({ data }) => {
                 <thead class="text-lg font-medium bg-blue-950 dark:bg-gray-700   ">
                   <tr>
                     <th scope="col" class="px-6 w-96 py-3">
-                      Date
+                      {t("Date")}
                     </th>
                     <th scope="col" class="px-6 w-full py-3">
-                      Match Details
+                      {t("Match Details")}
                     </th>
 
                   </tr>

@@ -12,6 +12,7 @@ import { useMyContext } from './MyProvider';
 
 import { io } from "socket.io-client";
 import BoxLoader from './BoxLoader';
+import { useTranslation } from 'react-i18next';
 
 
 
@@ -107,6 +108,8 @@ const MatchDetailView = () => {
     // context data 
     // const {cdata} =  useMyContext();
 
+    const {t} = useTranslation()
+
 
 
     return (
@@ -142,7 +145,7 @@ const MatchDetailView = () => {
                         <div className="relative overflow-x-scroll scrollbar-hide gap-2 flex-shrink-0 flex px-3">
                             {tabs.map((tab, index) => (
                                 <button
-                                    key={tab}
+                                    key={t(`${tab}`)}
                                     className={`md:w-1/5 w-1/3  gap-2 flex-shrink-0 text-center py-2 text-lg font-normal ${activeTab === tab ? "text-black dark:text-white" : "text-gray-500"
                                         }`}
                                     onClick={() => handleTabClick(tab)}

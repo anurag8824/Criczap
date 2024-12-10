@@ -1,10 +1,12 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom'
 
 const HomeScrollCard = ({ data }) => {
     const formatUrl = (text) => {
         return text.replace(/\s+/g, '-').toLowerCase(); // Replace spaces with dashes
     };
+    const {t} = useTranslation()
 
     return (
         <div className='md:flex md:space-x-4'>
@@ -82,13 +84,13 @@ const HomeScrollCard = ({ data }) => {
                                     <div class="flex items-center justify-between pb-1 pt-3 last:pb-0">
                                         <div class="flex  items-center gap-x-3">
                                             <Link to={`cricket-series/${item.competition.cid}/${formatUrl(item.competition.title)}/overview`} class="block font-sans text-sm font-medium leading-relaxed tracking-normal  antialiased hover:underline">
-                                                Series
+                                                {t("Series")}
                                             </Link>
                                             <Link to={`cricket-series/${item.competition.cid}/${formatUrl(item.competition.title)}/overview`} class="block font-sans text-sm font-medium leading-relaxed tracking-normal antialiased hover:underline">
-                                                Schedule
+                                                {t("Schedule")}
                                             </Link>
                                             <Link to='cricket-news' class="block font-sans text-sm font-medium leading-relaxed tracking-normal antialiased hover:underline">
-                                                News
+                                                {t("News")}
                                             </Link>
                                         </div>
                                     </div>
@@ -99,7 +101,7 @@ const HomeScrollCard = ({ data }) => {
 
                         {item.status_str === "Scheduled" ? (
                             <p className="block mt-1 px-2 text-xs font-medium mb-2 text-left text-yellow-500 transition-all">
-                                Upcoming
+                                {t("Upcoming")}
                             </p>
                         ) : item.status_str === "Completed" ? (
                             <p className="block mt-1 px-2 text-xs font-medium mb-2 text-left text-green-500 transition-all">

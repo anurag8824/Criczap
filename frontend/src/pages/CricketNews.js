@@ -6,6 +6,7 @@ import { FaShare } from 'react-icons/fa';
 import axios from "axios"
 import { formatDistanceToNow, isAfter, addDays, format } from 'date-fns';
 import { IoArrowBackSharp } from "react-icons/io5";
+import { useTranslation } from 'react-i18next';
 
 
 
@@ -95,12 +96,13 @@ const CricketNews = () => {
 
         return format(createdDate, 'EEEE dd-MMM-yyyy');
     };
+    const {t} = useTranslation()
 
 
 
     return (
         <div className='md:mx-20 mx-4 h-full'>
-            <p className='text-2xl py-10 px-1 dark:text-white font-medium'>Top Stories</p>
+            <p className='text-2xl py-10 px-1 dark:text-white font-medium'>{t("Top Stories")}</p>
 
 
             {data?.length > 0 ?

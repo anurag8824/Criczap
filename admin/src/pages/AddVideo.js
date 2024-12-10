@@ -135,7 +135,7 @@ const AddVideo = () => {
             </div>
 
             <div>
-                <p className='text-lg font-medium text-blue-950'>Add YouTube Link</p>
+                <p className='text-lg font-medium text-blue-950'>Add Embded Link (Given by Youtube)</p>
                 <div>
                     <input
                         type="url"

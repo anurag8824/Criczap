@@ -8,6 +8,7 @@ import WTeams from '../components/RankingComponents/WTeams';
 import WBatters from '../components/RankingComponents/WBatters';
 import WBowlers from '../components/RankingComponents/WBowlers';
 import WAllRounder from '../components/RankingComponents/WAllRounder';
+import { useTranslation } from 'react-i18next';
 
 
 const CricketRanking = () => {
@@ -40,14 +41,14 @@ const CricketRanking = () => {
 
 
 
-
+const {t} = useTranslation()
 
 
     return (
         <div className='md:mx-20 mx-4 '>
 
             <div className='flex px-1  py-10 justify-between'>
-                <p className='text-2xl dark:text-white font-medium'>Cricket Ranking</p>
+                <p className='text-2xl dark:text-white font-medium'>{t("Cricket Rankings")}</p>
 
             </div>
 
@@ -62,14 +63,14 @@ const CricketRanking = () => {
                                 }`}
                             onClick={() => handleTabClick("men")}
                         >
-                            Men Ranking
+                           {t("Men Ranking")}
                         </button>
                         <button
                             className={`md:w-1/2 w-full text-center py-2  text-lg font-normal ${activeTab === "women" ? "text-black dark:text-white" : "text-black dark:text-gray-300"
                                 }`}
                             onClick={() => handleTabClick("women")}
                         >
-                            Women Ranking
+                            {t("Women Ranking")}
                         </button>
 
                         {/* Underline */}

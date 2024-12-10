@@ -1,11 +1,14 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import FixtureFilter from './FixtureFilter'
+import { useTranslation } from 'react-i18next';
 
 const Fixtures = ({ data }) => {
   const formatUrl = (text) => {
     return text.replace(/\s+/g, '-').toLowerCase(); // Replace spaces with dashes
   };
+
+  const {t} = useTranslation()
 
   return (
     <div>
@@ -22,14 +25,14 @@ const Fixtures = ({ data }) => {
             <thead class="bg-gray-200 dark:bg-gray-700 dark:text-white ">
               <tr>
                 <th scope="col" class="px-6 font-normal w-1/4 py-3">
-                  Series
+                  {t("Series")}
                 </th>
                 <th scope="col" class="px-6 font-normal w-1/2 py-3">
-                  Match Details
+                  {t("Match Details")}
                 </th>
 
                 <th scope="col" class="px-6 font-normal w-1/4 py-3">
-                  Time
+                  {t("Time")}
                 </th>
 
               </tr>

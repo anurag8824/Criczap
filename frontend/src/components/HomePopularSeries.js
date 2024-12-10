@@ -3,12 +3,14 @@ import DownloadApp from './DownloadApp'
 import TopRankings from './TopRankings'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
+import { useTranslation } from 'react-i18next'
 
 const HomePopularSeries = () => {
 
 
     const [complete, setComplete] = useState([])
     const backUrl = process.env.REACT_APP_BACK_URL
+    const {t} = useTranslation()
 
 
 
@@ -66,7 +68,7 @@ const HomePopularSeries = () => {
             <div class="grid items-center md:justify-between space-y-6 pb-3  ">
 
                 <div class="grid  w-full top-0 rounded-xl px-3 py-3 border dark:border-none bg-white dark:bg-gray-800 dark:text-white  overflow-hidden ">
-                    <span className='text-2xl font-medium'>POPULAR SERIES</span>
+                    <span className='text-2xl font-medium'>{t("POPULAR SERIES")}</span>
 
                     <div class="flex items-center justify-between pb-3 pt-3  last:pb-0">
                         <div class="grid items-center gap-x-3 ">
@@ -94,7 +96,7 @@ const HomePopularSeries = () => {
                     </div>
 
                     <Link to="cricket-series" class=" items-center text-gray-700 text-center  justify-between block tracking-normal antialiased hover:underline ">
-                        Show More
+                        {t("Show More")}
                     </Link>
 
 

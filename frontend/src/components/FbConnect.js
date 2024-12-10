@@ -1,6 +1,8 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 
 const FbConnect = () => {
+    const {t} = useTranslation()
     return (
 
 
@@ -8,7 +10,7 @@ const FbConnect = () => {
             <div class="grid items-center justify-between space-y-6 pb-3  ">
 
                 <div class="grid text-2xl h-96 font-medium w-full dark:border-none dark:bg-gray-800 dark:text-white text-blue-950 top-0 rounded-xl px-3 py-3 border bg-white  overflow-hidden ">
-                    Connect With Us
+                 {t("Connect With Us")}
 
                     <iframe
                         className='w-full h-72 pt-2'
@@ -25,7 +27,7 @@ const FbConnect = () => {
 
 
                 <div class="grid text-2xl font-medium w-full top-0 rounded-xl px-3 py-3 border dark:border-none dark:bg-gray-800 dark:text-white text-blue-950 bg-white  overflow-hidden ">
-                    Follow Us
+                    {t("Follow Us")}
 
 
                     <div class="flex  py-2 pt-4 border-b w-full   items-center gap-x-3">

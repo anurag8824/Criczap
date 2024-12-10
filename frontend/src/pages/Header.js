@@ -114,7 +114,7 @@ const Header = () => {
                         to="cricket-news"
                         className="block  px-4 py-2  text-black dark:text-white dark:hover:text-gray-800 hover:bg-gray-100"
                       >
-                        News
+                        {t("News")}
                       </Link>
                       <Link
                         to="cricket-videos"
@@ -122,7 +122,7 @@ const Header = () => {
 
                         className="block px-4 py-2 text-black dark:text-white dark:hover:text-gray-800 hover:bg-gray-100"
                       >
-                        Videos
+                        {t("Videos")}
                       </Link>
                     </div>
                   )}
@@ -150,7 +150,7 @@ const Header = () => {
                         to="cricket-rankings"
                         className="block  px-4 py-2 text-black dark:text-white dark:hover:text-gray-800 hover:bg-gray-100"
                       >
-                        Men Ranking
+                        {t("Men Ranking")}
                       </Link>
                       <Link
                         onClick={toggleCloseMenu}
@@ -158,7 +158,7 @@ const Header = () => {
                         to="cricket-rankings"
                         className="block px-4 py-2 text-black dark:text-white dark:hover:text-gray-800 hover:bg-gray-100"
                       >
-                        Women Ranking
+                        {t("Women Ranking")}
                       </Link>
                     </div>
                   )}

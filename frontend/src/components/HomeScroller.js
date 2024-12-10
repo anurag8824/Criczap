@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import HomeScrollCard from './HomeScrollCard'
+import { useTranslation } from 'react-i18next'
 
 
 const HomeScroller = () => {
@@ -12,6 +13,7 @@ const HomeScroller = () => {
     const [schedule, setSchedule] = useState([])
     const [complete, setComplete] = useState([])
     const backUrl = process.env.REACT_APP_BACK_URL
+    const {t} = useTranslation()
 
     useEffect(() => {
 
@@ -68,7 +70,7 @@ const HomeScroller = () => {
                             className="py-2.5 px-5 me-2 mb-2 text-sm font-medium text-white focus:outline-none bg-blue-950 rounded-lg border border-gray-200  dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
                             onClick={() => setFilter('all')} // Set filter to "all"
                         >
-                            All
+                            {t("All")}
                         </button>
 
                         <button
@@ -76,7 +78,7 @@ const HomeScroller = () => {
                             className="focus:outline-none text-white bg-red-700 hover:bg-red-800 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"
                             onClick={() => setFilter('live')} // Set filter to "live"
                         >
-                            Live ({livematch.length})
+                            {t("Live")} ({livematch.length})
                         </button>
                     </div>
 

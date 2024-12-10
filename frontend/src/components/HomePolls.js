@@ -1,10 +1,12 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 
 const HomePolls = () => {
+    const {t} = useTranslation()
     return (
         <div>  <div className='rounded-xl text-blue-950 border dark:border-none dark:text-white dark:bg-gray-800 bg-white px-3 py-3'>
-            <div class="text-2xl  font-medium  border-b pb-3">Latest Polls</div>
+            <div class="text-2xl  font-medium  border-b pb-3">{t("Latest Polls")}</div>
 
 
             <div className="lg:grid md:grid-cols-2 gap-6  mt-3 w-full md:justify-items-center ">
@@ -116,7 +118,7 @@ const HomePolls = () => {
 
             <div className=' text-center'>
                 <Link to="polls" class=" mt-2 rounded-lg px-3 py-2 text-blue-950  text-sm font-medium hover:underline">
-                    See More
+                    {t("See More")}
                 </Link>
 
 

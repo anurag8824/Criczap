@@ -2,17 +2,19 @@ import React, { useEffect, useRef, useState } from 'react';
 import HomeTopNews from './HomeTopNews';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { useTranslation } from 'react-i18next';
 
 
 
 const HomeTopStories = () => {
+  const {t} = useTranslation()
 
 
 
 
   return (
     <div><div className='rounded-xl text-blue-950 dark:border-none border dark:bg-gray-800 dark:text-white bg-white px-3 py-3'>
-      <div className="text-2xl  font-medium border-b pb-3">Top Stories</div>
+      <div className="text-2xl  font-medium border-b pb-3">{t("Top Stories")}</div>
 
       <div class="flex  items-center justify-between pb-3 pt-3 last:pb-0">
         <div class="grid items-center gap-x-3">
@@ -47,7 +49,7 @@ const HomeTopStories = () => {
 
 
           <Link to="/cricket-news" class="items-center mt-2 text-center text-gray-500  justify-between block tracking-normal antialiased hover:underline hover:text-blue-950">
-            See More
+           {t( "See More")}
           </Link>
 
 

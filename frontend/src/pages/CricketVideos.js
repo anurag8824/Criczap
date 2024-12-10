@@ -72,6 +72,29 @@ const CricketVideos = () => {
             })
     }, [])
 
+    
+
+    const convertNormalToEmbedLink = (normalUrl) => {
+        let videoId;
+      
+        // Handle normal YouTube URL (youtube.com/watch?v=videoId)
+        if (normalUrl.includes("youtube.com/watch?v=")) {
+          const url = new URL(normalUrl);
+          videoId = url.searchParams.get("v");
+        }
+        // Handle shortened YouTube URL (youtu.be/videoId)
+        else if (normalUrl.includes("youtu.be/")) {
+          videoId = normalUrl.split("youtu.be/")[1].split("?")[0];
+        }
+      
+        // If we have a videoId, return the embedded URL, otherwise return the original URL
+        if (videoId) {
+          return `https://www.youtube.com/embed/${videoId}`;
+        }
+        
+        return normalUrl; // Return the original URL if it's not a valid YouTube link
+      };
+
 
 
 
@@ -106,28 +129,36 @@ const CricketVideos = () => {
                                     <div className='md:flex gap-4 border-b pb-2.5 items-center  '>
 
 
-                                        <div className="  " style={{}}>
+                                        <div
+                                            className="relative  left-0 top-0 border dark:border-none md:w-60 md:h-24 inline-block rounded-md object-cover items-center  object-center"
+                                            style={{  overflow: "hidden" }}>
+
+                                                {convertNormalToEmbedLink(item.link).includes("youtube.com/embed/") ? (
                                             <iframe
-                                                class="relative left-0 top-0 border dark:border-none inline-block w-full h-full md:h-24 md:w-36 rounded-md object-cover object-center"
-                                                src="https://www.youtube.com/embed/_sztki-L7bg"
+                                                src={convertNormalToEmbedLink(item.link)}
                                                 title="YouTube video player"
                                                 frameborder="0"
                                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                                referrerpolicy="strict-origin-when-cross-origin"
-                                                allowfullscreen>
-                                            </iframe>
+                                                allowfullscreen
+                                            ></iframe>) : (
+                                                <a href={item.link} target="_blank" rel="noopener noreferrer">
+                                                  Watch this video on YouTube
+                                                </a>
+                                              )}
+
+
+
                                         </div>
 
                                         <div className='grid tracking-normal antialiased relative'>
                                             <div className='flex items-center justify-between'>
                                                 <Link
 
-                                                    to={`${item.link}`}
+                                                    to={item.link}
                                                     target='_blank'
                                                     className='font-bold  pr-6 line-clamp-2 '
                                                     dangerouslySetInnerHTML={{ __html: item.title }}
-                                                  ></Link>
-
+                                                ></Link>
 
 
 

@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom'
 import FbConnect from '../components/FbConnect'
 import SeriesFilter from '../components/SeriesFilter';
 import axios from "axios"
+import { useTranslation } from 'react-i18next';
 
 
 const CricketSeries = () => {
@@ -84,7 +85,7 @@ const CricketSeries = () => {
     };
 
 
-
+const {t} = useTranslation()
 
     return (
 
@@ -95,7 +96,7 @@ const CricketSeries = () => {
 
 
             <div className='flex px-1  py-10 justify-between'>
-                <p className='text-2xl dark:text-white font-medium'>Seasons/Series</p>
+                <p className='text-2xl dark:text-white font-medium'>{t("Seasons/Series")}</p>
                 {/* <input className=' bg-white rounded-full pr-6 pl-3 py-3 text-sm' placeholder='Search...' /> */}
             </div>
 
@@ -110,14 +111,14 @@ const CricketSeries = () => {
                                     }`}
                                 onClick={() => handleTabClick("current")}
                             >
-                                Current & Future Series
+                               {t("Current & Future Series")}
                             </button>
                             <button
                                 className={`w-1/3 text-center py-2  text-lg font-normal ${activeTab === "archive" ? "text-black dark:text-white" : "text-gray-700"
                                     }`}
                                 onClick={() => handleTabClick("archive")}
                             >
-                                Series Archive
+                                {t("Series Archive")}
                             </button>
 
                             {/* Underline */}
@@ -156,10 +157,10 @@ const CricketSeries = () => {
                                             <thead class="text-lg font-medium dark:bg-gray-700 bg-blue-950   ">
                                                 <tr>
                                                     <th scope="col" class="px-6 w-96 py-3">
-                                                        Month
+                                                        {t("Month")}
                                                     </th>
                                                     <th scope="col" class="px-6 w-full py-3">
-                                                        Series Name
+                                                        {t("Series Name")}
                                                     </th>
 
                                                 </tr>
@@ -238,10 +239,10 @@ const CricketSeries = () => {
                                             <thead class="text-lg font-medium dark:bg-gray-700 bg-blue-950   ">
                                                 <tr>
                                                     <th scope="col" class="px-6 w-96 py-3">
-                                                        Month
+                                                        {t("Month")}
                                                     </th>
                                                     <th scope="col" class="px-6 w-full py-3">
-                                                        Series Name
+                                                        {t("Series Name")}
                                                     </th>
 
                                                 </tr>

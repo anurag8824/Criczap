@@ -4,6 +4,7 @@ import FbConnect from "../components/FbConnect"
 import axios from "axios"
 
 import { Link, useParams } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 
 
 
@@ -28,6 +29,7 @@ const PlayerDetail = () => {
 
 
     // console.log(pdata, "opppppdatat")
+    const {t} = useTranslation()
 
 
     return (
@@ -64,7 +66,7 @@ const PlayerDetail = () => {
 
 
                                 <div className=' mt-6 mx-auto md:w-full'>
-                                    <p className='text-lg font-medium'>Personal Information</p>
+                                    <p className='text-lg font-medium'>{t("Personal Information")}</p>
 
                                     <div className='mx-4 '>
                                         <p className='border-b w-full py-4'><strong>Born:</strong> {pdata?.player?.birthdate}</p>
@@ -80,7 +82,7 @@ const PlayerDetail = () => {
                                 </div>
 
                                 <div className="mt-6 w-full">
-                                    <p className="text-lg font-medium mb-4">Cricket Rankings</p>
+                                    <p className="text-lg font-medium mb-4">{t("Cricket Rankings")}</p>
                                     <div className="relative overflow-x-auto ">
                                         <table className="w-full text-sm text-center text-gray-900 bg-white dark:text-gray-300">
                                             <thead className="text-xs uppercase bg-gray-200 dark:bg-gray-700 dark:text-gray-400">
@@ -93,19 +95,19 @@ const PlayerDetail = () => {
                                             </thead>
                                             <tbody>
                                                 <tr className="border-b bg-white text-center dark:bg-gray-800 dark:border-gray-700">
-                                                    <td className="px-4 py-3 font-medium">All</td>
+                                                    <td className="px-4 py-3 font-medium">{t("All")}</td>
                                                     <td className="px-4 py-3">22</td>
                                                     <td className="px-4 py-3">44</td>
                                                     <td className="px-4 py-3">44</td>
                                                 </tr>
                                                 <tr className="border-b bg-white text-center dark:bg-gray-800 dark:border-gray-700">
-                                                    <td className="px-4 py-3 font-medium">Batting</td>
+                                                    <td className="px-4 py-3 font-medium">{t("Batting")}</td>
                                                     <td className="px-4 py-3">44</td>
                                                     <td className="px-4 py-3">2</td>
                                                     <td className="px-4 py-3">2</td>
                                                 </tr>
                                                 <tr className="border-b bg-white text-center dark:bg-gray-800 dark:border-gray-700">
-                                                    <td className="px-4 py-3 font-medium">Bowling</td>
+                                                    <td className="px-4 py-3 font-medium">{t("Bowling")}</td>
                                                     <td className="px-4 py-3">44</td>
                                                     <td className="px-4 py-3">2</td>
                                                     <td className="px-4 py-3">2</td>
@@ -127,7 +129,7 @@ const PlayerDetail = () => {
                                 </div>
 
                                 <div className=' mt-6'>
-                                    <p className='text-lg font-medium'>Batting Career Summary</p>
+                                    <p className='text-lg font-medium'>{t("Batting Career Summary")}</p>
                                     <div className='mt-2 '>
 
                                         <div className="relative overflow-x-auto">
