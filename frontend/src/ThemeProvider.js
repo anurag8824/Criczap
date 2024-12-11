@@ -30,7 +30,7 @@ const ThemeProvider = ({ children }) => {
 
   return (
     <div>
-      <header className="fixed bottom-1/3 -right-32 z-50 bg-blue-950 text-white transition-all duration-700 dark:text-black dark:bg-gray-300 pt-2.5 pb-1 rounded-l-full pl-3 hover:right-0">
+      <header className="fixed bottom-1/3 -right-32 z-50 bg-blue-950 text-white transition-all duration-700 dark:text-white dark:bg-gray-300 pt-2.5 pb-1 rounded-l-full pl-3 hover:right-0">
         {/* You can place your theme toggle button here */}
 
 
