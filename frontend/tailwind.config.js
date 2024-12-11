@@ -11,6 +11,7 @@ module.exports = {
 
   theme: {
     extend: {
+      
       keyframes: {
         float: {
           '0%': { transform: 'translateY(0px)' },
@@ -32,6 +33,7 @@ module.exports = {
       backgroundImage: {
         'blue-950': 'linear-gradient(45deg, rgba(2,0,36,1) 11%, rgba(23,37,84,1) 51%, rgba(0,212,255,1) 150%)',
       },
+     
       
     },
   },

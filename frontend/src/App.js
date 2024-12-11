@@ -17,6 +17,8 @@ import CricketRanking from './pages/CricketRanking';
 import PrivacyPolicy from './pages/Privacy';
 import Termofuse from './pages/Termofuse';
 import CNView from './pages/CNView';
+import Dice from './Dice';
+import NoPage from './components/NoPage';
 
 
 
@@ -70,6 +72,7 @@ function App() {
 
 
 
+
           <Route path="cricket-news/:id/:xyz" element={<CNView/>} />
 
 
@@ -115,7 +118,7 @@ function App() {
 
 
 
-          {/* <Route path="*" element={<NoPage />} /> */}
+          <Route path="*" element={<NoPage />} />
         </Route>
 
       </Routes>
