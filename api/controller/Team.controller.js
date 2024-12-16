@@ -14,7 +14,7 @@ const HomeApi = async (req, res) => {
         oneDayBefore.setDate(today.getDate() - 1);
 
         const oneDayAfter = new Date(today);
-        oneDayAfter.setDate(today.getDate() + 1);
+        oneDayAfter.setDate(today.getDate());
 
         // Format dates as YYYY-MM-DD
         const formatDate = (date) => {
