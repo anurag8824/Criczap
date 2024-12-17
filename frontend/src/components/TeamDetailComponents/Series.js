@@ -65,7 +65,7 @@ const Series = ({ data }) => {
       </div>
 
      
-      : <p className='font-medium text-sm text-red-500 text-center'>Not Available</p> }
+      : <p className='font-medium text-md mt-2 text-center text-red-600 flex flex-col items-center gap-4 '><img className='size-32' src='/cricket-stump.png'/>Data not available !</p> }
     </div>
   )
 }

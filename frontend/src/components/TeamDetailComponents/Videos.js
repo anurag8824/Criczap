@@ -48,7 +48,7 @@ const Videos = () => {
   return (
     <div>
 
-<div className=' text-sm text-red-600  text-center font-semibold'>There are no videos available yet.</div>
+<p className='font-medium text-sm mt-2 text-center text-red-600 flex flex-col items-center gap-4 '><img className='size-32' src='/cricket-stump.png'/>There are no videos available yet.</p>
 
 
 

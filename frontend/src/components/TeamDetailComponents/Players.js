@@ -83,7 +83,7 @@ const Players = ({ data }) => {
               )
             ))
           ) : (
-            <p className='text-center text-sm text-red-500 font-medium'>Team not played this format</p>
+            <p className='text-center text-sm text-red-500 font-medium flex flex-col items-center gap-4 '><img className='size-32' src='/cricket-stump.png'/>Team not played this format</p>
           ))}
 
 
@@ -105,7 +105,7 @@ const Players = ({ data }) => {
                   </p>
                 </div>) : ("Not Found")
 
-            ))) : (<p className='text-center text-sm text-red-500 font-medium'>Team not played this format</p>))}
+            ))) : (<p className='text-center text-sm text-red-500 font-medium flex flex-col items-center gap-4 '><img className='size-32' src='/cricket-stump.png'/>Team not played this format</p>))}
 
 
         {selectedCategory === 'T20I' && (data?.t20i && data?.t20i.length > 0 ? (
@@ -127,7 +127,7 @@ const Players = ({ data }) => {
               </div> ):( "Not Found")
           ))
 
-        ) : (<p className='text-center text-sm text-red-500 font-medium'>Team not played this format</p>))}
+        ) : (<p className='text-center text-sm text-red-500 font-medium flex flex-col items-center gap-4 '><img className='size-32' src='/cricket-stump.png'/>Team not played this format</p>))}
 
         {selectedCategory === 'Test' && (data?.test && data?.test.length > 0 ? (
           
@@ -147,7 +147,7 @@ const Players = ({ data }) => {
                 <span>{item.playing_role}</span>
               </p>
             </div>) :( "Not Found")
-        )) ) : (<p className='text-red-500 text-center text-sm font-medium'>Team not played this format</p>))}
+        )) ) : (<p className='text-red-500 text-center text-sm font-medium flex flex-col items-center gap-4 '><img className='size-32' src='/cricket-stump.png'/>Team not played this format</p>))}
 
 
 

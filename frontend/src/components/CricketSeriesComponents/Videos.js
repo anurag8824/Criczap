@@ -46,7 +46,7 @@ const Videos = () => {
 
   return (
     <div>
-      <div className=' text-sm text-red-600  text-center font-semibold'>There are no videos available yet.</div>
+      <div className=' text-sm text-red-600  text-center font-semibold flex flex-col items-center gap-4 '><img className='size-32' src='/cricket-stump.png'/>There are no videos available yet.</div>
 
 
       <div className='gridddd hidden gap-y-2.5 grid-flow-row py-5 px-6'>

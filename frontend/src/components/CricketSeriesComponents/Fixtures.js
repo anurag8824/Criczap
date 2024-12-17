@@ -98,7 +98,7 @@ const Fixtures = ({ data }) => {
           </table>
         </div>
 
-        : <p className='text-center text-red-500 font-medium'>Not Available yet</p>}
+        : <p className='text-center text-red-500 font-medium flex flex-col items-center gap-4 '><img className='size-32' src='/cricket-stump.png'/>Not Available yet</p>}
 
     </div>
   )

@@ -159,7 +159,7 @@ const Squads = ({ data }) => {
 
         </>
 
-        : <p className="text-red-500 text-center text-sm font-medium">Not available for this Series.</p>}
+        : <p className="text-red-500 text-center text-sm font-medium flex flex-col items-center gap-4"><img className='size-32' src='/cricket-stump.png'/>Not available for this Series.</p>}
 
 
 

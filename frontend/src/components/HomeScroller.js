@@ -116,7 +116,7 @@ const HomeScroller = () => {
 
                 </>
 
-                : "fg"}
+                : ""}
 
 
 

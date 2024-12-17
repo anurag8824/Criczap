@@ -111,7 +111,7 @@ const WTeams = ({ mdata }) => {
                 </tr>
               </thead>
               <tbody>
-                {(showFullTable2 ? mdata?.teams?.t20s.slice(11) : mdata?.teams?.t20s?.slice(11, 16))?.map((item, index) =>
+                {(showFullTable2 ? mdata?.teams?.t20s : mdata?.teams?.t20s?.slice(0, 5))?.map((item, index) =>
                   item ? (
                     <tr
                       key={index}

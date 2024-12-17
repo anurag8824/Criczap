@@ -12,6 +12,8 @@ const Upcoming = ({ data }) => {
 
       {/* <UpcomingFilter/> */}
 
+      {data?.length > 0 ? 
+
       <div class="relative  overflow-x-auto ">
         <table class="  w-full text-left rtl:text-right  ">
           <thead class=" bg-gray-100 dark:bg-gray-700  ">
@@ -138,7 +140,7 @@ const Upcoming = ({ data }) => {
 
           </tbody>
         </table>
-      </div>
+      </div> :<p className='font-medium text-md mt-2 text-center text-red-600 flex flex-col items-center gap-4 '><img className='size-32' src='/cricket-stump.png'/>Data not available !</p>}
 
     </div>
 

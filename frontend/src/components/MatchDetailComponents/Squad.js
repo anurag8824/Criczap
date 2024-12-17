@@ -212,7 +212,7 @@ const Squad = ({ data }) => {
             </div>
 
 
-            : <p className='font-medium text-md mt-2 text-center text-red-600'>Squad Not announced yet</p>}
+            : <p className='font-medium text-md mt-2 text-center text-red-600 flex flex-col items-center gap-4 '><img className='size-32' src='/cricket-stump.png'/>Squad Not announced yet</p>}
 
 
 

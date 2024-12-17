@@ -172,7 +172,7 @@ const handleToggle3 = () => {
                 </tr>
               </thead>
               <tbody>
-                {(showFullTable3 ? mdata?.teams?.t20s.slice(5) : mdata?.teams?.t20s?.slice(5, 10))?.map((item, index) =>
+                {(showFullTable3 ? mdata?.teams?.t20s : mdata?.teams?.t20s?.slice(0, 5))?.map((item, index) =>
                   item ? (
                     <tr
                       key={index}

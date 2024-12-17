@@ -4,7 +4,7 @@ const Highlights = () => {
   return (
     <div className=' mx-2 '>
 
-      <div className=' font-medium text-md mt-2 text-center text-red-600 '>There are no highlights in this innings</div>
+      <div className=' font-medium text-md mt-2 text-center text-red-600  flex flex-col items-center gap-4 '><img className='size-32' src='/cricket-stump.png'/>There are no highlights in this innings</div>
 
       <div className='hidden'>
 
