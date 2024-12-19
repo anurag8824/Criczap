@@ -40,7 +40,7 @@ const CricketSchedule = () => {
 
                 console.log(res, "cvcvcvvccvcv");
 
-                const dataFromApi = res.data.response.items
+                const dataFromApi = res.data.matches
                 const filteredData = dataFromApi.filter(item => item.status_str
                     === 'Live' && (item.competition.category === "international" || item.competition.category === "women"));
 
