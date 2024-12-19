@@ -21,9 +21,9 @@ const HomeScroller = () => {
             .then((res) => {
 
                 console.log(res);
-                const dataFromApi = res.data.response.items
+                const dataFromApi = res.data.matches
                 const filteredData = dataFromApi.filter(item => item.status_str
-                    === 'Live' && (item.competition.category === "international" ||  item.competition.title === "Abu Dhabi T10 League" || item.competition.title === "ACC U19 Asia Cup" ||item.competition.title === "Big Bash League"));
+                    === 'Live' && (item.competition.category === "international" ||  item.competition.title === "Abu Dhabi T10 League" || item.competition.title === "ACC U19 Asia Cup" || item.competition.title === "Big Bash League"));
 
 
                 setLivematch(filteredData)
@@ -32,13 +32,13 @@ const HomeScroller = () => {
                 // console.log(filteredData, "filtrr")
 
 
-                const upcomingMatch = dataFromApi.filter(item => item.status_str === "Scheduled" && (item.competition.category === "international"  || item.competition.title === "Abu Dhabi T10 League" || item.competition.title === "ACC U19 Asia Cup"));
+                const upcomingMatch = dataFromApi.filter(item => item.status_str === "Scheduled" && (item.competition.category === "international"  || item.competition.title === "Abu Dhabi T10 League" || item.competition.title === "ACC U19 Asia Cup" || item.competition.title === "Big Bash League"));
                 console.log(upcomingMatch, "uppp")
 
                 setSchedule(upcomingMatch)
 
 
-                const completedMatch = dataFromApi.filter(item => item.status_str === "Completed" && (item.competition.category === "international" || item.competition.title === "Abu Dhabi T10 League" || item.competition.title === "ACC U19 Asia Cup"));
+                const completedMatch = dataFromApi.filter(item => item.status_str === "Completed" && (item.competition.category === "international" || item.competition.title === "Abu Dhabi T10 League" || item.competition.title === "ACC U19 Asia Cup" || item.competition.title === "Big Bash League"));
                 console.log(completedMatch, "compled")
 
                 setComplete(completedMatch)

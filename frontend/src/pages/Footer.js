@@ -147,7 +147,7 @@ const Footer = () => {
 
             <div className='block fixed bottom-0  w-full     sm:hidden dark:bg-gray-800 bg-blue-950 text-white '>
 
-                <div className='flex justify-between text-sm px-2 py-2'>
+                <div className='flex justify-between font-medium text-sm px-2 py-2'>
                     <Link to="/" className='justify-center  items-center flex flex-col  text-center' >
                         <LuHome className='w-6 h-6' />
                         <p>Home</p>
@@ -170,7 +170,7 @@ const Footer = () => {
 
                     </Link>
 
-                    <Link to="cricket-rankings" className='justify-center items-center flex flex-col  text-center'>
+                    <Link to="cricket-rankings" className='justify-center  items-center flex flex-col  text-center'>
                         <PiRankingBold
                             className='w-6 h-6' />
                         <p>Ranking</p>

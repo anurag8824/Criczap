@@ -14,7 +14,7 @@ const HomeApi = async (req, res) => {
         oneDayBefore.setDate(today.getDate() - 1);
 
         const oneDayAfter = new Date(today);
-        oneDayAfter.setDate(today.getDate());
+        oneDayAfter.setDate(today.getDate() + 1);
 
         // Format dates as YYYY-MM-DD
         const formatDate = (date) => {
@@ -32,12 +32,79 @@ const HomeApi = async (req, res) => {
 
 
 
-        axios.get(`https://rest.entitysport.com/exchange/matches/?token=${token}&date=${formattedStartDate}_${formattedEndDate}&timezone=+5:30&&per_page=100`).then((resp) => {
-            res.json(resp.data)
-        })
+        // axios.get(`https://rest.entitysport.com/exchange/matches/?token=${token}&date=${formattedStartDate}_${formattedEndDate}&timezone=+5:30&&per_page=100`).then((resp) => {
+        //    axios.get(`https://rest.entitysport.com/exchange/matchesmultiodds?token=${token}&match_id={[,85613,83637]}`).then((resp)=>{
+        //     console.log(resp.data , "codddss")
+        //    })
+        //     res.json(resp.data)
+
+
+
+
+
+        //     })
+
+
+        axios.get(`https://rest.entitysport.com/exchange/matches/?token=${token}&date=${formattedStartDate}_${formattedEndDate}&timezone=+5:30&per_page=100`)
+            .then((resp) => {
+                const dataFromApi = resp.data.response.items
+                const filteredData = dataFromApi.filter(item => item.status_str
+                    === 'Live' && (item.competition.category === "international" || item.competition.category === "women" || item.competition.title === "Abu Dhabi T10 League" || item.competition.title === "ACC U19 Asia Cup" || item.competition.title === "Big Bash League"));
+
+                const upcomingMatch = dataFromApi.filter(item => item.status_str === "Scheduled" && (item.competition.category === "international" || item.competition.category === "women" || item.competition.title === "Abu Dhabi T10 League" || item.competition.title === "ACC U19 Asia Cup" || item.competition.title === "Big Bash League"
+                    
+                ));
+                // console.log(upcomingMatch, "uppp")
+
+
+
+                const completedMatch = dataFromApi.filter(item => item.status_str === "Completed" && (item.competition.category === "international" || item.competition.category === "women" || item.competition.title === "Abu Dhabi T10 League" || item.competition.title === "ACC U19 Asia Cup"));
+                // console.log(completedMatch, "compled")
+
+
+
+
+
+                const Data = [...filteredData, ...upcomingMatch, ...completedMatch]
+
+
+                // const matches = resp.data.response.items || []; // Extract match list
+                const matchIds = Data.map(match => match.match_id); // Extract all match_ids
+
+                if (matchIds.length === 0) {
+                    return res.json({ matches: [], odds: [] }); // Return if no matches are found
+                }
+
+                // Fetch odds for the extracted match_ids
+                axios.get(`https://rest.entitysport.com/exchange/matchesmultiodds?token=${token}&match_id=[${matchIds.join(',')}]`)
+                    .then((oddsResp) => {
+                        const oddsData = oddsResp.data.response || {}; // Odds data as an object
+                        // console.log(oddsData, "oood", oddsResp)
+                        // Map odds to their respective matches
+                        const matchesWithOdds = Data.map(match => {
+                            const matchOdds = oddsData[match.match_id] || null; // Access odds using match_id as a key
+                            return { ...match, odds: matchOdds }; // Add odds to the match object
+                        });
+                        // console.log(matchesWithOdds, "podddd")
+
+                        res.json({ matches: matchesWithOdds }); // Return the combined result
+                    })
+                    .catch((err) => {
+                        console.error("Error fetching odds data:", err);
+                        res.status(500).json({ error: "Failed to fetch match odds" });
+                    });
+            })
+            .catch((err) => {
+                console.error("Error fetching matches:", err);
+                res.status(500).json({ error: "Failed to fetch matches" });
+            });
+
+
     } catch (error) {
 
     }
+
+
 }
 
 const HomePopular = async (req, res) => {
