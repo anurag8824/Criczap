@@ -76,7 +76,7 @@ const HomeApi = async (req, res) => {
                 }
 
                 // Fetch odds for the extracted match_ids
-                axios.get(`https://rest.entitysport.com/exchange/matchesmultiodds?token=${token}&match_id=[${matchIds.join(',')}]`)
+                axios.get(`https://rest.entitysport.com/exchange/matchesmultiodds?token=${token}&match_id=[,${matchIds.join(',')}]`)
                     .then((oddsResp) => {
                         const oddsData = oddsResp.data.response || {}; // Odds data as an object
                         // console.log(oddsData, "oood", oddsResp)
